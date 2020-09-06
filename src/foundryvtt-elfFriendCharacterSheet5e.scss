@@ -1,16 +1,26 @@
 @import './styles/variables.scss';
 
-.efcs {
-  .sheet-sidebar {
-    display: flex;
+// ensure our styles take precedence over 5e default
+.dnd5e.sheet.actor.character.efcs {
+  @import './styles/sheet-header.scss';
+  @import './styles/sheet-ability-scores.scss';
+  @import './styles/sheet-attributes.scss';
+
+  .window-content {
+    box-sizing: border-box;
+
+    * {
+      box-sizing: inherit;
+    }
   }
 
-  .sheet-main {
-    display: flex;
+  input[type='text']:hover,
+  input[type='text']:focus {
+    box-shadow: none;
+    border-color: $default-highlight;
   }
 
-  .sheet-tab-area {
-    display: flex;
-    flex-direction: column;
+  h4.box-title {
+    font-size: 16px;
   }
 }

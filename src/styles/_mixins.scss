@@ -1,0 +1,11 @@
+@mixin spaced($spacing: 1em) {
+  > :not(:last-child) {
+    margin-right: $spacing;
+  }
+}
+
+@mixin spaced-vertical($spacing: 1em) {
+  > :not(:last-child) {
+    margin-bottom: $spacing;
+  }
+}

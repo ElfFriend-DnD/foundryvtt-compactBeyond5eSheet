@@ -1,0 +1,39 @@
+@import './mixins';
+@import './variables';
+
+.ability-scores {
+  .ability {
+    height: auto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .ability-modifiers {
+      height: auto;
+      margin: 0;
+
+      .ability-proficiency {
+        display: flex;
+        line-height: normal;
+        place-items: center;
+        place-content: center;
+      }
+    }
+  }
+}
+
+.ability-score-row {
+  @include spaced(0.25em);
+
+  border-radius: 0;
+  border: 0;
+  display: flex;
+  flex: 0 0 auto;
+  height: auto;
+
+  .ability {
+    border-radius: $border-radius;
+    flex: 0 0 80px; // arbitrary
+    border: $groove-border;
+  }
+}

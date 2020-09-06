@@ -6,6 +6,14 @@ import { MODULE_ID, MySettings } from './constants.js';
 //@ts-ignore
 import ActorSheet5eCharacter from '../../systems/dnd5e/module/actor/sheets/character.js';
 
+Handlebars.registerHelper('efcs-safeVal', (value, fallback) => {
+  return new Handlebars.SafeString(value || fallback);
+});
+
+Handlebars.registerHelper('efcs-addOne', (value: number) => {
+  return new Handlebars.SafeString(String(value + 1));
+});
+
 export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
   get template() {
     // if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/tidy5e-sheet-ltd.html";

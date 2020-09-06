@@ -1,0 +1,11 @@
+@import './mixins';
+@import './variables';
+
+.attributes {
+  flex: 0 0 auto;
+  height: auto;
+
+  .attribute {
+    height: auto;
+  }
+}

@@ -1,0 +1,58 @@
+{{!-- Sheet Header --}}
+<header class="sheet-header">
+  <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
+
+  <section class="header-details">
+    <h1>
+      <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'DND5E.Name' }}" />
+    </h1>
+
+    {{!-- Character Summary --}}
+    <ul class="inline-summary">
+      {{#if disableExperience}}
+      <li>
+        <span class="non-editable">{{ localize "DND5E.Level" }} {{data.details.level}}</span>
+      </li>
+      {{/if}}
+      <li>
+        <input type="text" name="data.details.race" value="{{data.details.race}}"
+          placeholder="{{ localize 'DND5E.Race' }}" />
+        <span
+          class="hidden">{{#if data.details.race}}{{data.details.race}}{{else}}{{ localize 'DND5E.Race' }}{{/if}}</span>
+      </li>
+      <li><span class="non-editable">{{classLabels}}</span></li>
+      <li>
+        <input type="text" name="data.details.background" value="{{data.details.background}}"
+          placeholder="{{ localize 'DND5E.Background' }}" />
+        <span class="hidden">{{data.details.background}}</span>
+      </li>
+      {{!-- not convinced this should be here --}}
+      <li>
+        <input type="text" name="data.details.alignment" value="{{data.details.alignment}}"
+          placeholder="{{ localize 'DND5E.Alignment' }}" />
+        <span class="hidden">{{data.details.alignment}}</span>
+      </li>
+    </ul>
+
+    {{#unless disableExperience}}
+    <aside class="header-exp flexcol">
+      <div class="xpbar">
+        <span class="bar" style="width: {{data.details.xp.pct}}%"></span>
+      </div>
+      <div class="experience flexrow">
+
+
+        <span class="left-label">{{ localize "DND5E.Level" }} {{data.details.level}}</span>
+
+        <input name="data.details.xp.value" type="text" value="{{data.details.xp.value}}" data-dtype="Number"
+          placeholder="0" />
+        <span class="sep">/</span>
+        <span class="max">{{data.details.xp.max}}</span>
+
+        <span class="right-label">{{ localize "DND5E.Level" }} {{efcs-addOne data.details.level}}</span>
+      </div>
+    </aside>
+    {{/unless}}
+  </section>
+
+</header>

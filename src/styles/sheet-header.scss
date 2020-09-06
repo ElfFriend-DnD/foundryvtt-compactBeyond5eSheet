@@ -1,0 +1,139 @@
+@import './mixins';
+@import './variables';
+
+.sheet-header {
+  @include spaced;
+
+  .profile {
+    border-right: none;
+    flex: 0 0 100px;
+    height: auto;
+    max-height: 100%;
+    max-width: 100px;
+  }
+
+  h1 {
+    height: auto;
+    padding: 0;
+
+    input {
+      height: 100%;
+      margin: 0;
+    }
+  }
+}
+
+.header-details {
+  @include spaced-vertical(5px); //arbitrary
+
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-summary {
+  @include spaced(0.2em);
+
+  align-items: center;
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    width: max-content;
+
+    // make editable items have a max-content that they can size based on
+    .hidden {
+      border: 1px solid transparent; // match input styles
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    input {
+      bottom: 0;
+      color: inherit;
+      font-weight: inherit;
+      height: 100%;
+      left: 0;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .non-editable {
+      border: 1px solid transparent; // match input styles
+      display: block;
+    }
+  }
+}
+
+.sheet-sidebar {
+  display: flex;
+}
+
+.sheet-main {
+  display: flex;
+}
+
+.sheet-tab-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-exp {
+  height: auto;
+  flex: auto;
+  font-size: 10px;
+  max-width: 27em;
+  font-family: 'Signika', sans-serif;
+
+  .xpbar {
+    border-radius: 0;
+    border: 0;
+    flex: 0 0 auto;
+    height: 2px;
+    position: relative;
+    margin-bottom: 0;
+    background-color: $default-light-gray;
+
+    .bar {
+      background: $default-highlight;
+      border: 0;
+      height: 2px;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .experience {
+    flex: auto;
+    justify-items: center;
+    letter-spacing: 0.02em;
+    margin: 0;
+    font-size: inherit;
+
+    input {
+      flex: 1;
+      letter-spacing: inherit;
+    }
+
+    .max {
+      flex: 1;
+      text-align: left;
+    }
+
+    .left-label {
+      text-align: left;
+    }
+
+    .left-label,
+    .right-label {
+      flex: 0 0 max-content;
+    }
+  }
+}
