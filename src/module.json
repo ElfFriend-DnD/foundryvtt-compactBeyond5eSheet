@@ -1,33 +1,24 @@
 {
-  "name": "foundryvtt-yetAnotherAltCharSheet",
-  "title": "foundryvtt-yetAnotherAltCharSheet",
+  "name": "elf-friend-character-sheet-5e",
+  "title": "Elf Friend's 5e Character Sheet",
   "description": "",
-  "systems": [],
-  "version": "0.1.0",
-  "author": "",
-  "authors": [
-    {
-      "name": "",
-      "email": "",
-      "url": ""
-    }
-  ],
+  "systems": ["dnd5e"],
+  "version": "0.0.1",
+  "author": "Andrew Krigline (akrigline)",
   "scripts": [],
   "esmodules": [
-    "foundryvtt-yetAnotherAltCharSheet.js"
+    "foundryvtt-elfFriendCharacterSheet5e.js"
   ],
   "styles": [
-    "foundryvtt-yetAnotherAltCharSheet.css"
+    "foundryvtt-elfFriendCharacterSheet5e.css"
   ],
   "packs": [],
   "languages": [],
   "minimumCoreVersion": "0.5.0",
   "compatibleCoreVersion": "0.5.0",
-  "url": "",
-  "manifest": "",
-  "download": "",
-  "license": "",
-  "readme": "",
-  "bugs": "",
-  "changelog": ""
+  "url": "https://github.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e",
+  "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e/releases/latest/download/module.json",
+  "download": "https://github.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e/releases/latest/download/module.zip",
+  "readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e/master/README.md",
+  "bugs": "https://github.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e/issues"
 }

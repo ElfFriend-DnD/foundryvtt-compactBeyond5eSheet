@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "foundryvtt-yetAnotherAltCharSheet",
-  "version": "0.1.0",
-  "description": "",
+  "name": "foundryvtt-elfFriendCharacterSheet5e",
+  "version": "0.0.1",
+  "description": "A compact character sheet with similar design to dndbeyond's",
   "scripts": {
     "package": "gulp package",
-    "build": "gulp build && gulp link",
+    "build": "gulp build",
     "build:watch": "gulp watch",
     "clean": "gulp clean && gulp link --clean",
     "update": "npm install --save-dev gitlab:foundry-projects/foundry-pc/foundry-pc-types"
