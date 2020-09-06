@@ -1,1 +1,16 @@
 @import './styles/variables.scss';
+
+.efcs {
+  .sheet-sidebar {
+    display: flex;
+  }
+
+  .sheet-main {
+    display: flex;
+  }
+
+  .sheet-tab-area {
+    display: flex;
+    flex-direction: column;
+  }
+}

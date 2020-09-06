@@ -11,6 +11,15 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
     // if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/tidy5e-sheet-ltd.html";
     return `modules/${MODULE_ID}/templates/character-sheet.hbs`;
   }
+
+  static get defaultOptions(): FormApplicationOptions {
+    const options = super.defaultOptions;
+
+    mergeObject(options, {
+      classes: ['dnd5e', 'sheet', 'actor', 'character', 'efcs'],
+    });
+    return options;
+  }
 }
 
 /* ------------------------------------ */

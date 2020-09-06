@@ -118,20 +118,8 @@
     </section>
   </header>
 
-  {{!-- NPC Sheet Navigation --}}
-  <nav class="sheet-navigation tabs" data-group="primary">
-    <a class="item active" data-tab="attributes">{{ localize "DND5E.Attributes" }}</a>
-    <a class="item" data-tab="inventory">{{ localize "DND5E.Inventory" }}</a>
-    <a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
-    <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
-    <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
-  </nav>
-
-  {{!-- NPC Sheet Body --}}
-  <section class="sheet-body">
-
-    <div class="tab attributes flexrow" data-group="primary" data-tab="attributes">
-
+  <main class="sheet-main">
+    <aside class="sheet-sidebar">
       {{!-- Ability Scores --}}
       <ul class="ability-scores flexrow">
         {{#each data.abilities as |ability id|}}
@@ -164,90 +152,108 @@
         </li>
         {{/each}}
       </ul>
+    </aside>
 
-      <section class="center-pane flexcol">
+    <div class="sheet-tab-area">
+      {{!-- NPC Sheet Navigation --}}
+      <nav class="sheet-navigation tabs" data-group="primary">
+        <a class="item active" data-tab="attributes">{{ localize "DND5E.Attributes" }}</a>
+        <a class="item" data-tab="inventory">{{ localize "DND5E.Inventory" }}</a>
+        <a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
+        <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
+        <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
+      </nav>
 
-        {{!-- Body Attributes --}}
-        <ul class="attributes flexrow">
-          {{#each resources as |res|}}
-          <li class="attribute resource">
-            <h4 class="attribute-name box-title">
-              <input name="data.resources.{{res.name}}.label" type="text" value="{{res.label}}"
-                placeholder="{{res.placeholder}}" />
-            </h4>
-            <div class="attribute-value">
-              <label class="recharge checkbox">
-                {{ localize "DND5E.AbbreviationSR" }} <input name="data.resources.{{res.name}}.sr" type="checkbox"
-                  {{checked res.sr}} />
-              </label>
+      {{!-- NPC Sheet Body --}}
+      <section class="sheet-body">
 
-              <input name="data.resources.{{res.name}}.value" type="text" value="{{res.value}}" data-dtype="Number"
-                placeholder="0" />
-              <span class="sep"> / </span>
-              <input name="data.resources.{{res.name}}.max" type="text" value="{{res.max}}" data-dtype="Number"
-                placeholder="0" />
+        <div class="tab attributes flexrow" data-group="primary" data-tab="attributes">
 
-              <label class="recharge checkbox">
-                {{ localize "DND5E.AbbreviationLR" }} <input name="data.resources.{{res.name}}.lr" type="checkbox"
-                  {{checked res.lr}} />
-              </label>
+          <section class="center-pane flexcol">
+
+            {{!-- Body Attributes --}}
+            <ul class="attributes flexrow">
+              {{#each resources as |res|}}
+              <li class="attribute resource">
+                <h4 class="attribute-name box-title">
+                  <input name="data.resources.{{res.name}}.label" type="text" value="{{res.label}}"
+                    placeholder="{{res.placeholder}}" />
+                </h4>
+                <div class="attribute-value">
+                  <label class="recharge checkbox">
+                    {{ localize "DND5E.AbbreviationSR" }} <input name="data.resources.{{res.name}}.sr" type="checkbox"
+                      {{checked res.sr}} />
+                  </label>
+
+                  <input name="data.resources.{{res.name}}.value" type="text" value="{{res.value}}" data-dtype="Number"
+                    placeholder="0" />
+                  <span class="sep"> / </span>
+                  <input name="data.resources.{{res.name}}.max" type="text" value="{{res.max}}" data-dtype="Number"
+                    placeholder="0" />
+
+                  <label class="recharge checkbox">
+                    {{ localize "DND5E.AbbreviationLR" }} <input name="data.resources.{{res.name}}.lr" type="checkbox"
+                      {{checked res.lr}} />
+                  </label>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+
+            {{!-- Counters --}}
+            <div class="counters">
+              <div class="counter flexrow death-saves">
+                <h4 class="death-save rollable">{{ localize "DND5E.DeathSave" }}</h4>
+                <div class="counter-value">
+                  <i class="fas fa-check"></i>
+                  <input type="text" name="data.attributes.death.success" data-dtype="Number" placeholder="0"
+                    value="{{data.attributes.death.success}}" />
+                  <i class="fas fa-times"></i>
+                  <input type="text" name="data.attributes.death.failure" data-dtype="Number" placeholder="0"
+                    value="{{data.attributes.death.failure}}" />
+                </div>
+              </div>
+              <div class="counter flexrow exhaustion">
+                <h4>{{ localize "DND5E.Exhaustion" }}</h4>
+                <div class="counter-value">
+                  <input type="text" name="data.attributes.exhaustion" data-dtype="Number" placeholder="0"
+                    value="{{data.attributes.exhaustion}}" />
+                </div>
+              </div>
+              <div class="counter flexrow inspiration">
+                <h4>{{ localize "DND5E.Inspiration" }}</h4>
+                <div class="counter-value">
+                  <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean"
+                    {{checked data.attributes.inspiration}} />
+                </div>
+              </div>
             </div>
-          </li>
-          {{/each}}
-        </ul>
 
-        {{!-- Counters --}}
-        <div class="counters">
-          <div class="counter flexrow death-saves">
-            <h4 class="death-save rollable">{{ localize "DND5E.DeathSave" }}</h4>
-            <div class="counter-value">
-              <i class="fas fa-check"></i>
-              <input type="text" name="data.attributes.death.success" data-dtype="Number" placeholder="0"
-                value="{{data.attributes.death.success}}" />
-              <i class="fas fa-times"></i>
-              <input type="text" name="data.attributes.death.failure" data-dtype="Number" placeholder="0"
-                value="{{data.attributes.death.failure}}" />
-            </div>
-          </div>
-          <div class="counter flexrow exhaustion">
-            <h4>{{ localize "DND5E.Exhaustion" }}</h4>
-            <div class="counter-value">
-              <input type="text" name="data.attributes.exhaustion" data-dtype="Number" placeholder="0"
-                value="{{data.attributes.exhaustion}}" />
-            </div>
-          </div>
-          <div class="counter flexrow inspiration">
-            <h4>{{ localize "DND5E.Inspiration" }}</h4>
-            <div class="counter-value">
-              <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean"
-                {{checked data.attributes.inspiration}} />
-            </div>
-          </div>
+            {{!-- Traits --}}
+            {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-traits.hbs"}}
+          </section>
         </div>
 
-        {{!-- Traits --}}
-        {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-traits.hbs"}}
+        {{!-- Inventory Tab --}}
+        <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
+          {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-inventory.hbs" sections=inventory}}
+        </div>
+
+        {{!-- Features Tab --}}
+        <div class="tab features flexcol" data-group="primary" data-tab="features">
+          {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-features.hbs" sections=features}}
+        </div>
+
+        {{!-- Spellbook Tab --}}
+        <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
+          {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-spellbook.hbs"}}
+        </div>
+
+        {{!-- Biography Tab --}}
+        <div class="tab biography flexcol" data-group="primary" data-tab="biography">
+          {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+        </div>
       </section>
     </div>
-
-    {{!-- Inventory Tab --}}
-    <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-      {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-inventory.hbs" sections=inventory}}
-    </div>
-
-    {{!-- Features Tab --}}
-    <div class="tab features flexcol" data-group="primary" data-tab="features">
-      {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-features.hbs" sections=features}}
-    </div>
-
-    {{!-- Spellbook Tab --}}
-    <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
-      {{> "modules/elf-friend-character-sheet-5e/templates/parts/actor-spellbook.hbs"}}
-    </div>
-
-    {{!-- Biography Tab --}}
-    <div class="tab biography flexcol" data-group="primary" data-tab="biography">
-      {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
-    </div>
-  </section>
+  </main>
 </form>
