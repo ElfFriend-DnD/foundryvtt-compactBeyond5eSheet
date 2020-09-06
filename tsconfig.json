@@ -1,11 +1,8 @@
 {
-	"compilerOptions": {
-		"target": "ES2017",
-		"lib": [
-			"DOM",
-			"ES6",
-			"ES2017"
-		],
-		"types": ["foundry-pc-types"]
-	}
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["DOM", "ES6", "ES2017"],
+    "types": ["foundry-pc-types"]
+  },
+  "include": ["global.d.ts", "./src"]
 }
