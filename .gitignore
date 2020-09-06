@@ -1,0 +1,6 @@
+node_modules
+foundryconfig.json
+dist/module
+dist/templates
+dist/**/*.js
+dist/**/*.json
