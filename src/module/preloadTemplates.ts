@@ -8,6 +8,8 @@ export const preloadTemplates = async function () {
     `modules/${MODULE_ID}/templates/parts/actor-spellbook.hbs`,
     `modules/${MODULE_ID}/templates/parts/actor-traits.hbs`,
     `modules/${MODULE_ID}/templates/parts/sheet-header.hbs`,
+    `modules/${MODULE_ID}/templates/parts/sheet-sidebar.hbs`,
+    `modules/${MODULE_ID}/assets/armor-class.hbs`,
   ];
 
   return loadTemplates(templatePaths);

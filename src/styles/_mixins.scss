@@ -11,3 +11,7 @@
     margin-bottom: $spacing;
   }
 }
+
+@function asset($file-name) {
+  @return url('assets/#{$file-name}');
+}

@@ -46,4 +46,27 @@
     display: flex;
     flex-direction: column;
   }
+
+  /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */
+
+  .attribute {
+    border: 2px groove #eeede0;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .attribute-value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Modesto Condensed', 'Palatino Linotype', serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .attribute-footer {
+    font-family: 'Signika', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+  }
 }

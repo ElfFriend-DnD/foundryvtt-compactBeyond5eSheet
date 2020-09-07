@@ -28,6 +28,58 @@
       margin: 0;
     }
   }
+
+  .attribute {
+    &.health {
+      flex: 2;
+    }
+  }
+}
+
+.health-armor {
+  @include spaced($space / 2);
+}
+
+.ac {
+  flex: 0 0 70px;
+  height: 80px; // arbitrary
+  min-width: 70px; // arbitrary based on the shield shape
+  text-align: center;
+  position: relative;
+  padding: 12px; // arbitrary to fit within shield shape
+
+  h4 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
+    color: $default-accent-text;
+  }
+}
+
+.ac-symbol {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  > svg {
+    max-width: 100%;
+    max-height: 100%;
+
+    path {
+      fill: $default-light-gray;
+    }
+  }
+}
+
+.header-actions {
+  @include spaced($space / 2);
+
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header-details {

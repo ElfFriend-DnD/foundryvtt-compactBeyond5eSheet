@@ -4,17 +4,21 @@
 .attributes {
   flex: 0 0 auto;
   height: auto;
+}
 
-  .attribute {
-    height: auto;
-  }
+.attribute {
+  height: auto;
+}
 
-  .attribute-footer {
-    display: flex;
-    justify-content: space-around;
+.attribute-value {
+  font-size: 24px;
+}
 
-    input {
-      flex: 1;
-    }
+.attribute-footer {
+  display: flex;
+  justify-content: space-around;
+
+  input {
+    flex: 1;
   }
 }

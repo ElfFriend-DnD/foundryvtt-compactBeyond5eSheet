@@ -1,0 +1,75 @@
+<aside class="sheet-sidebar traits">
+  {{!-- Skills --}}
+  <ul class="skills-list">
+    {{#each data.skills as |skill s|}}
+    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}">
+      <input type="hidden" name="data.skills.{{s}}.value" value="{{skill.value}}" data-dtype="Number" />
+      <a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
+      <span class="skill-ability">{{skill.ability}}</span>
+      <h4 class="skill-name rollable">{{skill.label}}</h4>
+      <span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
+      <!-- <span class="skill-passive">({{skill.passive}})</span> -->
+    </li>
+    {{/each}}
+  </ul>
+
+  <div class="form-group {{data.traits.armorProf.cssClass}}">
+    <label>{{localize "DND5E.TraitArmorProf"}}</label>
+    <a class="trait-selector" data-options="armorProficiencies" data-target="data.traits.armorProf">
+      <i class="fas fa-edit"></i>
+    </a>
+    {{#if (efcs-isEmpty data.traits.armorProf.selected)}}
+    <em>None</em>
+    {{else}}
+    <ul class="traits-list">
+      {{#each data.traits.armorProf.selected as |v k|}}
+      <li class="tag {{k}}">{{v}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+
+  <div class="form-group {{data.traits.weaponProf.cssClass}}">
+    <label>{{localize "DND5E.TraitWeaponProf"}}</label>
+    <a class="trait-selector" data-options="weaponProficiencies" data-target="data.traits.weaponProf">
+      <i class="fas fa-edit"></i>
+    </a>
+    {{#if (efcs-isEmpty data.traits.weaponProf.selected)}}
+    <em>None</em>
+    {{else}}
+    <ul class="traits-list">
+      {{#each data.traits.weaponProf.selected as |v k|}}
+      <li class="tag {{k}}">{{v}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+
+  <div class="form-group {{data.traits.toolProf.cssClass}}">
+    <label>{{localize "DND5E.TraitToolProf"}}</label>
+    <a class="trait-selector" data-options="toolProficiencies" data-target="data.traits.toolProf">
+      <i class="fas fa-edit"></i>
+    </a>
+    {{#if (efcs-isEmpty data.traits.toolProf.selected)}}
+    <em>None</em>
+    {{else}}
+    <ul class="traits-list">
+      {{#each data.traits.toolProf.selected as |v k|}}
+      <li class="tag {{k}}">{{v}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+
+  <div class="form-group {{data.traits.languages.cssClass}}">
+    <label>{{localize "DND5E.Languages"}}</label>
+    <a class="trait-selector" data-options="languages" data-target="data.traits.languages">
+      <i class="fas fa-edit"></i>
+    </a>
+    <ul class="traits-list">
+      {{#each data.traits.languages.selected as |v k|}}
+      <li class="tag {{k}}">{{v}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</aside>
