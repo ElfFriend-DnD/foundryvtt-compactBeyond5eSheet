@@ -2,15 +2,25 @@
 
 // ensure our styles take precedence over 5e default
 .dnd5e.sheet.actor.character.efcs {
-  @import './styles/sheet-header.scss';
-  @import './styles/sheet-ability-scores.scss';
-  @import './styles/sheet-attributes.scss';
+  @import './styles/header.scss';
+  @import './styles/ability-scores.scss';
+  @import './styles/attributes.scss';
+  @import './styles/sidebar.scss';
+  @import './styles/tab-area.scss';
 
   .window-content {
     box-sizing: border-box;
+    overflow: overlay;
 
     * {
       box-sizing: inherit;
+    }
+
+    > form {
+      @include spaced-vertical($space);
+
+      overflow: initial;
+      height: auto;
     }
   }
 
@@ -22,5 +32,18 @@
 
   h4.box-title {
     font-size: 16px;
+  }
+
+  .sheet-main-wrapper {
+    @include spaced($space);
+
+    display: flex;
+  }
+
+  .sheet-main {
+    @include spaced-vertical($space);
+
+    display: flex;
+    flex-direction: column;
   }
 }

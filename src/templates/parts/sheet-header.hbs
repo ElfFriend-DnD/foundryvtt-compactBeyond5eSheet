@@ -26,12 +26,6 @@
           placeholder="{{ localize 'DND5E.Background' }}" />
         <span class="hidden">{{data.details.background}}</span>
       </li>
-      {{!-- not convinced this should be here --}}
-      <li>
-        <input type="text" name="data.details.alignment" value="{{data.details.alignment}}"
-          placeholder="{{ localize 'DND5E.Alignment' }}" />
-        <span class="hidden">{{data.details.alignment}}</span>
-      </li>
     </ul>
 
     {{#unless disableExperience}}
@@ -53,6 +47,12 @@
       </div>
     </aside>
     {{/unless}}
+  </section>
+
+  <section>
+    <button>Long Rest</button>
+    <button>Short Rest</button>
+    <button>Add Condition</button>
   </section>
 
 </header>

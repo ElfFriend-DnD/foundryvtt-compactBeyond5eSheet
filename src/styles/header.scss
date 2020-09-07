@@ -2,7 +2,9 @@
 @import './variables';
 
 .sheet-header {
-  @include spaced;
+  @include spaced($space);
+  border-bottom: 0;
+  flex: 0;
 
   .profile {
     border-right: none;
@@ -15,8 +17,13 @@
   h1 {
     height: auto;
     padding: 0;
+    font-size: 1.4em;
 
     input {
+      font-size: inherit;
+      line-height: normal;
+      padding: 0;
+      width: 100%;
       height: 100%;
       margin: 0;
     }
@@ -24,7 +31,7 @@
 }
 
 .header-details {
-  @include spaced-vertical(5px); //arbitrary
+  @include spaced-vertical($space / 2);
 
   display: flex;
   flex-direction: column;
@@ -68,19 +75,6 @@
       display: block;
     }
   }
-}
-
-.sheet-sidebar {
-  display: flex;
-}
-
-.sheet-main {
-  display: flex;
-}
-
-.sheet-tab-area {
-  display: flex;
-  flex-direction: column;
 }
 
 .header-exp {

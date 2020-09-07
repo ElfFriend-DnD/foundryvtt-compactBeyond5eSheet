@@ -8,4 +8,13 @@
   .attribute {
     height: auto;
   }
+
+  .attribute-footer {
+    display: flex;
+    justify-content: space-around;
+
+    input {
+      flex: 1;
+    }
+  }
 }

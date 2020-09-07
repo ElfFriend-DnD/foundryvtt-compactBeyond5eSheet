@@ -23,7 +23,7 @@
 }
 
 .ability-score-row {
-  @include spaced(0.25em);
+  @include spaced($space / 2);
 
   border-radius: 0;
   border: 0;

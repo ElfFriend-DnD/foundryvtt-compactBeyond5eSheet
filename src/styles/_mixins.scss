@@ -1,10 +1,12 @@
-@mixin spaced($spacing: 1em) {
+@import './variables';
+
+@mixin spaced($spacing: $space) {
   > :not(:last-child) {
     margin-right: $spacing;
   }
 }
 
-@mixin spaced-vertical($spacing: 1em) {
+@mixin spaced-vertical($spacing: $space) {
   > :not(:last-child) {
     margin-bottom: $spacing;
   }

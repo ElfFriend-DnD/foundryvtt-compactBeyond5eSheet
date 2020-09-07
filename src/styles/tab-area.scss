@@ -1,0 +1,30 @@
+@import './mixins';
+@import './variables';
+
+.sheet-tab-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-navigation {
+  @include spaced($space / 2);
+
+  flex-wrap: nowrap;
+  font-family: inherit;
+  overflow: overlay;
+  flex: 0 auto;
+  font-size: 16px;
+
+  .item {
+    margin: 0;
+    width: max-content;
+    padding: 0 $space / 2;
+    height: auto;
+    line-height: normal;
+    flex: 0 auto;
+
+    &:not(.active) {
+      border-bottom-color: transparent;
+    }
+  }
+}
