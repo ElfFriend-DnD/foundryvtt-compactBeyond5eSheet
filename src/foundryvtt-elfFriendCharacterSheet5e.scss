@@ -45,6 +45,15 @@
 
     display: flex;
     flex-direction: column;
+    flex: 3 100%;
+  }
+
+  .resource {
+    .attribute-value {
+      input {
+        flex: 0 auto;
+      }
+    }
   }
 
   /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */
