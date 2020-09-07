@@ -56,6 +56,10 @@
     }
   }
 
+  input[type='text'] {
+    font-weight: inherit;
+  }
+
   /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */
 
   .attribute {
