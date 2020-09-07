@@ -1,18 +1,17 @@
+{{#unless isNPC}}
+<div class="currency">
+  <h3>
+    {{localize "DND5E.Currency"}}
+    <a class="currency-convert" title="Convert Currency"><i class="fas fa-coins"></i></a>
+  </h3>
+  {{#each data.currency as |v k|}}
+  <label class="denomination {{k}}">{{ lookup ../config.currencies k }}
+    <input type="text" name="data.currency.{{k}}" value="{{v}}" data-dtype="Number" /></label>
+  {{/each}}
+</div>
+{{/unless}}
+
 <div class="inventory-filters flexrow">
-
-  {{#unless isNPC}}
-  <ol class="currency flexrow">
-    <h3>
-      {{localize "DND5E.Currency"}}
-      <a class="currency-convert" title="Convert Currency"><i class="fas fa-coins"></i></a>
-    </h3>
-    {{#each data.currency as |v k|}}
-    <label class="denomination {{k}}">{{ lookup ../config.currencies k }}</label>
-    <input type="text" name="data.currency.{{k}}" value="{{v}}" data-dtype="Number" />
-    {{/each}}
-  </ol>
-  {{/unless}}
-
   {{#unless isVehicle}}
   <ul class="filter-list flexrow" data-filter="inventory">
     <li class="filter-item" data-filter="action">{{localize "DND5E.Action"}}</li>
