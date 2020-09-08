@@ -6,12 +6,6 @@
   }
 }
 
-@mixin spaced-reversed($spacing: $space) {
-  > :not(:first-child) {
-    margin-left: $spacing;
-  }
-}
-
 @mixin spaced-vertical($spacing: $space) {
   > :not(:last-child) {
     margin-bottom: $spacing;
