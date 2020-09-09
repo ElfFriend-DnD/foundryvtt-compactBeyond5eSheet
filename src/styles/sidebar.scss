@@ -4,36 +4,48 @@
 .sheet-sidebar {
   @include spaced-vertical($space / 2);
 
-  flex: 1 0 calc(160px + 0.25em);
-  width: calc(80px + 80px + 0.25em);
   display: flex;
   flex-direction: column;
+  flex: 1 0 calc(160px + 0.25em);
   margin-top: 0;
+  width: calc(80px + 80px + 0.25em);
 }
 
 ul.skills-list {
+  border: 0;
   flex: 0;
   height: auto;
-  padding: 0;
   margin: 0;
-  border: 0;
+  padding: 0;
 
   li.skill {
-    padding: 0;
-    height: auto;
     align-items: center;
+    height: auto;
     line-height: normal;
+    padding: 0;
 
     .skill-proficiency {
       line-height: normal;
     }
 
     .skill-ability {
-      opacity: 0.6;
-      text-transform: uppercase;
       font-size: 0.8em;
       letter-spacing: 0.01em;
+      opacity: 0.6;
+      text-transform: uppercase;
     }
+  }
+}
+
+.traits {
+  label {
+    flex: 1;
+    font-size: 12px;
+    margin-right: auto;
+  }
+
+  em {
+    flex: 1 100%;
   }
 }
 
@@ -46,13 +58,13 @@ ul.skills-list {
   font-weight: 700;
 
   h4 {
+    border-radius: 4px 0 0 4px;
+    border-right: 0;
+    border: 1px solid $default-light-gray;
     flex: 1;
+    font-weight: inherit;
     margin: 0;
     padding: 0.1em 0.2em;
-    font-weight: inherit;
-    border: 1px solid $default-light-gray;
-    border-right: 0;
-    border-radius: 4px 0 0 4px;
   }
 
   > div {

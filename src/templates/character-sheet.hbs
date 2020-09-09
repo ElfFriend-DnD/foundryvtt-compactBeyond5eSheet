@@ -190,6 +190,12 @@
                 <h4 class="section-titles biopage">{{ localize "EFCS5E.Flaws" }}</h4>
                 {{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
               </article>
+              <article>
+                <h4 class="section-titles biopage">{{ localize "DND5E.Alignment" }}</h4>
+
+                <input type="text" name="data.details.alignment" value="{{data.details.alignment}}"
+                  placeholder="{{ localize 'DND5E.Alignment' }}" />
+              </article>
             </div>
 
             <div class="right-notes note-entries flexcol">

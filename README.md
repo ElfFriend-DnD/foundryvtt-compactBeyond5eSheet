@@ -5,6 +5,8 @@ I have no idea what to name this. My intentions here are to make a compact 5e ch
 
 ## Acknowledgements
 
+Yoinked the expanded Biography tab directly from [tidy5e-sheet](https://github.com/sdenec/tidy5e-sheet). Also took their localization of the headers in said tab.
+
 Bootstrapped with Nick East's [create-foundry-project](https://gitlab.com/foundry-projects/foundry-pc/create-foundry-project).
 
 Mad props to the [League of Extraordinary FoundryVTT Developers](https://forums.forge-vtt.com/c/package-development/11) community which helped me figure out a lot.
