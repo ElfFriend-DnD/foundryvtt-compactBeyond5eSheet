@@ -6,6 +6,10 @@
 }
 
 .actions {
+  .item-name {
+    flex: 2;
+  }
+
   .inventory-header {
     .item-detail {
       flex: 1;

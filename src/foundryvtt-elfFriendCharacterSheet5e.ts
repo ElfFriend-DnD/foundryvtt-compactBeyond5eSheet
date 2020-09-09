@@ -1,6 +1,6 @@
 // Import TypeScript modules
 import { registerSettings } from './module/settings.js';
-import { log } from './helpers';
+import { log, getActivationType } from './helpers';
 import { preloadTemplates } from './module/preloadTemplates.js';
 import { MODULE_ID, MySettings } from './constants.js';
 //@ts-ignore
@@ -18,8 +18,14 @@ Handlebars.registerHelper('efcs-add', (value: number, toAdd: number) => {
   return new Handlebars.SafeString(String(value + toAdd));
 });
 
-Handlebars.registerHelper('efcs-isEmpty', (obj: Record<string, any>) => {
-  return isObjectEmpty(obj);
+Handlebars.registerHelper('efcs-isEmpty', (input: Object | Array<any> | Set<any>) => {
+  if (input instanceof Array) {
+    return input.length < 1;
+  }
+  if (input instanceof Set) {
+    return input.size < 1;
+  }
+  return isObjectEmpty(input);
 });
 
 export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
@@ -34,39 +40,13 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
 
     mergeObject(options, {
       classes: ['dnd5e', 'sheet', 'actor', 'character', 'efcs'],
+      height: 680,
     });
     return options;
   }
 
   getData() {
-    const sheetData: {
-      data: {
-        abilities: Record<
-          'str' | 'dex' | 'con' | 'int' | 'wis' | 'cha',
-          {
-            mod: number;
-          }
-        >;
-        attributes: {
-          prof?: number;
-          spellcasting?: 'str' | 'dex' | 'con' | 'int' | 'wis' | 'cha';
-        };
-        bonuses: Record<'mwak' | 'rwak' | 'rsak' | 'msak', { attack?: string; damage?: string }> & {
-          save: {
-            dc: number;
-          };
-        };
-      };
-      inventory: {
-        label: string;
-        items: Item5e[];
-      }[];
-      spellbook: {
-        label: string;
-        spells: Item5e[];
-      }[];
-      actionsData: Record<string, Set<Item5e>>;
-    } = super.getData();
+    const sheetData = super.getData();
 
     log('sheetData', sheetData);
     log('actor', this);
@@ -77,7 +57,7 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
       action: new Set(),
       bonus: new Set(),
       reaction: new Set(),
-      other: new Set(),
+      special: new Set(),
     };
 
     // digest all weapons equipped populate the actionsData appropriate categories
@@ -89,13 +69,12 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
     equippedWeapons.forEach((item) => {
       const actionType = item.data?.actionType;
 
-      //@ts-ignore
       const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
       const relevantAbilityMod = sheetData.data.abilities[item.data?.ability]?.mod;
       const prof = sheetData.data.attributes.prof;
       const toHitLabel = String(Number(actionTypeBonus) + relevantAbilityMod + prof);
 
-      const activationType = item.data?.activation?.type;
+      const activationType = getActivationType(item.data?.activation?.type);
 
       actionsData[activationType].add({
         ...item,
@@ -110,7 +89,15 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
 
     // digest all prepared spells and populate the actionsData appropriate categories
     // MUTATES actionsData
-    sheetData?.spellbook.forEach(({ spells }) => {
+    sheetData?.spellbook.forEach(({ spells, label }) => {
+      // if the user only wants cantrips here, no nothing if the label does not include "Cantrip"
+      if (game.settings.get(MODULE_ID, MySettings.limitActionsToCantrips)) {
+        // brittle
+        if (!label.includes('Cantrip')) {
+          return;
+        }
+      }
+
       const preparedSpells = spells.filter(({ data }) => {
         if (data?.preparation?.mode === 'always') {
           return true;
@@ -130,14 +117,13 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
       new Set([...damageDealers, ...reactions]).forEach((spell) => {
         const actionType = spell.data?.actionType;
 
-        //@ts-ignore
         const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
         const spellcastingMod = sheetData.data.abilities[sheetData.data.attributes.spellcasting]?.mod;
         const prof = sheetData.data.attributes.prof;
 
         const toHitLabel = String(Number(actionTypeBonus) + spellcastingMod + prof);
 
-        const activationType = spell.data?.activation?.type;
+        const activationType = getActivationType(spell.data?.activation?.type);
 
         actionsData[activationType].add({
           ...spell,
@@ -150,6 +136,17 @@ export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
     });
 
     log('actionsData with spells', actionsData);
+
+    const activeFeatures = sheetData?.features.find(({ label }) => label.includes('Active')).items || [];
+
+    // MUTATES actionsData
+    activeFeatures.forEach((item) => {
+      const activationType = getActivationType(item.data?.activation?.type);
+
+      actionsData[activationType].add(item);
+    });
+
+    log('actionsData with features', actionsData);
 
     sheetData.actionsData = actionsData;
 

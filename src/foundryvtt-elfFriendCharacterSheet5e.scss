@@ -11,9 +11,14 @@
   @import './styles/spellbook.scss';
   @import './styles/tab-area.scss';
 
+  min-height: 500px;
+
   .window-content {
     box-sizing: border-box;
-    overflow: overlay;
+    padding: (
+      $space / 2
+    ); //  ($space / 2 + $scrollbar-width) ($space / 2) ($space / 2); // scrollbar width taken into account
+    // overflow: auto;
 
     * {
       box-sizing: inherit;
@@ -22,8 +27,8 @@
     > form {
       @include spaced-vertical($space);
 
-      overflow: initial;
-      height: auto;
+      // overflow: initial;
+      // height: auto;
     }
   }
 
@@ -35,6 +40,18 @@
 
   h4.box-title {
     font-size: 16px;
+  }
+
+  input[type='text'] {
+    font-weight: inherit;
+  }
+
+  .resource {
+    .attribute-value {
+      input {
+        flex: 0 auto;
+      }
+    }
   }
 
   .sheet-main-wrapper {
@@ -51,18 +68,6 @@
     flex: 3 100%;
   }
 
-  .resource {
-    .attribute-value {
-      input {
-        flex: 0 auto;
-      }
-    }
-  }
-
-  input[type='text'] {
-    font-weight: inherit;
-  }
-
   .tag {
     display: flex;
     place-content: center;
@@ -77,11 +82,26 @@
     }
   }
 
+  /* now use tags and thus should be styled differenly */
+  .item-properties,
+  .traits-list {
+    @include spaced(0.2em);
+
+    display: flex;
+    flex-wrap: wrap;
+    line-height: normal;
+
+    > .tag {
+      margin-bottom: 0.2em;
+    }
+  }
+
   /* complicated flex layout to allow tab areas to be scrollable */
   /* instrumental: https://stackoverflow.com/questions/52487743/prevent-flex-item-from-exceeding-parent-height-and-make-scroll-bar-work */
 
   .sheet-sidebar {
-    height: max-content;
+    overflow: overlay;
+    padding-right: $scrollbar-width;
   }
 
   .sheet-main-wrapper {
@@ -96,6 +116,30 @@
   .sheet-tab-area {
     flex: 1 1 1px; /* makes this item grow, but not affect the parent's initial layout compuation */
     overflow: hidden;
+  }
+
+  /* Scrollbars */
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $default-light-gray;
+    border-color: $default-light-gray;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $default-highlight;
+    border-color: $default-highlight;
   }
 
   /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */

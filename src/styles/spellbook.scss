@@ -18,3 +18,7 @@
     color: $default-accent-text;
   }
 }
+
+.spell-comps {
+  @include spaced(0.2em);
+}

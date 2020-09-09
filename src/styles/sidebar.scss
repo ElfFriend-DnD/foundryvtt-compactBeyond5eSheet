@@ -64,15 +64,3 @@ ul.skills-list {
     padding: 0.2em 0.4em;
   }
 }
-
-.traits-list {
-  @include spaced(0.2em);
-
-  display: inline-flex;
-  flex-wrap: wrap;
-  line-height: normal;
-
-  > .tag {
-    margin-bottom: 0.2em;
-  }
-}

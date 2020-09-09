@@ -58,7 +58,6 @@
     > :not(.item-summary) {
       min-height: 30px; // arbitrary
       place-items: center;
-      line-height: normal;
 
       // name column is always first
       &:not(:first-child) {
@@ -67,17 +66,29 @@
         text-align: center;
         display: flex;
         place-content: center;
+        line-height: normal; // have to keep the item-name h4 line height 30 because it is the clickable area for the expanding summary
       }
     }
 
     .item-image {
       align-self: stretch;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     .spell-uses {
       flex: 0 auto;
       padding-right: 0.2em;
       margin-left: 0.2em;
+    }
+
+    .item-name {
+      max-height: unset;
+      overflow: visible; // fixes a bug in actions tab where expanded features would disappear
+
+      h4 {
+        text-overflow: ellipsis;
+      }
     }
   }
 }

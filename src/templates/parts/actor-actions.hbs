@@ -1,137 +1,16 @@
 {{!-- Actions --}}
 <ol class="inventory-list">
 
-  {{!-- Attacks --}}
-  <ol class="item-list">
-    <li class="inventory-header flexrow">
-      <h3 class="item-name flexrow">{{localize "DND5E.Actions"}}</h3>
-
-      <div class="item-detail">{{localize "DND5E.Range"}}</div>
-
-      <div class="item-detail">Hit / DC</div>
-      <div class="item-detail">{{localize "DND5E.Damage"}}</div>
-    </li>
-    {{#each actionsData.action as |item|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-      <div class="item-name flexrow rollable">
-        <div class="item-image" style="background-image: url({{item.img}})"></div>
-        <h4>{{item.name}}</h4>
-
-        {{#if item.data.uses.per }}
-        <div class="item-detail spell-uses">Uses {{item.data.uses.value}} / {{item.data.uses.max}}</div>
-        {{/if}}
-      </div>
-
-      <div class="action-range">
-        <span>{{labels.range}}</span>
-        {{#if labels.target}}
-        <small>
-          {{labels.target}}
-        </small>
-        {{/if}}
-      </div>
-
-      <div>
-        <span>{{efcs-safeVal labels.save (numberFormat labels.toHit digits=0 sign=true) }}</span>
-      </div>
-
-      <div>
-        {{labels.damage}} {{labels.damageTypes}}
-      </div>
-
-
-    </li>
-    {{/each}}
-  </ol>
+  {{!-- Actions --}}
+  {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.action label=(localize "DND5E.Action") }}
 
   {{!-- Bonus Actions --}}
-  <ol class="item-list">
-    <li class="inventory-header flexrow">
-      <h3 class="item-name flexrow">{{localize "DND5E.Bonus"}} {{localize "DND5E.Actions"}}</h3>
-
-      <div class="item-detail">{{localize "DND5E.Range"}}</div>
-
-      <div class="item-detail">Hit / DC</div>
-      <div class="item-detail">{{localize "DND5E.Damage"}}</div>
-    </li>
-    {{#each actionsData.bonus as |item|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-      <div class="item-name flexrow rollable">
-        <div class="item-image" style="background-image: url({{item.img}})"></div>
-        <h4>{{item.name}}</h4>
-
-        {{#if item.data.uses.per }}
-        <div class="item-detail spell-uses">Uses {{item.data.uses.value}} / {{item.data.uses.max}}</div>
-        {{/if}}
-      </div>
-
-      <div class="action-range">
-        <span>{{labels.range}}</span>
-        {{#if labels.target}}
-        <small>
-          {{labels.target}}
-        </small>
-        {{/if}}
-      </div>
-
-      <div>
-        <span>{{efcs-safeVal labels.save (numberFormat labels.toHit digits=0 sign=true) }}</span>
-      </div>
-
-      <div>
-        {{labels.damage}} {{labels.damageTypes}}
-      </div>
-
-
-    </li>
-    {{/each}}
-  </ol>
-
+  {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.bonus label=(localize "DND5E.BonusAction") }}
 
   {{!-- Reactions --}}
-  <ol class="item-list">
-    <li class="inventory-header flexrow">
-      <h3 class="item-name flexrow">{{localize "DND5E.Reactions"}}</h3>
+  {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.reaction label=(localize "DND5E.Reaction") }}
 
-      <div class="item-detail">{{localize "DND5E.Range"}}</div>
+  {{!-- Special --}}
+  {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.special label=(localize "DND5E.Special") }}
 
-      <div class="item-detail">Hit / DC</div>
-      <div class="item-detail">{{localize "DND5E.Damage"}}</div>
-    </li>
-    {{#each actionsData.reaction as |item|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-      <div class="item-name flexrow rollable">
-        <div class="item-image" style="background-image: url({{item.img}})"></div>
-        <h4>{{item.name}}</h4>
-
-        {{#if item.data.uses.per }}
-        <div class="item-detail spell-uses">Uses {{item.data.uses.value}} / {{item.data.uses.max}}</div>
-        {{/if}}
-      </div>
-
-      <div class="action-range">
-        <span>{{labels.range}}</span>
-        {{#if labels.target}}
-        <small>
-          {{labels.target}}
-        </small>
-        {{/if}}
-      </div>
-
-      <div>
-        <span>{{efcs-safeVal labels.save (numberFormat labels.toHit digits=0 sign=true) }}</span>
-      </div>
-
-      <div>
-        {{labels.damage}} {{labels.damageTypes}}
-      </div>
-
-
-    </li>
-    {{/each}}
-  </ol>
-
-
-
-  {{!-- Other --}}
 </ol>
