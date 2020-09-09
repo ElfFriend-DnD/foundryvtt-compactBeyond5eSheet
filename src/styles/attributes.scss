@@ -22,3 +22,11 @@
     flex: 1;
   }
 }
+
+.resource {
+  .attribute-value {
+    input {
+      flex: 0 auto;
+    }
+  }
+}

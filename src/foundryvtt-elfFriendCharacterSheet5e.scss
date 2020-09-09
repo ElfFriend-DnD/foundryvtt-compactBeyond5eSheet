@@ -10,6 +10,7 @@
   @import './styles/sidebar.scss';
   @import './styles/spellbook.scss';
   @import './styles/tab-area.scss';
+  @import './styles/biography.scss';
 
   min-height: 500px;
 
@@ -46,14 +47,6 @@
     font-weight: inherit;
   }
 
-  .resource {
-    .attribute-value {
-      input {
-        flex: 0 auto;
-      }
-    }
-  }
-
   .sheet-main-wrapper {
     @include spaced($space);
 
@@ -82,7 +75,7 @@
     }
   }
 
-  /* now use tags and thus should be styled differenly */
+  /* these lists now use tags and thus should be styled differenly */
   .item-properties,
   .traits-list {
     @include spaced(0.2em);

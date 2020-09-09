@@ -1,0 +1,99 @@
+@import './mixins';
+@import './variables';
+
+.biography {
+  @include spaced($space/ 2);
+
+  h4 {
+    font-size: 1em;
+    font-weight: 700;
+  }
+
+  .note-entries {
+    @include spaced-vertical($space / 2);
+  }
+
+  .left-notes {
+    flex: 2;
+  }
+
+  .right-notes {
+    flex: 3;
+  }
+
+  article {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: $space;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+
+    h4 {
+      flex: 0 auto;
+    }
+
+    .editor {
+      flex: 1 50px;
+      padding: 0;
+    }
+  }
+
+  .big-bio {
+    flex: 1;
+  }
+
+  .editor {
+    h1,
+    h2,
+    h3 {
+      font-weight: 700;
+      font-family: 'Modesto Condensed', 'Palatino Linotype', serif;
+    }
+
+    p {
+      margin: 0;
+      &:not(:last-child) {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    // editor overrides, RISKY
+    .tox {
+      height: 100% !important;
+
+      .tox-toolbar__group {
+        padding: 0;
+      }
+
+      // .tox-icon {
+      //   svg {
+      //     width: auto;
+      //     height: 2em;
+      //   }
+      // }
+
+      .tox-tbtn {
+        // font-size: inherit;
+        height: 2em;
+
+        &:not(.tox-tbtn--select) {
+          width: 2em;
+        }
+      }
+
+      .tox-sidebar-wrap {
+        min-height: 5em;
+        flex: 1 1 5em;
+      }
+
+      .tox-edit-area {
+        // min-height: 5em;
+      }
+    }
+  }
+}

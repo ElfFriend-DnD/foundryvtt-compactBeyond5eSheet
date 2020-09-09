@@ -99,8 +99,22 @@
         <section class="sheet-body">
 
           {{!-- Actions Tab --}}
-          <div class="tab actions flexcol" data-group="primary" data-tab="actions">
-            {{> (efcs-path "templates/parts/actor-actions.hbs")}}
+          <div class="tab actions flexcol" data-group="primary" data-tab="actions">{{!-- Actions --}}
+            <ol class="inventory-list">
+
+              {{!-- Actions --}}
+              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.action label=(localize "DND5E.Action") }}
+
+              {{!-- Bonus Actions --}}
+              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.bonus label=(localize "DND5E.BonusAction") }}
+
+              {{!-- Reactions --}}
+              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.reaction label=(localize "DND5E.Reaction") }}
+
+              {{!-- Special --}}
+              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.special label=(localize "DND5E.Special") }}
+
+            </ol>
           </div>
 
           {{!-- Spellbook Tab --}}
@@ -157,10 +171,38 @@
             {{> (efcs-path "templates/parts/actor-features.hbs") sections=features}}
           </div>
 
-
           {{!-- Biography Tab --}}
-          <div class="tab biography flexcol" data-group="primary" data-tab="biography">
-            {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+          <div class="tab biography flexrow" data-group="primary" data-tab="biography">
+            <div class="left-notes note-entries flexcol">
+              <article>
+                <h4 class="section-titles biopage">{{ localize "EFCS5E.Traits" }}</h4>
+                {{editor content=data.details.trait target="data.details.trait" button=true owner=owner editable=editable}}
+              </article>
+              <article>
+                <h4 class="section-titles biopage">{{ localize "EFCS5E.Ideals" }}</h4>
+                {{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner editable=editable}}
+              </article>
+              <article>
+                <h4 class="section-titles biopage">{{ localize "EFCS5E.Bonds" }}</h4>
+                {{editor content=data.details.bond target="data.details.bond" button=true owner=owner editable=editable}}
+              </article>
+              <article>
+                <h4 class="section-titles biopage">{{ localize "EFCS5E.Flaws" }}</h4>
+                {{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
+              </article>
+            </div>
+
+            <div class="right-notes note-entries flexcol">
+              <article>
+                <h4 class="section-titles biopage">{{ localize "EFCS5E.Appearance" }}</h4>
+                {{editor content=data.details.description.value target="data.details.description.value" button=true owner=owner editable=editable}}
+              </article>
+              <article class="biography-notes big-bio">
+                <h4 class="section-titles">{{ localize "EFCS5E.Background" }}</h4>
+                {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+              </article>
+            </div>
+
           </div>
         </section>
       </div>
