@@ -1,12 +1,26 @@
-<div class="inventory-filters spellbook-filters flexrow">
-  <div class="form-group spellcasting-ability">
-    {{#unless isNPC}}
-    <label>{{localize "DND5E.SpellAbility"}}</label>
-    {{else}}
+<div class="spellcasting-ability">
+  <div>
+    <label>{{localize "DND5E.SpellDC"}} </label>
+    <span>{{data.attributes.spelldc}}</span>
+  </div>
+
+  <div>
+    <label>{{localize "DND5E.ItemTypeSpell"}} {{localize "DND5E.Attack"}}</label>
+    <span>
+      {{#with (lookup data.abilities data.attributes.spellcasting)}}
+      {{numberFormat (efcs-add mod ../data.attributes.prof) decimals=0 sign=true}}
+      {{/with}}
+    </span>
+  </div>
+
+  <div>
+    {{#if isNPC}}
     <label>{{localize "DND5E.Level"}}</label>
     <input class="spellcasting-level" type="text" name="data.details.spellLevel" value="{{data.details.spellLevel}}"
       data-dtype="Number" placeholder="0" />
-    {{/unless}}
+    {{else}}
+    <label>{{localize "DND5E.SpellAbility"}}</label>
+    {{/if}}
     <select name="data.attributes.spellcasting" data-type="String">
       {{#select data.attributes.spellcasting}}
       <option value="">{{localize "DND5E.None"}}</option>
@@ -16,14 +30,16 @@
       {{/select}}
     </select>
   </div>
+</div>
 
+<div class="inventory-filters spellbook-filters flexrow">
   <ul class="filter-list flexrow" data-filter="spellbook">
-    <li class="filter-item" data-filter="action">{{localize "DND5E.Action"}}</li>
-    <li class="filter-item" data-filter="bonus">{{localize "DND5E.BonusAction"}}</li>
-    <li class="filter-item" data-filter="reaction">{{localize "DND5E.Reaction"}}</li>
-    <li class="filter-item" data-filter="concentration">{{localize "DND5E.AbbreviationConc"}}</li>
-    <li class="filter-item" data-filter="ritual">{{localize "DND5E.Ritual"}}</li>
-    <li class="filter-item" data-filter="prepared">{{localize "DND5E.Prepared"}}{{#if preparedSpells}}
+    <li class="filter-item tag" data-filter="action">{{localize "DND5E.Action"}}</li>
+    <li class="filter-item tag" data-filter="bonus">{{localize "DND5E.BonusAction"}}</li>
+    <li class="filter-item tag" data-filter="reaction">{{localize "DND5E.Reaction"}}</li>
+    <li class="filter-item tag" data-filter="concentration">{{localize "DND5E.AbbreviationConc"}}</li>
+    <li class="filter-item tag" data-filter="ritual">{{localize "DND5E.Ritual"}}</li>
+    <li class="filter-item tag" data-filter="prepared">{{localize "DND5E.Prepared"}}{{#if preparedSpells}}
       ({{preparedSpells}}){{/if}}</li>
   </ul>
 </div>
@@ -54,7 +70,6 @@
         {{/if}}
     </div>
 
-    <div class="spell-school">{{localize "DND5E.SpellSchool"}}</div>
     <div class="spell-action">{{localize "DND5E.SpellUsage"}}</div>
     <div class="spell-target">{{localize "DND5E.SpellTarget"}}</div>
 

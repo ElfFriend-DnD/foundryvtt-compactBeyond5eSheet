@@ -1,0 +1,14 @@
+@import './mixins';
+@import './variables';
+
+.action-range {
+  flex-direction: column;
+}
+
+.actions {
+  .inventory-header {
+    .item-detail {
+      flex: 1;
+    }
+  }
+}

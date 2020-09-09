@@ -2,12 +2,14 @@
 
 // ensure our styles take precedence over 5e default
 .dnd5e.sheet.actor.character.efcs {
-  @import './styles/header.scss';
   @import './styles/ability-scores.scss';
+  @import './styles/actions.scss';
   @import './styles/attributes.scss';
-  @import './styles/sidebar.scss';
-  @import './styles/tab-area.scss';
+  @import './styles/header.scss';
   @import './styles/inventory.scss';
+  @import './styles/sidebar.scss';
+  @import './styles/spellbook.scss';
+  @import './styles/tab-area.scss';
 
   .window-content {
     box-sizing: border-box;
@@ -61,16 +63,17 @@
     font-weight: inherit;
   }
 
-  .filter-list {
-    @include spaced($space / 2);
-
+  .tag {
+    display: flex;
+    place-content: center;
+    place-items: center;
     line-height: normal;
+    margin: 0;
+    flex: 0 1 auto;
 
-    .filter-item {
-      border-bottom: 0;
-      margin: 0;
-      display: flex;
-      align-content: center;
+    &.active {
+      background: $default-highlight;
+      color: white;
     }
   }
 
@@ -93,11 +96,6 @@
   .sheet-tab-area {
     flex: 1 1 1px; /* makes this item grow, but not affect the parent's initial layout compuation */
     overflow: hidden;
-  }
-
-  .scrollable-area {
-    flex: 1 100%;
-    overflow: overlay;
   }
 
   /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */

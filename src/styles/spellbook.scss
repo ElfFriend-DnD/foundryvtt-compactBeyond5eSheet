@@ -1,0 +1,20 @@
+@import './mixins';
+@import './variables';
+
+.spellbook {
+}
+
+.spellcasting-ability {
+  flex: 0 auto;
+  display: flex;
+  align-items: center;
+
+  > div {
+    flex: 1;
+  }
+
+  label {
+    font-weight: 700;
+    color: $default-accent-text;
+  }
+}

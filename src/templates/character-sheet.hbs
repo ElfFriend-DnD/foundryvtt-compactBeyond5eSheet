@@ -3,7 +3,7 @@
   {{> (efcs-path "templates/parts/sheet-header.hbs")}}
 
   {{!-- Ability Scores --}}
-  <ul class="ability-scores attributes ability-score-row">
+  <ul class="ability-scores ability-score-row">
     {{#each data.abilities as |ability id|}}
     <li class="ability {{#if ability.proficient}}proficient{{/if}}" data-ability="{{id}}">
       <h4 class="ability-name box-title rollable">{{ability.label}}</h4>
@@ -88,16 +88,32 @@
       <div class="sheet-tab-area">
         {{!-- NPC Sheet Navigation --}}
         <nav class="sheet-navigation tabs" data-group="primary">
-          <a class="item active" data-tab="attributes">{{ localize "DND5E.Attributes" }}</a>
+          <a class="item active" data-tab="actions">{{ localize "DND5E.Actions" }}</a>
+          <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
           <a class="item" data-tab="inventory">{{ localize "DND5E.Inventory" }}</a>
           <a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
-          <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
           <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
         </nav>
 
         {{!-- NPC Sheet Body --}}
         <section class="sheet-body">
 
+          {{!-- Actions Tab --}}
+          <div class="tab actions flexcol" data-group="primary" data-tab="actions">
+            {{> (efcs-path "templates/parts/actor-actions.hbs")}}
+          </div>
+
+          {{!-- Spellbook Tab --}}
+          <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
+            {{> (efcs-path "templates/parts/actor-spellbook.hbs")}}
+          </div>
+
+          {{!-- Inventory Tab --}}
+          <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
+            {{> (efcs-path "templates/parts/actor-inventory.hbs") sections=inventory}}
+          </div>
+
+          {{!-- Attributes Tab --}}
           <div class="tab attributes flexrow" data-group="primary" data-tab="attributes">
 
             <section class="center-pane flexcol">
@@ -136,20 +152,11 @@
             </section>
           </div>
 
-          {{!-- Inventory Tab --}}
-          <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-            {{> (efcs-path "templates/parts/actor-inventory.hbs") sections=inventory}}
-          </div>
-
           {{!-- Features Tab --}}
           <div class="tab features flexcol" data-group="primary" data-tab="features">
             {{> (efcs-path "templates/parts/actor-features.hbs") sections=features}}
           </div>
 
-          {{!-- Spellbook Tab --}}
-          <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
-            {{> (efcs-path "templates/parts/actor-spellbook.hbs")}}
-          </div>
 
           {{!-- Biography Tab --}}
           <div class="tab biography flexcol" data-group="primary" data-tab="biography">

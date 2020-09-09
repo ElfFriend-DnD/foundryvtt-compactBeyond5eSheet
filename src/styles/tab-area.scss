@@ -28,3 +28,56 @@
     }
   }
 }
+
+.filter-list {
+  @include spaced($space / 2);
+
+  line-height: normal;
+}
+
+.filter-item {
+  border-bottom: 1px groove $default-groove-gray;
+  display: flex;
+  align-content: center;
+}
+
+.tab {
+  @include spaced-vertical($space / 2);
+}
+
+.inventory-filters {
+  justify-content: start;
+  flex: 0 auto;
+  margin: 0;
+}
+
+.inventory-list {
+  padding: 0;
+
+  .item {
+    > :not(.item-summary) {
+      min-height: 30px; // arbitrary
+      place-items: center;
+      line-height: normal;
+
+      // name column is always first
+      &:not(:first-child) {
+        font-size: 12px;
+        color: #7a7971;
+        text-align: center;
+        display: flex;
+        place-content: center;
+      }
+    }
+
+    .item-image {
+      align-self: stretch;
+    }
+
+    .spell-uses {
+      flex: 0 auto;
+      padding-right: 0.2em;
+      margin-left: 0.2em;
+    }
+  }
+}
