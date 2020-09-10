@@ -99,7 +99,10 @@
 
     .item-name {
       max-height: unset;
-      overflow: visible; // fixes a bug in actions tab where expanded features would disappear
+
+      &.feat-name-hack {
+        overflow: visible; // fixes a bug in actions tab where expanded features would disappear in the foundry client only
+      }
 
       h4 {
         text-overflow: ellipsis;

@@ -13,7 +13,7 @@
   {{#each items as |item|}}
 
   <li class="item flexrow" data-item-id="{{item._id}}">
-    <div class="item-name flexrow rollable">
+    <div class="item-name flexrow rollable {{#if (eq item.type "feat")}}feat-name-hack{{/if}}">
       <div class="item-image" style="background-image: url({{item.img}})"></div>
       <h4>{{item.name}}</h4>
 
