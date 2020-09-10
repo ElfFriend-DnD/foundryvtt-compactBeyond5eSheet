@@ -9,6 +9,8 @@
   flex: 1 0 25%;
   margin-top: 0;
   min-width: calc(80px + 80px + 0.25em); // width of two attribute boxes
+  padding-right: 10px;
+  border-right: $groove-border;
 }
 
 ul.skills-list {
@@ -75,12 +77,15 @@ ul.skills-list {
     align-self: stretch;
     border: 1px solid $default-light-gray;
     border-radius: 50%;
+    display: flex;
     flex: 0 0 1.8em;
     height: 1.6em;
-    text-align: center;
     margin-left: calc(-1 * (0.4em + 1px)); // :rip: puppies
     padding: 0.2em 0.4em;
+    place-content: center;
+    place-items: center;
     position: relative;
+    text-align: center;
 
     // hidden inspiration input
     > input {
@@ -92,10 +97,15 @@ ul.skills-list {
       width: 100%;
       height: 100%;
       opacity: 0;
-    }
 
-    :checked + i {
-      color: $default-highlight;
+      &:hover + i {
+        text-shadow: 0 0 8px red;
+        color: $default-color;
+      }
+
+      &:checked + i {
+        color: $default-highlight;
+      }
     }
   }
 }

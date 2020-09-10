@@ -1,15 +1,15 @@
 {{!-- props: {items: oneof sheetData.actionsData; label: string;} --}}
 
 {{#unless (efcs-isEmpty items)}}
+<li class="item inventory-header flexrow">
+  <h3 class="item-name flexrow">{{label}}</h3>
+
+  <div class="item-detail">{{localize "DND5E.Range"}}</div>
+
+  <div class="item-detail">Hit / DC</div>
+  <div class="item-detail">{{localize "DND5E.Damage"}}</div>
+</li>
 <ol class="item-list">
-  <li class="inventory-header flexrow">
-    <h3 class="item-name flexrow">{{label}}</h3>
-
-    <div class="item-detail">{{localize "DND5E.Range"}}</div>
-
-    <div class="item-detail">Hit / DC</div>
-    <div class="item-detail">{{localize "DND5E.Damage"}}</div>
-  </li>
   {{#each items as |item|}}
 
   <li class="item flexrow" data-item-id="{{item._id}}">

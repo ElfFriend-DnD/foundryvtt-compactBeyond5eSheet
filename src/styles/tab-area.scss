@@ -2,29 +2,44 @@
 @import './variables';
 
 .sheet-tab-area {
+  border-top: $groove-border;
   display: flex;
   flex-direction: column;
+  padding-top: $space;
 }
 
 .sheet-navigation {
-  @include spaced($space / 2);
+  @include spaced($space);
 
+  flex: 0 auto;
   flex-wrap: nowrap;
   font-family: inherit;
+  font-size: 14px;
   overflow: overlay;
-  flex: 0 auto;
-  font-size: 16px;
+  text-transform: uppercase;
 
   .item {
-    margin: 0;
-    width: max-content;
-    padding: 0 $space / 2;
+    color: $default-accent-text;
+    flex: 0 auto;
     height: auto;
     line-height: normal;
-    flex: 0 auto;
+    margin: 0;
+    padding: 0 0.4em;
+    width: max-content;
 
     &:not(.active) {
       border-bottom-color: transparent;
+    }
+
+    &.active,
+    &:hover {
+      text-shadow: none;
+    }
+
+    &.active {
+      border-bottom-width: 2px;
+      color: $default-color;
+      border-bottom-color: $default-highlight;
     }
   }
 }
@@ -89,6 +104,18 @@
       h4 {
         text-overflow: ellipsis;
       }
+    }
+  }
+
+  .inventory-header {
+    background: none;
+    border: 0;
+    border-bottom: $groove-border;
+  }
+
+  .item-list {
+    &:not(:last-of-type) {
+      margin-bottom: 1em;
     }
   }
 }
