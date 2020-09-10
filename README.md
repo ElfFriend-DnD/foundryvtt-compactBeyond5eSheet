@@ -2,6 +2,13 @@
 
 Shamlessly taking ideas (and some code) from both the [DnDBeyond character sheet](https://github.com/jopeek/fvtt-dndbeyond-character-sheet) and the [Tidy 5e character sheet](https://github.com/sdenec/tidy5e-sheet). This is an information-dense character sheet for Foundry users who like the feel of D&DBeyond's character sheet, but want it to fit better within the Foundry UI.
 
+## Installation
+
+Module JSON:
+```
+https://github.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e/releases/latest/download/module.json
+```
+
 ## Gallery
 [<img src="readme-img/main-view.png" width="30%"></img>](readme-img/main-view.png)
 [<img src="readme-img/spellbook.png" width="30%"></img>](readme-img/spellbook.png)
