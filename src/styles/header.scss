@@ -7,6 +7,14 @@
   border-bottom: 0;
   flex: 0;
 
+  > section {
+    @include spaced-vertical($space / 2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .profile {
     border-right: none;
     flex: 0 0 100px;
@@ -58,10 +66,6 @@
   }
 }
 
-.health-armor {
-  @include spaced($space / 2);
-}
-
 .ac {
   flex: 0 0 70px;
   height: 80px; // arbitrary
@@ -101,7 +105,28 @@
   @include spaced($space / 2);
 
   display: flex;
-  justify-content: flex-end;
+  margin-top: auto;
+  justify-content: flex-start;
+  font-size: 12px;
+  font-family: 'Signika', sans-serif;
+
+  .rest {
+    align-items: center;
+    border: 1px solid $default-light-gray;
+    border-radius: $border-radius;
+    display: inline-flex;
+    padding: 0.1em 0.2em;
+
+    &:hover,
+    &:focus {
+      border-color: $default-highlight;
+      background-color: rgba($default-highlight, 0.1);
+    }
+
+    i {
+      margin-left: 0.2em;
+    }
+  }
 }
 
 .header-details {
@@ -110,48 +135,6 @@
   display: flex;
   flex-direction: column;
   font-size: 16px;
-}
-
-.inline-summary {
-  @include spaced(0.2em);
-
-  align-items: center;
-  color: $default-accent-text;
-  display: inline-flex;
-  flex: 0 auto;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    position: relative;
-    width: max-content;
-
-    // make editable items have a max-content that they can size based on
-    .hidden {
-      border: 1px solid transparent; // match input styles
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    input {
-      bottom: 0;
-      color: inherit;
-      font-weight: inherit;
-      height: 100%;
-      left: 0;
-      padding: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 100%;
-    }
-
-    .non-editable {
-      border: 1px solid transparent; // match input styles
-      display: block;
-    }
-  }
 }
 
 .header-exp {
@@ -205,6 +188,52 @@
     .left-label,
     .right-label {
       flex: 0 0 max-content;
+    }
+  }
+}
+
+.health-armor {
+  @include spaced($space);
+}
+
+.inline-summary {
+  @include spaced(0.2em);
+
+  align-items: center;
+  color: $default-accent-text;
+  display: inline-flex;
+  flex: 0 auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    width: max-content;
+
+    // make editable items have a max-content that they can size based on
+    .hidden {
+      border: 1px solid transparent; // match input styles
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    input {
+      bottom: 0;
+      color: inherit;
+      font-weight: inherit;
+      height: 100%;
+      left: 0;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .non-editable {
+      border: 1px solid transparent; // match input styles
+      display: block;
     }
   }
 }

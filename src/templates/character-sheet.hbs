@@ -127,45 +127,6 @@
             {{> (efcs-path "templates/parts/actor-inventory.hbs") sections=inventory}}
           </div>
 
-          {{!-- Attributes Tab --}}
-          <div class="tab attributes flexrow" data-group="primary" data-tab="attributes">
-
-            <section class="center-pane flexcol">
-
-              {{!-- Counters --}}
-              <div class="counters">
-                <div class="counter flexrow death-saves">
-                  <h4 class="death-save rollable">{{ localize "DND5E.DeathSave" }}</h4>
-                  <div class="counter-value">
-                    <i class="fas fa-check"></i>
-                    <input type="text" name="data.attributes.death.success" data-dtype="Number" placeholder="0"
-                      value="{{data.attributes.death.success}}" />
-                    <i class="fas fa-times"></i>
-                    <input type="text" name="data.attributes.death.failure" data-dtype="Number" placeholder="0"
-                      value="{{data.attributes.death.failure}}" />
-                  </div>
-                </div>
-                <div class="counter flexrow exhaustion">
-                  <h4>{{ localize "DND5E.Exhaustion" }}</h4>
-                  <div class="counter-value">
-                    <input type="text" name="data.attributes.exhaustion" data-dtype="Number" placeholder="0"
-                      value="{{data.attributes.exhaustion}}" />
-                  </div>
-                </div>
-                <div class="counter flexrow inspiration">
-                  <h4>{{ localize "DND5E.Inspiration" }}</h4>
-                  <div class="counter-value">
-                    <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean"
-                      {{checked data.attributes.inspiration}} />
-                  </div>
-                </div>
-              </div>
-
-              {{!-- Traits --}}
-              {{> (efcs-path "templates/parts/actor-traits.hbs")}}
-            </section>
-          </div>
-
           {{!-- Features Tab --}}
           <div class="tab features flexcol" data-group="primary" data-tab="features">
             {{> (efcs-path "templates/parts/actor-features.hbs") sections=features}}

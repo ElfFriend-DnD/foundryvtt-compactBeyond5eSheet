@@ -47,14 +47,14 @@
       </div>
     </aside>
     {{/unless}}
+
+    <div class="header-actions">
+      <a class="rest short-rest">{{ localize 'DND5E.RestS' }}<i class="fas fa-hourglass-half"></i></a>
+      <a class="rest long-rest">{{ localize 'DND5E.RestL' }}<i class="fas fa-hourglass-end"></i></a>
+    </div>
   </section>
 
   <section>
-    <div class="header-actions">
-      <a class="rest short-rest">{{ localize "DND5E.RestS" }}</a>
-      <a class="rest long-rest">{{ localize "DND5E.RestL" }}</a>
-    </div>
-
     <div class="flexrow health-armor">
 
       <div class="ac">
@@ -112,10 +112,7 @@
             value="{{data.attributes.hp.tempmax}}" data-dtype="{{data.attributes.hp.type}}" />
         </footer>
       </div>
+      {{/if}}
     </div>
-    {{/if}}
   </section>
-
-
-
 </header>

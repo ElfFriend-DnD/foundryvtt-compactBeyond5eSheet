@@ -1,4 +1,10 @@
 <div class="traits">
+  <div class="form-group {{#unless data.attributes.exhaustion}}inactive{{/unless}}">
+    <label>{{localize "DND5E.Exhaustion"}}</label>
+    <input type="text" name="data.attributes.exhaustion" data-dtype="Number" placeholder="0"
+      value="{{data.attributes.exhaustion}}" />
+  </div>
+
   <div class="form-group">
     <label>{{localize "DND5E.Size"}}</label>
     <select class="actor-size" name="data.traits.size">

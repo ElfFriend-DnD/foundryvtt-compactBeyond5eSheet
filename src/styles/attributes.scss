@@ -31,6 +31,9 @@
 }
 
 .resource {
+  flex: 1 100px;
+  min-width: 100px;
+
   .attribute-value {
     input {
       flex: 0 auto;

@@ -6,9 +6,9 @@
 
   display: flex;
   flex-direction: column;
-  flex: 1 0 calc(160px + 0.25em);
+  flex: 1 0 25%;
   margin-top: 0;
-  width: calc(80px + 80px + 0.25em);
+  min-width: calc(80px + 80px + 0.25em); // width of two attribute boxes
 }
 
 ul.skills-list {
@@ -49,7 +49,7 @@ ul.skills-list {
   }
 }
 
-.proficiency {
+.fancy-value {
   align-items: center;
   color: $default-accent-text;
   display: flex;
@@ -57,10 +57,14 @@ ul.skills-list {
   font-size: 16px;
   font-weight: 700;
 
+  .fas {
+    margin: 0;
+  }
+
   h4 {
+    border: 1px solid $default-light-gray;
     border-radius: 4px 0 0 4px;
     border-right: 0;
-    border: 1px solid $default-light-gray;
     flex: 1;
     font-weight: inherit;
     margin: 0;
@@ -69,10 +73,29 @@ ul.skills-list {
 
   > div {
     align-self: stretch;
-    border-radius: 50%;
     border: 1px solid $default-light-gray;
-    flex: 0 0 20px;
+    border-radius: 50%;
+    flex: 0 0 1.8em;
+    height: 1.6em;
+    text-align: center;
     margin-left: calc(-1 * (0.4em + 1px)); // :rip: puppies
     padding: 0.2em 0.4em;
+    position: relative;
+
+    // hidden inspiration input
+    > input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    :checked + i {
+      color: $default-highlight;
+    }
   }
 }

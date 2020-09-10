@@ -31,7 +31,7 @@
   flex: 0 0 auto;
   height: auto;
 
-  .ability {
+  > li {
     border-radius: $border-radius;
     flex: 1 0 80px; // arbitrary
     border: $groove-border;

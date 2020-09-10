@@ -33,18 +33,25 @@
     }
   }
 
-  input[type='text']:hover,
-  input[type='text']:focus {
-    box-shadow: none;
-    border-color: $default-highlight;
+  input[type='text'] {
+    font-weight: inherit;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      border-color: $default-highlight;
+    }
+  }
+
+  input[type='checkbox'] {
+    width: 1em;
+    height: 1em;
+    flex-basis: 1em;
+    margin: 0;
   }
 
   h4.box-title {
     font-size: 16px;
-  }
-
-  input[type='text'] {
-    font-weight: inherit;
   }
 
   .sheet-main-wrapper {
@@ -58,7 +65,7 @@
 
     display: flex;
     flex-direction: column;
-    flex: 3 100%;
+    flex: 3 75%;
   }
 
   .tag {

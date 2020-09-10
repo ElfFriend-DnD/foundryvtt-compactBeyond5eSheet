@@ -1,10 +1,19 @@
 <aside class="sheet-sidebar traits">
 
-  <div class="proficiency">
+  <div class="fancy-value">
     <h4>{{ localize "DND5E.ProficiencyBonus" }}</h4>
     <div>{{numberFormat data.attributes.prof decimals=0 sign=true}}</div>
   </div>
 
+
+  <div class="fancy-value">
+    <h4>{{ localize "DND5E.Inspiration" }}</h4>
+    <div>
+      <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean"
+        {{checked data.attributes.inspiration}} />
+      <i class="fas fa-sun {{#if data.attributes.inspiration}}active{{/if}}"></i>
+    </div>
+  </div>
 
   {{!-- Skills --}}
   <ul class="skills-list">
