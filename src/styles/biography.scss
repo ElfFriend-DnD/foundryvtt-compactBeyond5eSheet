@@ -2,7 +2,7 @@
 @import './variables';
 
 .biography {
-  @include spaced($space/ 2);
+  @include spaced($space);
 
   h4 {
     font-size: 1em;
@@ -10,7 +10,7 @@
   }
 
   .note-entries {
-    @include spaced-vertical($space / 2);
+    @include spaced-vertical($space);
   }
 
   .left-notes {
@@ -22,15 +22,15 @@
   }
 
   article {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: $space;
     border-radius: $border-radius;
     display: flex;
     flex-direction: column;
     flex: 0 1 auto;
+    padding: $space / 2;
 
     h4 {
       flex: 0 auto;
+      border-bottom: $groove-border;
     }
 
     .editor {
