@@ -3,7 +3,7 @@
 	"title": "Tidy Compact DnDBeyond 5e Character Sheet",
 	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
 	"systems": ["dnd5e"],
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"author": "Andrew Krigline (akrigline)",
 	"scripts": [],
 	"esmodules": [

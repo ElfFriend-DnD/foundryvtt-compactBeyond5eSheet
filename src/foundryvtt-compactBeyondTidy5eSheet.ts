@@ -28,7 +28,7 @@ Handlebars.registerHelper('efcs-isEmpty', (input: Object | Array<any> | Set<any>
   return isObjectEmpty(input);
 });
 
-export class ElfFriendCharacterSheet5e extends ActorSheet5eCharacter {
+export class CompactBeyondTidy5eSheet extends ActorSheet5eCharacter {
   get template() {
     // if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/tidy5e-sheet-ltd.html";
     log(this);
@@ -188,8 +188,8 @@ Hooks.once('ready', function () {
 
 // Add any additional hooks if necessary
 
-// Register Tidy5e Sheet and make default character sheet
-Actors.registerSheet('dnd5e', ElfFriendCharacterSheet5e, {
+// Register compactBeyondTidy5eSheet Sheet
+Actors.registerSheet('dnd5e', CompactBeyondTidy5eSheet, {
   types: ['character'],
-  makeDefault: true,
+  makeDefault: false,
 });
