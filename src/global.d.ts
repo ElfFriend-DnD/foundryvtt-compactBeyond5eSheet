@@ -62,10 +62,10 @@ declare class ActorSheet5eCharacter extends ActorSheet {
 
 /* module specific types */
 
-interface ElfFriendCharacterSheetSheetData extends ActorSheet5eCharacterSheetData {
+interface CompactBeyond5eSheetSheetData extends ActorSheet5eCharacterSheetData {
   actionsData: Record<string, Set<Item5e>>;
 }
 
-declare class ElfFriendCharacterSheet extends ActorSheet5eCharacter {
-  sheetData: ElfFriendCharacterSheetSheetData;
+declare class CompactBeyond5eSheet extends ActorSheet5eCharacter {
+  sheetData: CompactBeyond5eSheetSheetData;
 }

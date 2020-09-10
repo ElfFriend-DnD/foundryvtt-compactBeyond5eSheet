@@ -1,6 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
-  {{> (efcs-path "templates/parts/sheet-header.hbs")}}
+  {{> (cb5es-path "templates/parts/sheet-header.hbs")}}
 
   {{!-- Ability Scores --}}
   <ul class="ability-scores ability-score-row">
@@ -47,7 +47,7 @@
 
 
   <div class="sheet-main-wrapper">
-    {{> (efcs-path "templates/parts/sheet-sidebar.hbs")}}
+    {{> (cb5es-path "templates/parts/sheet-sidebar.hbs")}}
 
 
     <main class="sheet-main">
@@ -103,33 +103,33 @@
             <ol class="inventory-list">
 
               {{!-- Actions --}}
-              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.action label=(localize "DND5E.Action") }}
+              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.action label=(localize "DND5E.Action") }}
 
               {{!-- Bonus Actions --}}
-              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.bonus label=(localize "DND5E.BonusAction") }}
+              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.bonus label=(localize "DND5E.BonusAction") }}
 
               {{!-- Reactions --}}
-              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.reaction label=(localize "DND5E.Reaction") }}
+              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.reaction label=(localize "DND5E.Reaction") }}
 
               {{!-- Special --}}
-              {{> (efcs-path "templates/parts/actor-actions-list.hbs")  items=actionsData.special label=(localize "DND5E.Special") }}
+              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.special label=(localize "DND5E.Special") }}
 
             </ol>
           </div>
 
           {{!-- Spellbook Tab --}}
           <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
-            {{> (efcs-path "templates/parts/actor-spellbook.hbs")}}
+            {{> (cb5es-path "templates/parts/actor-spellbook.hbs")}}
           </div>
 
           {{!-- Inventory Tab --}}
           <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-            {{> (efcs-path "templates/parts/actor-inventory.hbs") sections=inventory}}
+            {{> (cb5es-path "templates/parts/actor-inventory.hbs") sections=inventory}}
           </div>
 
           {{!-- Features Tab --}}
           <div class="tab features flexcol" data-group="primary" data-tab="features">
-            {{> (efcs-path "templates/parts/actor-features.hbs") sections=features}}
+            {{> (cb5es-path "templates/parts/actor-features.hbs") sections=features}}
           </div>
 
           {{!-- Biography Tab --}}

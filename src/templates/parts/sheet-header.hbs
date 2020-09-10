@@ -43,7 +43,7 @@
         <span class="sep">/</span>
         <span class="max">{{data.details.xp.max}}</span>
 
-        <span class="right-label">{{ localize "DND5E.Level" }} {{efcs-add data.details.level 1}}</span>
+        <span class="right-label">{{ localize "DND5E.Level" }} {{cb5es-add data.details.level 1}}</span>
       </div>
     </aside>
     {{/unless}}
@@ -59,7 +59,7 @@
 
       <div class="ac">
         <div class="ac-symbol">
-          {{> (efcs-path "assets/armor-class.hbs")}}
+          {{> (cb5es-path "assets/armor-class.hbs")}}
         </div>
         <h4>Armor</h4>
         <div class="attribute-value">

@@ -6,19 +6,19 @@ import { MODULE_ID, MySettings } from './constants.js';
 //@ts-ignore
 import ActorSheet5eCharacter from '../../systems/dnd5e/module/actor/sheets/character.js';
 
-Handlebars.registerHelper('efcs-path', (relativePath: string) => {
+Handlebars.registerHelper('cb5es-path', (relativePath: string) => {
   return `modules/${MODULE_ID}/${relativePath}`;
 });
 
-Handlebars.registerHelper('efcs-safeVal', (value, fallback) => {
+Handlebars.registerHelper('cb5es-safeVal', (value, fallback) => {
   return new Handlebars.SafeString(value || fallback);
 });
 
-Handlebars.registerHelper('efcs-add', (value: number, toAdd: number) => {
+Handlebars.registerHelper('cb5es-add', (value: number, toAdd: number) => {
   return new Handlebars.SafeString(String(value + toAdd));
 });
 
-Handlebars.registerHelper('efcs-isEmpty', (input: Object | Array<any> | Set<any>) => {
+Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any>) => {
   if (input instanceof Array) {
     return input.length < 1;
   }
@@ -28,7 +28,7 @@ Handlebars.registerHelper('efcs-isEmpty', (input: Object | Array<any> | Set<any>
   return isObjectEmpty(input);
 });
 
-export class CompactBeyondTidy5eSheet extends ActorSheet5eCharacter {
+export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   get template() {
     // if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/tidy5e-sheet-ltd.html";
     log(this);
@@ -39,7 +39,7 @@ export class CompactBeyondTidy5eSheet extends ActorSheet5eCharacter {
     const options = super.defaultOptions;
 
     mergeObject(options, {
-      classes: ['dnd5e', 'sheet', 'actor', 'character', 'efcs'],
+      classes: ['dnd5e', 'sheet', 'actor', 'character', 'cb5es'],
       height: 680,
     });
     return options;
@@ -188,8 +188,8 @@ Hooks.once('ready', function () {
 
 // Add any additional hooks if necessary
 
-// Register compactBeyondTidy5eSheet Sheet
-Actors.registerSheet('dnd5e', CompactBeyondTidy5eSheet, {
+// Register compactBeyond5eSheet Sheet
+Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   types: ['character'],
   makeDefault: false,
 });

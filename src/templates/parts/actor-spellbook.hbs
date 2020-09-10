@@ -8,7 +8,7 @@
     <label>{{localize "DND5E.ItemTypeSpell"}} {{localize "DND5E.Attack"}}</label>
     <span>
       {{#with (lookup data.abilities data.attributes.spellcasting)}}
-      {{numberFormat (efcs-add mod ../data.attributes.prof) decimals=0 sign=true}}
+      {{numberFormat (cb5es-add mod ../data.attributes.prof) decimals=0 sign=true}}
       {{/with}}
     </span>
   </div>

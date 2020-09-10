@@ -1,6 +1,6 @@
 {{!-- props: {items: oneof sheetData.actionsData; label: string;} --}}
 
-{{#unless (efcs-isEmpty items)}}
+{{#unless (cb5es-isEmpty items)}}
 <li class="item inventory-header flexrow">
   <h3 class="item-name flexrow">{{label}}</h3>
 
@@ -33,7 +33,7 @@
 
     <div>
       {{#if (or labels.save labes.toHit)}}
-      <span>{{efcs-safeVal labels.save (numberFormat labels.toHit digits=0 sign=true) }}</span>
+      <span>{{cb5es-safeVal labels.save (numberFormat labels.toHit digits=0 sign=true) }}</span>
       {{/if}}
     </div>
 

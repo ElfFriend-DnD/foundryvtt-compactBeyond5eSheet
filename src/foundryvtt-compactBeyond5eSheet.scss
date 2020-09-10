@@ -1,7 +1,7 @@
 @import './styles/variables.scss';
 
 // ensure our styles take precedence over 5e default
-.dnd5e.sheet.actor.character.efcs {
+.dnd5e.sheet.actor.character.cb5es {
   @import './styles/ability-scores.scss';
   @import './styles/actions.scss';
   @import './styles/attributes.scss';
