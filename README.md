@@ -3,11 +3,11 @@
 Shamlessly taking ideas (and some code) from both the [DnDBeyond character sheet](https://github.com/jopeek/fvtt-dndbeyond-character-sheet) and the [Tidy 5e character sheet](https://github.com/sdenec/tidy5e-sheet). This is an information-dense character sheet for Foundry users who like the feel of D&DBeyond's character sheet, but want it to fit better within the Foundry UI.
 
 ## Gallery
-[<img src="readme-img/main-view.png" width="23%"></img>](readme-img/main-view.png)
-[<img src="readme-img/spellbook.png" width="23%"></img>](readme-img/spellbook.png)
-[<img src="readme-img/inventory.png" width="23%"></img>](readme-img/inventory.png)
-[<img src="readme-img/features.png" width="23%"></img>](readme-img/features.png)
-[<img src="readme-img/biography.png" width="23%"></img>](readme-img/biography.png)
+[<img src="readme-img/main-view.png" width="30%"></img>](readme-img/main-view.png)
+[<img src="readme-img/spellbook.png" width="30%"></img>](readme-img/spellbook.png)
+[<img src="readme-img/inventory.png" width="30%"></img>](readme-img/inventory.png)
+[<img src="readme-img/features.png" width="30%"></img>](readme-img/features.png)
+[<img src="readme-img/biography.png" width="30%"></img>](readme-img/biography.png)
 
 Click to view bigger.
 
