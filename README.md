@@ -1,4 +1,4 @@
-# Compact, Tidy, DnDBeyond-like 5e Character Sheet
+# Compact DnDBeyond-like 5e Character Sheet
 
 ![Latest Release Download Count](https://img.shields.io/badge/dynamic/json?label=Downloads&query=assets%5B1%5D.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2FElfFriend-DnD%2Ffoundryvtt-compactBeyond5eSheet%2Freleases%2Flatest)
 

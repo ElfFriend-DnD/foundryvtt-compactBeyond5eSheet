@@ -31,7 +31,6 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
 export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   get template() {
     // if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/tidy5e-sheet-ltd.html";
-    log(this);
     return `modules/${MODULE_ID}/templates/character-sheet.hbs`;
   }
 
@@ -47,9 +46,6 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 
   getData() {
     const sheetData = super.getData();
-
-    log('sheetData', sheetData);
-    log('actor', this);
 
     // within each activation time, we want to display: Items which do damange, Spells which do damage, Features
     // MUTATED
@@ -84,8 +80,6 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         },
       });
     });
-
-    log('actionsData with weapons', actionsData);
 
     // digest all prepared spells and populate the actionsData appropriate categories
     // MUTATES actionsData
@@ -135,8 +129,6 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       });
     });
 
-    log('actionsData with spells', actionsData);
-
     const activeFeatures = sheetData?.features.find(({ label }) => label.includes('Active')).items || [];
 
     // MUTATES actionsData
@@ -145,8 +137,6 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 
       actionsData[activationType].add(item);
     });
-
-    log('actionsData with features', actionsData);
 
     sheetData.actionsData = actionsData;
 
