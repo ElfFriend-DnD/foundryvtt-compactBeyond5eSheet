@@ -69,6 +69,33 @@
         <h4>Class</h4>
       </div>
 
+      {{#if (lt data.attributes.hp.value 1)}}
+      <div class="attribute death-save-attribute">
+        <h4 class="attribute-name box-title death-save rollable">Death Saves</h4>
+        <div class="attribute-value multiple">
+          <div>
+            <input type="text" name="data.attributes.death.success" data-dtype="Number" placeholder="0"
+              value="{{data.attributes.death.success}}" />
+            <label class="attribute-footer">
+              <i class="fas fa-check"></i></label>
+          </div>
+          <div>
+            <input type="text" name="data.attributes.death.failure" data-dtype="Number" placeholder="0"
+              value="{{data.attributes.death.failure}}" />
+            <label class="attribute-footer">
+              <i class="fas fa-times"></i>
+            </label>
+          </div>
+          <div>
+            <small><input type="text" name="data.attributes.hp.value" data-dtype="Number" placeholder="0"
+                value="{{data.attributes.hp.value}}" /></small>
+            <label class="attribute-footer">
+              <small>Healing</small>
+            </label>
+          </div>
+        </div>
+      </div>
+      {{else}}
       <div class="attribute health">
         <h4 class="attribute-name box-title">{{ localize "DND5E.HitPoints" }}</h4>
         <div class="attribute-value multiple">
@@ -86,6 +113,7 @@
         </footer>
       </div>
     </div>
+    {{/if}}
   </section>
 
 

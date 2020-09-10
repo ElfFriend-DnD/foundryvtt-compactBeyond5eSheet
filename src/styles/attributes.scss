@@ -7,15 +7,22 @@
 }
 
 .attribute {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: auto;
 
   .attribute-value {
     font-size: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 
 .attribute-footer {
   display: flex;
+  align-items: center;
+  min-height: 18px; // arbitrary
   justify-content: space-around;
 
   input {

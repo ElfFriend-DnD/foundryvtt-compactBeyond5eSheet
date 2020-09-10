@@ -32,9 +32,28 @@
     }
   }
 
-  .attribute {
-    &.health {
-      flex: 2;
+  .health {
+    flex: 2;
+  }
+
+  .death-save-attribute {
+    flex: 2;
+    background-color: rgba($default-highlight, 0.1);
+    border-color: $default-highlight;
+
+    .attribute-value {
+      @include spaced($space / 2);
+
+      > * {
+        flex: 2.1; //arbitrary decimal to center failures
+        padding: 0;
+      }
+
+      > :last-child {
+        border-left: 2px groove $default-groove-gray;
+        padding-left: $space / 2;
+        flex: 1 0 15%;
+      }
     }
   }
 }
