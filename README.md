@@ -1,12 +1,14 @@
 # Compact, Tidy, DnDBeyond-like 5e Character Sheet
 
+![Latest Release Download Count](https://img.shields.io/badge/dynamic/json?label=Downloads&query=assets%5B1%5D.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2FElfFriend-DnD%2Ffoundryvtt-compactBeyondTidy5eSheet%2Freleases%2Flatest)
+
 Shamlessly taking ideas (and some code) from both the [DnDBeyond character sheet](https://github.com/jopeek/fvtt-dndbeyond-character-sheet) and the [Tidy 5e character sheet](https://github.com/sdenec/tidy5e-sheet). This is an information-dense character sheet for Foundry users who like the feel of D&DBeyond's character sheet, but want it to fit better within the Foundry UI.
 
 ## Installation
 
 Module JSON:
 ```
-https://github.com/ElfFriend-DnD/foundryvtt-elfFriendCharacterSheet5e/releases/latest/download/module.json
+https://github.com/ElfFriend-DnD/foundryvtt-compactBeyondTidy5eSheet/releases/latest/download/module.json
 ```
 
 ## Gallery
