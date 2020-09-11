@@ -36,7 +36,7 @@ jobs:
 
       # Generate changelog for release body
       - name: Changelog
-        id: changelog
+        id: Changelog
         uses: scottbrenner/generate-changelog-action@master
         env:
           REPO: ${{ github.repository }}
@@ -49,7 +49,7 @@ jobs:
           allowUpdates: true # set this to false if you want to prevent updating existing releases
           name: ${{ steps.get-version.outputs.version }}
           body: |
-            ${{ steps.changelog.outputs.changelog }}
+            ${{ steps.Changelog.outputs.changelog }}
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
