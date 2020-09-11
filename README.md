@@ -48,6 +48,10 @@ This sheet respects the 5e System setting: "Disable Experience Tracking"
 
 I'm honestly not sure how well this will play with modules that affect character sheets, I'll try to test as many as possible but if somethign is obviously breaking please create and issue here and I'll see what I can do.
 
+| **Name**                                                                         | Tested | Notes                                 |
+| -------------------------------------------------------------------------------- | ------ | ------------------------------------- |
+| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus) | [x]    | Resources area scrolls independently. |
+
 ## Acknowledgements
 
 Obviously all of the layout decisions here are pretty directly ripped from D&DBeyond's desktop-sized character sheet. I'm assuming they have done a lot of UX research and am piggy-backing off of that work.

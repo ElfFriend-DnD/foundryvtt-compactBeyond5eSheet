@@ -4,6 +4,17 @@
 .attributes {
   flex: 0 0 auto;
   height: auto;
+
+  display: grid;
+  max-height: 30%;
+  overflow: overlay;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-gap: $space / 2;
+
+  .attribute {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 .attribute {
@@ -31,8 +42,8 @@
 }
 
 .resource {
-  flex: 1 100px;
-  min-width: 100px;
+  // flex: 1 100px;
+  // min-width: 100px;
 
   .attribute-value {
     input {
