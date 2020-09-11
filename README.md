@@ -48,12 +48,16 @@ This sheet respects the 5e System setting: "Disable Experience Tracking"
 
 I'm honestly not sure how well this will play with modules that affect character sheets, I'll try to test as many as possible but if somethign is obviously breaking please create and issue here and I'll see what I can do.
 
-| **Name**                                                                         | Tested |       Works        | Notes                                                                    |
-| -------------------------------------------------------------------------------- | :----: | :----------------: | ------------------------------------------------------------------------ |
-| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus) |  [x]   | :heavy_check_mark: | Resources area scrolls independently. Uses CSS Grid                      |
-| [Variant Encumbrance](https://github.com/VanirDev/VariantEncumbrance)            |  [x]   |        :x:         | Default encumberance bar removed, Speed css overrides will break things. |
-| [FoundryVTT Magic Items](https://gitlab.com/riccisi/foundryvtt-magic-items)      |  [x]   |        :x:         | List appended to the end of Spellbook not appending correctly.           |
-| [D&D5e Dark Mode](https://github.com/Stryxin/dnd5edark-foundryvtt)               |  [x]   | :heavy_check_mark: | Made tweaks to make foundry-wide dark mode "usable."                     |
+| **Name**                                                                                         | Tested |       Works        | Notes                                                                                |
+| ------------------------------------------------------------------------------------------------ | :----: | :----------------: | ------------------------------------------------------------------------------------ |
+| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus)                 |  [x]   | :heavy_check_mark: | Resources area scrolls independently. Uses CSS Grid                                  |
+| [Variant Encumbrance](https://github.com/VanirDev/VariantEncumbrance)                            |  [x]   |        :x:         | Default encumberance bar removed, Speed css overrides will break things.             |
+| [FoundryVTT Magic Items](https://gitlab.com/riccisi/foundryvtt-magic-items)                      |  [x]   |        :x:         | List appended to the end of Spellbook not appending correctly.                       |
+| [D&D5e Dark Mode](https://github.com/Stryxin/dnd5edark-foundryvtt)                               |  [x]   | :heavy_check_mark: | Made tweaks to make foundry-wide dark mode "usable."                                 |
+| [Favourite Item Tab](https://github.com/syl3r86/favtab)                                          |  [x]   | :heavy_check_mark: | Works as expected, a few things on the UI are cramped but definitely usable.         |
+| [Inventory+](https://github.com/syl3r86/inventory-plus)                                          |  [x]   |        :x:         | Big breakage prevented but none of the inventory features work in our Inventory Tab. |
+| [Illandril's Character Sheet Lockdown](https://github.com/illandril/FoundryVTT-sheet5e-lockdown) |  [x]   |        :x:         | Doesn't seem to work with any sheet but the 5e stock sheet.                          |
+| [Crash's 5e Downtime Tracking](https://github.com/crash1115/5e-training)                         |  [x]   | :heavy_check_mark: | Works well in limited space.                                                         |
 
 ## Acknowledgements
 

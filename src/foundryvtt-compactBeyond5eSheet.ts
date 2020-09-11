@@ -56,88 +56,99 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       special: new Set(),
     };
 
-    // digest all weapons equipped populate the actionsData appropriate categories
-    const weapons = sheetData?.inventory.find(({ label }) => label.includes('Weapon'))?.items; // brittle?
+    try {
+      // digest all weapons equipped populate the actionsData appropriate categories
+      const weapons = sheetData?.inventory.find(({ label }) => label.includes('Weapon'))?.items; // brittle?
 
-    const equippedWeapons = weapons.filter(({ data }) => data.equipped) || [];
+      const equippedWeapons = weapons.filter(({ data }) => data.equipped) || [];
 
-    // MUTATES actionsData
-    equippedWeapons.forEach((item) => {
-      const actionType = item.data?.actionType;
-
-      const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
-      const relevantAbilityMod = sheetData.data.abilities[item.data?.ability]?.mod;
-      const prof = sheetData.data.attributes.prof;
-      const toHitLabel = String(Number(actionTypeBonus) + relevantAbilityMod + prof);
-
-      const activationType = getActivationType(item.data?.activation?.type);
-
-      actionsData[activationType].add({
-        ...item,
-        labels: {
-          ...item.labels,
-          toHit: toHitLabel,
-        },
-      });
-    });
-
-    // digest all prepared spells and populate the actionsData appropriate categories
-    // MUTATES actionsData
-    sheetData?.spellbook.forEach(({ spells, label }) => {
-      // if the user only wants cantrips here, no nothing if the label does not include "Cantrip"
-      if (game.settings.get(MODULE_ID, MySettings.limitActionsToCantrips)) {
-        // brittle
-        if (!label.includes('Cantrip')) {
-          return;
-        }
-      }
-
-      const preparedSpells = spells.filter(({ data }) => {
-        if (data?.preparation?.mode === 'always') {
-          return true;
-        }
-        return data?.preparation?.prepared;
-      });
-
-      const reactions = preparedSpells.filter(({ data }) => {
-        return data?.activation?.type === 'reaction';
-      });
-
-      const damageDealers = preparedSpells.filter(({ data }) => {
-        //ASSUMPTION: If the spell causes damage, it will have damageParts
-        return data?.damage?.parts?.length > 0;
-      });
-
-      new Set([...damageDealers, ...reactions]).forEach((spell) => {
-        const actionType = spell.data?.actionType;
+      // MUTATES actionsData
+      equippedWeapons.forEach((item) => {
+        const actionType = item.data?.actionType;
 
         const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
-        const spellcastingMod = sheetData.data.abilities[sheetData.data.attributes.spellcasting]?.mod;
+        const relevantAbilityMod = sheetData.data.abilities[item.data?.ability]?.mod;
         const prof = sheetData.data.attributes.prof;
+        const toHitLabel = String(Number(actionTypeBonus) + relevantAbilityMod + prof);
 
-        const toHitLabel = String(Number(actionTypeBonus) + spellcastingMod + prof);
-
-        const activationType = getActivationType(spell.data?.activation?.type);
+        const activationType = getActivationType(item.data?.activation?.type);
 
         actionsData[activationType].add({
-          ...spell,
+          ...item,
           labels: {
-            ...spell.labels,
+            ...item.labels,
             toHit: toHitLabel,
           },
         });
       });
-    });
+    } catch (e) {
+      log('error trying to digest inventory', e);
+    }
 
-    const activeFeatures = sheetData?.features.find(({ label }) => label.includes('Active')).items || [];
+    try {
+      // digest all prepared spells and populate the actionsData appropriate categories
+      // MUTATES actionsData
+      sheetData?.spellbook.forEach(({ spells, label }) => {
+        // if the user only wants cantrips here, no nothing if the label does not include "Cantrip"
+        if (game.settings.get(MODULE_ID, MySettings.limitActionsToCantrips)) {
+          // brittle
+          if (!label.includes('Cantrip')) {
+            return;
+          }
+        }
 
-    // MUTATES actionsData
-    activeFeatures.forEach((item) => {
-      const activationType = getActivationType(item.data?.activation?.type);
+        const preparedSpells = spells.filter(({ data }) => {
+          if (data?.preparation?.mode === 'always') {
+            return true;
+          }
+          return data?.preparation?.prepared;
+        });
 
-      actionsData[activationType].add(item);
-    });
+        const reactions = preparedSpells.filter(({ data }) => {
+          return data?.activation?.type === 'reaction';
+        });
 
+        const damageDealers = preparedSpells.filter(({ data }) => {
+          //ASSUMPTION: If the spell causes damage, it will have damageParts
+          return data?.damage?.parts?.length > 0;
+        });
+
+        new Set([...damageDealers, ...reactions]).forEach((spell) => {
+          const actionType = spell.data?.actionType;
+
+          const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
+          const spellcastingMod = sheetData.data.abilities[sheetData.data.attributes.spellcasting]?.mod;
+          const prof = sheetData.data.attributes.prof;
+
+          const toHitLabel = String(Number(actionTypeBonus) + spellcastingMod + prof);
+
+          const activationType = getActivationType(spell.data?.activation?.type);
+
+          actionsData[activationType].add({
+            ...spell,
+            labels: {
+              ...spell.labels,
+              toHit: toHitLabel,
+            },
+          });
+        });
+      });
+    } catch (e) {
+      log('error trying to digest spellbook', e);
+    }
+
+    try {
+      const activeFeatures = sheetData?.features.find(({ label }) => label.includes('Active')).items || [];
+
+      // MUTATES actionsData
+      activeFeatures.forEach((item) => {
+        const activationType = getActivationType(item.data?.activation?.type);
+
+        actionsData[activationType].add(item);
+      });
+    } catch (e) {
+      log('error trying to digest features', e);
+    }
     sheetData.actionsData = actionsData;
 
     return sheetData;
