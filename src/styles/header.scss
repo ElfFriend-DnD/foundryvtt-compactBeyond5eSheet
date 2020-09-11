@@ -46,8 +46,8 @@
 
   .death-save-attribute {
     flex: 2;
-    background-color: rgba($default-highlight, 0.1);
-    border-color: $default-highlight;
+    background-color: rgba(var(--highlight), 0.1);
+    border-color: var(--highlight);
 
     .attribute-value {
       @include spaced($space / 2);
@@ -58,7 +58,7 @@
       }
 
       > :last-child {
-        border-left: 2px groove $default-groove-gray;
+        border-left: 2px groove var(--groove-gray);
         padding-left: $space / 2;
         flex: 1 0 15%;
       }
@@ -75,7 +75,7 @@
   text-align: center;
 
   h4 {
-    color: $default-accent-text;
+    color: var(--accent-text);
     font-size: 10px;
     font-weight: 700;
     margin: 0;
@@ -96,7 +96,7 @@
     max-height: 100%;
 
     path {
-      fill: $default-light-gray;
+      fill: var(--light-gray);
     }
   }
 }
@@ -112,15 +112,15 @@
 
   .rest {
     align-items: center;
-    border: 1px solid $default-light-gray;
+    border: 1px solid var(--light-gray);
     border-radius: $border-radius;
     display: inline-flex;
     padding: 0.1em 0.2em;
 
     &:hover,
     &:focus {
-      border-color: $default-highlight;
-      background-color: rgba($default-highlight, 0.1);
+      border-color: var(--highlight);
+      background-color: rgba(var(--highlight), 0.1);
     }
 
     i {
@@ -151,10 +151,10 @@
     height: 2px;
     position: relative;
     margin-bottom: 0;
-    background-color: $default-light-gray;
+    background-color: var(--light-gray);
 
     .bar {
-      background: $default-highlight;
+      background: var(--highlight);
       border: 0;
       height: 2px;
       left: 0;
@@ -200,7 +200,7 @@
   @include spaced(0.2em);
 
   align-items: center;
-  color: $default-accent-text;
+  color: var(--accent-text);
   display: inline-flex;
   flex: 0 auto;
   list-style: none;

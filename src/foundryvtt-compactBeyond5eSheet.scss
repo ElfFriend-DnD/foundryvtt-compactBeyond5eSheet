@@ -2,6 +2,20 @@
 
 // ensure our styles take precedence over 5e default
 .dnd5e.sheet.actor.character.cb5es {
+  --accent-text: #4b4a44;
+  --color: #191813;
+  --groove-gray: #eeede0;
+  --highlight: #c53131;
+  --light-gray: #b5b3a4;
+
+  .dark-mode & {
+    --accent-text: #a0a0a0;
+    --color: #b5b5b5;
+    --groove-gray: #5e5e5e;
+    --highlight: #3f88e6;
+    --light-gray: #5e5e5e;
+  }
+
   @import './styles/ability-scores.scss';
   @import './styles/actions.scss';
   @import './styles/attributes.scss';
@@ -39,7 +53,7 @@
     &:hover,
     &:focus {
       box-shadow: none;
-      border-color: $default-highlight;
+      border-color: var(--highlight);
     }
   }
 
@@ -77,7 +91,7 @@
     flex: 0 1 auto;
 
     &.active {
-      background: $default-highlight;
+      background: var(--highlight);
       color: white;
     }
   }
@@ -132,20 +146,20 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: $default-light-gray;
-    border-color: $default-light-gray;
+    background: var(--light-gray);
+    border-color: var(--light-gray);
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: $default-highlight;
-    border-color: $default-highlight;
+    background: var(--highlight);
+    border-color: var(--highlight);
   }
 
   /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */
 
   .attribute {
-    border: 2px groove #eeede0;
+    border: 2px groove var(--groove-gray);
     border-radius: 4px;
     text-align: center;
   }

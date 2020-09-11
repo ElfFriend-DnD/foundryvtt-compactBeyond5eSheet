@@ -48,9 +48,12 @@ This sheet respects the 5e System setting: "Disable Experience Tracking"
 
 I'm honestly not sure how well this will play with modules that affect character sheets, I'll try to test as many as possible but if somethign is obviously breaking please create and issue here and I'll see what I can do.
 
-| **Name**                                                                         | Tested | Notes                                 |
-| -------------------------------------------------------------------------------- | ------ | ------------------------------------- |
-| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus) | [x]    | Resources area scrolls independently. |
+| **Name**                                                                         | Tested |       Works        | Notes                                                                    |
+| -------------------------------------------------------------------------------- | :----: | :----------------: | ------------------------------------------------------------------------ |
+| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus) |  [x]   | :heavy_check_mark: | Resources area scrolls independently. Uses CSS Grid                      |
+| [Variant Encumbrance](https://github.com/VanirDev/VariantEncumbrance)            |  [x]   |        :x:         | Default encumberance bar removed, Speed css overrides will break things. |
+| [FoundryVTT Magic Items](https://gitlab.com/riccisi/foundryvtt-magic-items)      |  [x]   |        :x:         | List appended to the end of Spellbook not appending correctly.           |
+| [D&D5e Dark Mode](https://github.com/Stryxin/dnd5edark-foundryvtt)               |  [x]   | :heavy_check_mark: | Made tweaks to make foundry-wide dark mode "usable."                     |
 
 ## Acknowledgements
 

@@ -19,7 +19,7 @@
   text-transform: uppercase;
 
   .item {
-    color: $default-accent-text;
+    color: var(--accent-text);
     flex: 0 auto;
     height: auto;
     line-height: normal;
@@ -38,8 +38,8 @@
 
     &.active {
       border-bottom-width: 2px;
-      color: $default-color;
-      border-bottom-color: $default-highlight;
+      color: inherit;
+      border-bottom-color: var(--highlight);
     }
   }
 }
@@ -51,7 +51,7 @@
 }
 
 .filter-item {
-  border-bottom: 1px groove $default-groove-gray;
+  border-bottom: 1px groove var(--groove-gray);
   display: flex;
   align-content: center;
 }

@@ -76,6 +76,6 @@
 .encumberance {
   .encumbered {
     font-weight: 700;
-    color: $default-highlight;
+    color: var(--highlight);
   }
 }

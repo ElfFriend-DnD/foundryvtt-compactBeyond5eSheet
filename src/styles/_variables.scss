@@ -5,7 +5,7 @@ $default-groove-gray: #eeede0;
 $default-accent-text: #4b4a44;
 $default-color: #191813;
 
-$groove-border: 2px groove $default-groove-gray;
+$groove-border: 2px groove var(--groove-gray);
 $border-radius: 4px;
 
 $space: 10px;
