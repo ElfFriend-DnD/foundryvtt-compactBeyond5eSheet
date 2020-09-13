@@ -3,7 +3,7 @@
 	"title": "Compact DnDBeyond 5e Character Sheet",
 	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
 	"systems": ["dnd5e"],
-	"version": "0.6.1",
+	"version": "0.6.2",
 	"author": "Andrew Krigline (akrigline)",
 	"scripts": [],
 	"esmodules": [

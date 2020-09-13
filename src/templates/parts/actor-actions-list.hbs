@@ -32,8 +32,12 @@
     </div>
 
     <div>
-      {{#if (or labels.save labes.toHit)}}
-      <span>{{cb5es-safeVal labels.save (numberFormat labels.toHit digits=0 sign=true) }}</span>
+      {{#if (or labels.save labels.toHit)}}
+      {{#unless (eq labels.save "")}}
+      <span>{{labels.save}}</span>
+      {{else}}
+      <span>{{numberFormat labels.toHit digits=0 sign=true}}</span>
+      {{/unless}}
       {{/if}}
     </div>
 
