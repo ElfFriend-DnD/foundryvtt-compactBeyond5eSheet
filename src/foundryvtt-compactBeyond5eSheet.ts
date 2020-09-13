@@ -1,6 +1,6 @@
 // Import TypeScript modules
 import { registerSettings } from './module/settings.js';
-import { log, getActivationType } from './helpers';
+import { log, getActivationType, getWeaponRelevantAbility } from './helpers';
 import { preloadTemplates } from './module/preloadTemplates.js';
 import { MODULE_ID, MySettings } from './constants.js';
 //@ts-ignore
@@ -64,12 +64,17 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 
       // MUTATES actionsData
       equippedWeapons.forEach((item) => {
-        const actionType = item.data?.actionType;
+        const attackBonus = item.data?.attackBonus;
+        // FIXME this has to be set by the user, perhaps we can infer from the `actor.traits.weaponProf`
+        const prof = item.data?.proficient ? sheetData.data.attributes.prof : 0;
 
-        const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
-        const relevantAbilityMod = sheetData.data.abilities[item.data?.ability]?.mod;
-        const prof = sheetData.data.attributes.prof;
-        const toHitLabel = String(Number(actionTypeBonus) + relevantAbilityMod + prof);
+        const actionType = item.data?.actionType;
+        const actionTypeBonus = Number(sheetData.data.bonuses?.[actionType]?.attack || 0);
+
+        const relevantAbility = getWeaponRelevantAbility(item.data, sheetData.data);
+        const relevantAbilityMod = sheetData.data.abilities[relevantAbility]?.mod;
+
+        const toHit = actionTypeBonus + relevantAbilityMod + attackBonus + prof;
 
         const activationType = getActivationType(item.data?.activation?.type);
 
@@ -77,7 +82,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
           ...item,
           labels: {
             ...item.labels,
-            toHit: toHitLabel,
+            toHit: String(toHit),
           },
         });
       });

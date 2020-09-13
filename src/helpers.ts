@@ -15,3 +15,44 @@ export function getActivationType(activationType?: string) {
       return 'special';
   }
 }
+
+export function getWeaponRelevantAbility(
+  itemData: ItemData5e,
+  actorData: ActorSheet5eCharacterSheetDataType
+): keyof ActorSheet5eCharacterSheetDataType['abilities'] {
+  console.log('gettingAbility', { itemData, actorData });
+
+  if (!('ability' in itemData)) {
+    return null;
+  }
+
+  const { ability, weaponType, properties } = itemData;
+
+  // Case 1 - defined directly by the itemData
+  if (ability) {
+    return ability;
+  }
+
+  // Case 2 - inferred from actorData
+  if (actorData) {
+    // Melee weapons - Str or Dex if Finesse (PHB pg. 147)
+    if (['simpleM', 'martialM'].includes(weaponType)) {
+      if (properties.fin === true) {
+        // Finesse weapons
+        return actorData.abilities['dex'].mod >= actorData.abilities['str'].mod ? 'dex' : 'str';
+      }
+
+      return 'str';
+    }
+
+    // Ranged weapons - Dex (PH p.194)
+    if (['simpleR', 'martialR'].includes(weaponType)) {
+      return 'dex';
+    }
+
+    return 'str';
+  }
+
+  // Default null
+  return null;
+}

@@ -14,6 +14,10 @@ interface ItemData5e extends ItemData {
   };
   ability?: 'str' | 'dex' | 'con' | 'int' | 'wis' | 'cha';
   actionType?: 'mwak' | 'rwak' | 'rsak' | 'msak' | 'save';
+  properties?: {
+    fin?: boolean;
+  };
+  weaponType?: 'simpleM' | 'martialM' | 'simpleR' | 'martialR' | 'natural' | 'improv' | 'siege';
 }
 
 interface Item5e extends Item<ItemData5e> {

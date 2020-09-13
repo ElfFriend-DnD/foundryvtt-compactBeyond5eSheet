@@ -48,16 +48,23 @@ This sheet respects the 5e System setting: "Disable Experience Tracking"
 
 I'm honestly not sure how well this will play with modules that affect character sheets, I'll try to test as many as possible but if somethign is obviously breaking please create and issue here and I'll see what I can do.
 
-| **Name**                                                                                         |       Works        | Notes                                                                                |
-| ------------------------------------------------------------------------------------------------ | :----------------: | ------------------------------------------------------------------------------------ |
-| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus)                 | :heavy_check_mark: | Resources area scrolls independently. Uses CSS Grid                                  |
-| [Variant Encumbrance](https://github.com/VanirDev/VariantEncumbrance)                            |        :x:         | Default encumberance bar removed, Speed css overrides will break things.             |
-| [FoundryVTT Magic Items](https://gitlab.com/riccisi/foundryvtt-magic-items)                      |        :x:         | List appended to the end of Spellbook not appending correctly.                       |
-| [D&D5e Dark Mode](https://github.com/Stryxin/dnd5edark-foundryvtt)                               | :heavy_check_mark: | Made tweaks to make foundry-wide dark mode "usable."                                 |
-| [Favourite Item Tab](https://github.com/syl3r86/favtab)                                          | :heavy_check_mark: | Works as expected, a few things on the UI are cramped but definitely usable.         |
-| [Inventory+](https://github.com/syl3r86/inventory-plus)                                          |        :x:         | Big breakage prevented but none of the inventory features work in our Inventory Tab. |
-| [Illandril's Character Sheet Lockdown](https://github.com/illandril/FoundryVTT-sheet5e-lockdown) |        :x:         | Doesn't seem to work with any sheet but the 5e stock sheet.                          |
-| [Crash's 5e Downtime Tracking](https://github.com/crash1115/5e-training)                         | :heavy_check_mark: | Works well in limited space.                                                         |
+| **Name**                                                                                         |       Works        | Notes                                                                                                                            |
+| ------------------------------------------------------------------------------------------------ | :----------------: | -------------------------------------------------------------------------------------------------------------------------------- |
+| [Better Rolls 5e](https://github.com/RedReign/FoundryVTT-BetterRolls5e)                          |        :x:         | Have not integrated yet, in progress. See [Issue #2](https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues/2). |
+| [Minor QOL](https://gitlab.com/tposney/minor-qol)                                                |        :x:         | Have not integrated yet, in progress. See [Issue #1](https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues/1). |
+| [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus)                 | :heavy_check_mark: | Resources area scrolls independently. Uses CSS Grid                                                                              |
+| [Variant Encumbrance](https://github.com/VanirDev/VariantEncumbrance)                            |        :x:         | Default encumberance bar removed, Speed css overrides will break things.                                                         |
+| [FoundryVTT Magic Items](https://gitlab.com/riccisi/foundryvtt-magic-items)                      |        :x:         | List appended to the end of Spellbook not appending correctly.                                                                   |
+| [D&D5e Dark Mode](https://github.com/Stryxin/dnd5edark-foundryvtt)                               | :heavy_check_mark: | Made tweaks to make foundry-wide dark mode "usable."                                                                             |
+| [Favourite Item Tab](https://github.com/syl3r86/favtab)                                          | :heavy_check_mark: | Works as expected, a few things on the UI are cramped but definitely usable.                                                     |
+| [Inventory+](https://github.com/syl3r86/inventory-plus)                                          |        :x:         | Big breakage prevented but none of the inventory features work in our Inventory Tab.                                             |
+| [Illandril's Character Sheet Lockdown](https://github.com/illandril/FoundryVTT-sheet5e-lockdown) |        :x:         | Doesn't seem to work with any sheet but the 5e stock sheet.                                                                      |
+| [Crash's 5e Downtime Tracking](https://github.com/crash1115/5e-training)                         | :heavy_check_mark: | Works well in limited space.                                                                                                     |
+
+
+## Known Issues
+- The To Hit/Save DC column is probably going to respond poorly to unconventional weapon builds. Stuff like the Hexblade or Bladesinger. See [Issue #4](https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues/4).
+
 
 ## Acknowledgements
 
