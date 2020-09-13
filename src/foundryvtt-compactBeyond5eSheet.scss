@@ -110,6 +110,28 @@
     }
   }
 
+  /* Support Better Rolls / Minor QOL buttons on item summaries */
+  .item-properties .item-buttons {
+    @include spaced(0.2em);
+
+    display: flex;
+    font-size: 1em;
+    margin-bottom: $space / 2;
+    width: 100%;
+
+    .tag {
+      background-color: var(--light-gray);
+      font-size: inherit;
+    }
+
+    button {
+      background: none;
+      border: 0;
+      font-size: inherit;
+      line-height: normal;
+    }
+  }
+
   /* complicated flex layout to allow tab areas to be scrollable */
   /* instrumental: https://stackoverflow.com/questions/52487743/prevent-flex-item-from-exceeding-parent-height-and-make-scroll-bar-work */
 
