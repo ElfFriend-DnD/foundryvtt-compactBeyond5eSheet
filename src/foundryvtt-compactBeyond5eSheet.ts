@@ -185,17 +185,22 @@ Hooks.once('setup', function () {
   // ready
 });
 
-/* ------------------------------------ */
-/* When ready							*/
-/* ------------------------------------ */
-Hooks.once('ready', function () {
-  // Do anything once the module is ready
-});
-
-// Add any additional hooks if necessary
-
 // Register compactBeyond5eSheet Sheet
 Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   types: ['character'],
   makeDefault: false,
 });
+
+/* ------------------------------------ */
+/* When ready							*/
+/* ------------------------------------ */
+Hooks.once('ready', function () {
+  // register this sheet with BetterRolls
+  //@ts-ignore
+  if (window.BetterRolls) {
+    //@ts-ignore
+    window.BetterRolls.hooks.addActorSheet('CompactBeyond5eSheet');
+  }
+});
+
+// Add any additional hooks if necessary
