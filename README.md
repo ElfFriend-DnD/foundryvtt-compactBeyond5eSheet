@@ -77,7 +77,3 @@ Bootstrapped with Nick East's [create-foundry-project](https://gitlab.com/foundr
 
 Mad props to the [League of Extraordinary FoundryVTT Developers](https://forums.forge-vtt.com/c/package-development/11) community which helped me figure out a lot.
 
-## License
-This Foundry VTT module, written by Andrew Krigline, is licensed under a Creative Commons Attribution 4.0 International License.
-
-This work is licensed under Foundry Virtual Tabletop EULA - Limited License Agreement for module development v 0.1.6.
