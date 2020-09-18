@@ -208,4 +208,12 @@ Hooks.once('ready', function () {
   }
 });
 
+Hooks.on(`renderCompactBeyond5eSheet`, (app, html, data) => {
+  //@ts-ignore
+  if (window.MagicItems.hooks) {
+    //@ts-ignore
+    window.MagicItems.hooks.MagicItemSheet.bind(app, html, data);
+  }
+});
+
 // Add any additional hooks if necessary
