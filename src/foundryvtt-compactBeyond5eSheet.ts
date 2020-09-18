@@ -30,7 +30,11 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
 
 export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   get template() {
-    // if ( !game.user.isGM && this.actor.limited ) return "modules/tidy5e-sheet/templates/tidy5e-sheet-ltd.html";
+    //@ts-ignore
+    if (!game.user.isGM && this.actor.limited) {
+      return `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`;
+    }
+
     return `modules/${MODULE_ID}/templates/character-sheet.hbs`;
   }
 
@@ -41,6 +45,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       classes: ['dnd5e', 'sheet', 'actor', 'character', 'cb5es'],
       height: 680,
     });
+
     return options;
   }
 
