@@ -209,3 +209,17 @@ Hooks.once('ready', function () {
 });
 
 // Add any additional hooks if necessary
+
+Hooks.on(`renderCompactBeyond5eSheet`, (app, html, data) => {
+  //@ts-ignore
+  if (window.MinorQOL?.hooks) {
+    //@ts-ignore
+    const enableSheetQOL = window.MinorQOL.hooks.enableSheetQOLConstructor(
+      '.item .item-image',
+      '.item .item-image',
+      '.item-properties'
+    );
+
+    enableSheetQOL(app, html, data);
+  }
+});
