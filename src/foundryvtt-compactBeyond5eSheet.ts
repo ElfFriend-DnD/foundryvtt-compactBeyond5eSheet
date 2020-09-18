@@ -210,9 +210,9 @@ Hooks.once('ready', function () {
 
 Hooks.on(`renderCompactBeyond5eSheet`, (app, html, data) => {
   //@ts-ignore
-  if (window.MagicItems.hooks) {
+  if (window.MagicItems?.bindCharacterSheet) {
     //@ts-ignore
-    window.MagicItems.hooks.MagicItemSheet.bind(app, html, data);
+    window.MagicItems.bindCharacterSheet(app, html, data);
   }
 });
 
