@@ -77,7 +77,7 @@
       // name column is always first
       &:not(:first-child) {
         font-size: 12px;
-        color: #7a7971;
+        color: var(--tertiary-text);
         text-align: center;
         display: flex;
         place-content: center;
@@ -120,5 +120,9 @@
     &:not(:last-of-type) {
       margin-bottom: 1em;
     }
+  }
+
+  .item-detail {
+    color: var(--tertiary-text);
   }
 }
