@@ -1,6 +1,7 @@
 # Compact DnDBeyond-like 5e Character Sheet
 
 ![Latest Release Download Count](https://img.shields.io/badge/dynamic/json?label=Downloads@latest&query=assets%5B1%5D.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2FElfFriend-DnD%2Ffoundryvtt-compactBeyond5eSheet%2Freleases%2Flatest)
+[![ko-fi](https://img.shields.io/badge/-buy%20me%20a%20coke-%23FF5E5B)](https://ko-fi.com/elffriend)
 
 Shamlessly taking ideas (and some code) from both the [DnDBeyond character sheet](https://github.com/jopeek/fvtt-dndbeyond-character-sheet) and the [Tidy 5e character sheet](https://github.com/sdenec/tidy5e-sheet). This is an information-dense character sheet for Foundry users who like the feel of D&DBeyond's character sheet, but want it to fit better within the Foundry UI.
 
@@ -52,7 +53,7 @@ I'm honestly not sure how well this will play with modules that affect character
 | ------------------------------------------------------------------------------------------------ | :----------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Better Rolls 5e](https://github.com/RedReign/FoundryVTT-BetterRolls5e)                          | :heavy_check_mark: | Integrated, all tabs seem to be working properly.                                                                                                        |
 | [Midi-QOL](https://gitlab.com/tposney/midi-qol)                                                  | :heavy_check_mark: | At first glance everything seems normal.                                                                                                                 |
-| [Minor QOL](https://gitlab.com/tposney/minor-qol)                                                |        :x:         | Have not integrated yet, in progress. See [Issue #1](https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues/1).                         |
+| [Minor QOL](https://gitlab.com/tposney/minor-qol)                                                |        :x:         | Deprecated in favor of Midi-QOL. Won't Support.                                                                                                          |
 | [5e-Sheet Resources Plus](https://github.com/ardittristan/5eSheet-resourcesPlus)                 | :heavy_check_mark: | Resources area scrolls independently. Uses CSS Grid                                                                                                      |
 | [Variant Encumbrance](https://github.com/VanirDev/VariantEncumbrance)                            |        :x:         | Default encumberance bar removed, Speed css overrides will break things.                                                                                 |
 | [FoundryVTT Magic Items](https://gitlab.com/riccisi/foundryvtt-magic-items)                      |        :x:         | List appended to the end of Spellbook not appending correctly. See [Issue #6](https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues/6) |
