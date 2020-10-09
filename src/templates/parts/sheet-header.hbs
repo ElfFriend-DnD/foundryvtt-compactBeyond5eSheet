@@ -71,7 +71,7 @@
 
       {{#if (lt data.attributes.hp.value 1)}}
       <div class="attribute death-save-attribute">
-        <h4 class="attribute-name box-title death-save rollable">Death Saves</h4>
+        <h4 class="attribute-name box-title death-save rollable">{{localize 'DND5E.DeathSave'}}</h4>
         <div class="attribute-value multiple">
           <div>
             <input type="text" name="data.attributes.death.success" data-dtype="Number" placeholder="0"
@@ -90,7 +90,7 @@
             <small><input type="text" name="data.attributes.hp.value" data-dtype="Number" placeholder="0"
                 value="{{data.attributes.hp.value}}" /></small>
             <label class="attribute-footer">
-              <small>Healing</small>
+              <small>{{localize 'DND5E.ActionHeal'}}</small>
             </label>
           </div>
         </div>

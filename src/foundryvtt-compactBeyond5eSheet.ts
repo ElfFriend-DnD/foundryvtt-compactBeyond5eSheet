@@ -92,7 +92,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         });
       });
     } catch (e) {
-      log('error trying to digest inventory', e);
+      log(true, 'error trying to digest inventory', e);
     }
 
     try {
@@ -144,7 +144,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         });
       });
     } catch (e) {
-      log('error trying to digest spellbook', e);
+      log(true, 'error trying to digest spellbook', e);
     }
 
     try {
@@ -157,9 +157,19 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         actionsData[activationType].add(item);
       });
     } catch (e) {
-      log('error trying to digest features', e);
+      log(true, 'error trying to digest features', e);
     }
     sheetData.actionsData = actionsData;
+
+    // if description is populated and appearance isn't use description as appearance
+    try {
+      log(false, sheetData);
+      if (!!sheetData.data.details.description.value && !sheetData.data.details.appearance) {
+        sheetData.data.details.appearance = sheetData.data.details.description.value;
+      }
+    } catch (e) {
+      log(true, 'error trying to migrate description to appearance', e);
+    }
 
     return sheetData;
   }
@@ -169,7 +179,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 /* Initialize module					*/
 /* ------------------------------------ */
 Hooks.once('init', async function () {
-  log(`Initializing ${MODULE_ID}`);
+  log(true, `Initializing ${MODULE_ID}`);
 
   // Assign custom classes and constants here
 
@@ -182,14 +192,6 @@ Hooks.once('init', async function () {
   // Register custom sheets (if any)
 });
 
-/* ------------------------------------ */
-/* Setup module							*/
-/* ------------------------------------ */
-Hooks.once('setup', function () {
-  // Do anything after initialization but before
-  // ready
-});
-
 // Register compactBeyond5eSheet Sheet
 Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   types: ['character'],
@@ -200,11 +202,15 @@ Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
 /* When ready							*/
 /* ------------------------------------ */
 Hooks.once('ready', function () {
-  // register this sheet with BetterRolls
-  //@ts-ignore
-  if (window.BetterRolls) {
+  // Remove when 0.7.x is stable
+  if (!isNewerVersion(game.data.version, '0.7.0')) {
+    // register this sheet with BetterRolls
+
     //@ts-ignore
-    window.BetterRolls.hooks.addActorSheet('CompactBeyond5eSheet');
+    if (window.BetterRolls) {
+      //@ts-ignore
+      window.BetterRolls.hooks.addActorSheet('CompactBeyond5eSheet');
+    }
   }
 });
 

@@ -1,8 +1,7 @@
 {
-  "CB5ES.Traits": "Traits",
-  "CB5ES.Ideals": "Ideals",
-  "CB5ES.Bonds": "Bonds",
-  "CB5ES.Flaws": "Flaws",
-  "CB5ES.Appearance": "Appearance",
-  "CB5ES.Background": "Background/Biography"
+  "CB5ES.HitDC": "Hit / DC",
+  "CB5ES.WeightCarried": "Weight Carried",
+
+  "CB5ES.limitActionsToCantrips": "Limit Actions to Cantrips",
+  "CB5ES.limitActionsToCantripsHint": "Instead of showing all spells that deal damage in the Actions tab, limit it to only cantrips. This is the default D&DBeyond behavior."
 }

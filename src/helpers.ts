@@ -1,7 +1,9 @@
 import { MODULE_ID } from './constants';
 
-export function log(...args) {
-  console.log(MODULE_ID, '|', ...args);
+export function log(force: boolean, ...args) {
+  if (force || CONFIG[MODULE_ID].debug === true) {
+    console.log(MODULE_ID, '|', ...args);
+  }
 }
 
 export function getActivationType(activationType?: string) {
@@ -20,8 +22,6 @@ export function getWeaponRelevantAbility(
   itemData: ItemData5e,
   actorData: ActorSheet5eCharacterSheetDataType
 ): keyof ActorSheet5eCharacterSheetDataType['abilities'] {
-  console.log('gettingAbility', { itemData, actorData });
-
   if (!('ability' in itemData)) {
     return null;
   }
