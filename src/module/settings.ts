@@ -1,7 +1,7 @@
 import { MySettings, MODULE_ID } from '../constants';
 
 export const registerSettings = function () {
-  CONFIG[MODULE_ID] = { debug: true };
+  CONFIG[MODULE_ID] = { debug: false };
 
   // Register any custom module settings here
   game.settings.register(MODULE_ID, MySettings.limitActionsToCantrips, {
