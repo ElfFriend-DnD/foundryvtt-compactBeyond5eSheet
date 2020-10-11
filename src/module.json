@@ -1,25 +1,29 @@
 {
-  "name": "compact-beyond-5e-sheet",
-  "title": "Compact DnDBeyond 5e Character Sheet",
-  "description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
-  "systems": ["dnd5e"],
-  "version": "0.6.9",
-  "author": "Andrew Krigline (akrigline)",
-  "esmodules": ["foundryvtt-compactBeyond5eSheet.js"],
-  "styles": ["foundryvtt-compactBeyond5eSheet.css"],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.7.3",
-  "bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
-  "changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
-  "download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.zip",
-  "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
-  "readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
-  "url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet"
+	"name": "compact-beyond-5e-sheet",
+	"title": "Compact DnDBeyond 5e Character Sheet",
+	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
+	"systems": ["dnd5e"],
+	"version": "0.6.10",
+	"author": "Andrew Krigline (akrigline)",
+	"esmodules": [
+		"foundryvtt-compactBeyond5eSheet.js"
+	],
+	"styles": [
+		"foundryvtt-compactBeyond5eSheet.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"minimumCoreVersion": "0.6.0",
+	"compatibleCoreVersion": "0.7.3",
+	"bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
+	"changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
+	"download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.zip",
+	"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
+	"readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
+	"url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet"
 }
