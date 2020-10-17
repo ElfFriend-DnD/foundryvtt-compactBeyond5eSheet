@@ -71,15 +71,7 @@
         padding: 0;
       }
 
-      // .tox-icon {
-      //   svg {
-      //     width: auto;
-      //     height: 2em;
-      //   }
-      // }
-
       .tox-tbtn {
-        // font-size: inherit;
         height: 2em;
 
         &:not(.tox-tbtn--select) {
@@ -90,10 +82,6 @@
       .tox-sidebar-wrap {
         min-height: 5em;
         flex: 1 1 5em;
-      }
-
-      .tox-edit-area {
-        // min-height: 5em;
       }
     }
   }
