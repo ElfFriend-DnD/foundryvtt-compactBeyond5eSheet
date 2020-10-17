@@ -5,18 +5,21 @@
   // use the active whetstone global theme if there is one
   --accent-text: var(--Whetstone-fg-secondary, #4b4a44);
   --color: var(--Whetstone-fg-primary, #191813);
+  --accent-gray: var(--Whetstone-border-primary-darker, #c9c7b8);
   --groove-gray: var(--Whetstone-border-primary, #eeede0);
   --highlight: var(--Whetstone-text-highlight, #c53131);
   --light-gray: var(--Whetstone-border-secondary, #b5b3a4);
   --tertiary-text: var(--Whetstone-fg-tertiary-half, #7a7971);
 
-  // .dark-mode & {
-  //   --accent-text: #a0a0a0;
-  //   --color: #b5b5b5;
-  //   --groove-gray: #5e5e5e;
-  //   --highlight: #3f88e6;
-  //   --light-gray: #5e5e5e;
-  // }
+  .dark-mode & {
+    --accent-text: var(--Whetstone-fg-secondary, #a0a0a0);
+    --color: var(--Whetstone-fg-primary, #b5b5b5);
+    --accent-gray: var(--Whetstone-border-primary-darker, #666666);
+    --groove-gray: var(--Whetstone-border-primary, #5e5e5e);
+    --highlight: var(--Whetstone-text-highlight, #3f88e6);
+    --light-gray: var(--Whetstone-border-secondary, #5e5e5e);
+    --tertiary-text: var(--Whetstone-fg-tertiary-half, #7a7971);
+  }
 
   @import './styles/ability-scores.scss';
   @import './styles/actions.scss';
@@ -159,7 +162,8 @@
   /* More Overrides for Whetstone Support */
   .proficient .proficiency-toggle,
   .traits i.fas,
-  .inventory-list .item-controls .item-toggle.active {
+  .inventory-list .item-controls .item-toggle.active,
+  .inventory-list .item .item-name {
     color: var(--color);
   }
 
@@ -174,8 +178,10 @@
   }
 
   h4.box-title,
-  .ability-modifiers > span {
-    border-color: var(--groove-gray) !important;
+  .ability-modifiers > span,
+  .inventory-list .item,
+  .inventory-list .item > * {
+    border-color: var(--accent-gray) !important;
   }
 
   /* Scrollbars */
