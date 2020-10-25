@@ -164,8 +164,8 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
     // if description is populated and appearance isn't use description as appearance
     try {
       log(false, sheetData);
-      if (!!sheetData.data.details.description.value && !sheetData.data.details.appearance) {
-        sheetData.data.details.appearance = sheetData.data.details.description.value;
+      if (!!sheetData.data.details.description?.value && !sheetData.data.details.appearance) {
+        sheetData.data.details.appearance = sheetData.data.details.description?.value;
       }
     } catch (e) {
       log(true, 'error trying to migrate description to appearance', e);

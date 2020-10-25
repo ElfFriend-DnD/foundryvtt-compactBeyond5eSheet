@@ -33,7 +33,7 @@
 
     <div>
       {{#if (or labels.save labels.toHit)}}
-      {{#unless (eq labels.save "")}}
+      {{#unless (or (eq labels.save "") (eq labels.save undefined))}}
       <span>{{labels.save}}</span>
       {{else}}
       <span>{{numberFormat labels.toHit digits=0 sign=true}}</span>
