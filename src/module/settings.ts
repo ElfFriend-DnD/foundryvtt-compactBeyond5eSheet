@@ -12,4 +12,12 @@ export const registerSettings = function () {
     config: true,
     hint: 'CB5ES.limitActionsToCantripsHint',
   });
+  game.settings.register(MODULE_ID, MySettings.expandedLimited, {
+    name: 'CB5ES.expandedLimited',
+    default: false,
+    type: Boolean,
+    scope: 'world',
+    config: true,
+    hint: 'CB5ES.expandedLimitedHint',
+  });
 };

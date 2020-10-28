@@ -31,7 +31,7 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
 export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   get template() {
     //@ts-ignore
-    if (!game.user.isGM && this.actor.limited) {
+    if (!game.user.isGM && this.actor.limited && !game.settings.get(MODULE_ID, MySettings.expandedLimited)) {
       return `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`;
     }
 
