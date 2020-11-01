@@ -64,6 +64,7 @@ I'm honestly not sure how well this will play with modules that affect character
 | [Inventory+](https://github.com/syl3r86/inventory-plus)                                          |      :shrug:       | Inventory Tab Features interfere with how we generate the Actions Tab. If Inventory+ is on, the actions tab will not display items. |
 | [Illandril's Character Sheet Lockdown](https://github.com/illandril/FoundryVTT-sheet5e-lockdown) | :heavy_check_mark: | As of 0.7.x this sheet is appropriately affected.                                                                                   |
 | [Crash's 5e Downtime Tracking](https://github.com/crash1115/5e-training)                         | :heavy_check_mark: | Works well in limited space.                                                                                                        |
+| [Ethck's 5e Downtime Tracking](https://github.com/Ethck/Ethck-s-Downtime-Tracking)               | :heavy_check_mark: | Works well in limited space.                                                                                                        |
 | [Skill Customization for D&D5E](https://github.com/schultzcole/FVTT-Skill-Customization-5e)      | :heavy_check_mark: | user might want to expand their sheet horizontally a little to accommodate the needed extra space.                                  |
 
 ## Known Issues
