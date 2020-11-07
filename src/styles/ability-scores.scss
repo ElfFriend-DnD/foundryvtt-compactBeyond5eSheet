@@ -3,7 +3,11 @@
 
 .ability-scores {
   .ability {
+    display: flex;
+    flex-direction: column;
     height: auto;
+    justify-content: space-between;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -35,5 +39,32 @@
     border-radius: $border-radius;
     flex: 1 0 80px; // arbitrary
     border: $groove-border;
+    position: relative;
+  }
+}
+
+.movement {
+  overflow: hidden;
+
+  &:hover {
+    .configure-movement {
+      visibility: visible;
+    }
+  }
+
+  .configure-movement {
+    visibility: hidden;
+    position: absolute;
+    top: $space / 2;
+    right: 2px;
+    font-size: 12px; // arbitrary
+  }
+
+  .movement-primary {
+    @include truncate;
+  }
+
+  .movement-special {
+    @include truncate;
   }
 }
