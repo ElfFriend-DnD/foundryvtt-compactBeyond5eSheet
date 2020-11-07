@@ -20,4 +20,6 @@
 
 .spell-comps {
   @include spaced(0.2em);
+
+  justify-content: flex-end;
 }

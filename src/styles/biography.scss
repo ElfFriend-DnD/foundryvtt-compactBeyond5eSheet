@@ -3,6 +3,7 @@
 
 .biography {
   @include spaced($space);
+  max-width: unset;
 
   h4 {
     font-size: 1em;
