@@ -116,6 +116,7 @@
     border-bottom: $groove-border;
 
     .item-name {
+      @include truncate;
       cursor: unset;
     }
   }

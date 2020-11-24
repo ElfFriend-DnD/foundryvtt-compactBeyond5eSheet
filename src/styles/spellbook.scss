@@ -23,3 +23,7 @@
 
   justify-content: flex-end;
 }
+
+.magic-items-spells-content:not(:first-child) {
+  margin-top: 1em;
+}
