@@ -59,20 +59,15 @@
               placeholder="{{res.placeholder}}" />
           </h4>
           <div class="attribute-value">
-
+            <label class="recharge checkbox">
+              {{ localize "DND5E.AbbreviationSR" }} <input name="data.resources.{{res.name}}.sr" type="checkbox"
+                {{checked res.sr}} />
+            </label>
             <input name="data.resources.{{res.name}}.value" type="text" value="{{res.value}}" data-dtype="Number"
               placeholder="0" />
             <span class="sep"> / </span>
             <input name="data.resources.{{res.name}}.max" type="text" value="{{res.max}}" data-dtype="Number"
               placeholder="0" />
-
-          </div>
-          <div class="attribute-footer">
-            <label class="recharge checkbox">
-              {{ localize "DND5E.AbbreviationSR" }} <input name="data.resources.{{res.name}}.sr" type="checkbox"
-                {{checked res.sr}} />
-            </label>
-
             <label class="recharge checkbox">
               {{ localize "DND5E.AbbreviationLR" }} <input name="data.resources.{{res.name}}.lr" type="checkbox"
                 {{checked res.lr}} />

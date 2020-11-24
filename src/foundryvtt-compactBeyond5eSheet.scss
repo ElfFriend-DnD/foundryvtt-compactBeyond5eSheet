@@ -80,7 +80,7 @@
   }
 
   .sheet-main {
-    @include spaced-vertical($space);
+    @include spaced-vertical($space / 2);
 
     display: flex;
     flex-direction: column;
