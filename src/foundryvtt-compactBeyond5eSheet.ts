@@ -194,8 +194,9 @@ Hooks.once('init', async function () {
 
 // Register compactBeyond5eSheet Sheet
 Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
-  types: ['character'],
+  label: 'Compact D&D Beyond-like',
   makeDefault: false,
+  types: ['character'],
 });
 
 /* ------------------------------------ */

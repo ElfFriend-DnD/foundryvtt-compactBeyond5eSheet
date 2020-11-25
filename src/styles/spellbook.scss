@@ -27,3 +27,14 @@
 .magic-items-spells-content:not(:first-child) {
   margin-top: 1em;
 }
+
+.spellbook {
+  .item {
+    &.alwaysPrepared {
+      background-color: var(--spellbook-active);
+    }
+    &.prepared {
+      background-color: var(--spellbook-active);
+    }
+  }
+}
