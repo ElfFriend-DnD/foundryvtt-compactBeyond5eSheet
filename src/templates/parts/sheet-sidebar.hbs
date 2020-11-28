@@ -18,16 +18,30 @@
   {{!-- Skills --}}
   <ul class="skills-list">
     {{#each data.skills as |skill s|}}
-    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}">
+    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}"
+      title="{{localize "DND5E.Passive"}}: {{skill.passive}}">
       <input type="hidden" name="data.skills.{{s}}.value" value="{{skill.value}}" data-dtype="Number" />
       <a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
       <span class="skill-ability">{{skill.ability}}</span>
       <h4 class="skill-name rollable">{{skill.label}}</h4>
       <span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
-      <!-- <span class="skill-passive">({{skill.passive}})</span> -->
     </li>
     {{/each}}
   </ul>
+
+  {{#each settings.compact-beyond-5e-sheet.passiveDisplay as |bool s|}}
+  {{#if bool}}
+  {{#with (getProperty ../data.skills s)}}
+  <div class="fancy-value">
+    <h4>{{ localize "DND5E.Passive" }} {{label}}</h4>
+    <div>
+      {{numberFormat passive decimals=0 sign=false}}
+    </div>
+  </div>
+  {{/with}}
+  {{/if}}
+  {{/each}}
+
 
   {{> (cb5es-path "templates/parts/actor-traits.hbs")}}
 

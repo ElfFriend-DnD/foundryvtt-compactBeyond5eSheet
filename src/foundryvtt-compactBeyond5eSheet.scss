@@ -37,6 +37,8 @@
 
   .window-content {
     box-sizing: border-box;
+    color: var(--color);
+
     padding: (
       $space / 2
     ); //  ($space / 2 + $scrollbar-width) ($space / 2) ($space / 2); // scrollbar width taken into account

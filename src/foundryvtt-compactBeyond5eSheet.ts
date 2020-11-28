@@ -171,6 +171,22 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       log(true, 'error trying to migrate description to appearance', e);
     }
 
+    try {
+      sheetData.settings = {
+        ...sheetData.settings,
+        [MODULE_ID]: {
+          passiveDisplay: {
+            per: game.settings.get(MODULE_ID, MySettings.displayPassivePerception),
+            ins: game.settings.get(MODULE_ID, MySettings.displayPassiveInsight),
+            inv: game.settings.get(MODULE_ID, MySettings.displayPassiveInvestigation),
+            ste: game.settings.get(MODULE_ID, MySettings.displayPassiveStealth),
+          },
+        },
+      };
+    } catch (e) {
+      log(true, 'error trying to populate sheet settings', e);
+    }
+
     return sheetData;
   }
 }
