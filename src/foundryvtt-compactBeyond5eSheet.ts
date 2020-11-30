@@ -123,7 +123,16 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
           return data?.damage?.parts?.length > 0;
         });
 
-        new Set([...damageDealers, ...reactions]).forEach((spell) => {
+        const includeOneMinutes = game.settings.get(MODULE_ID, MySettings.includeOneMinuteSpells);
+        const oneMinuters = preparedSpells.filter(({ data }) => {
+          return (
+            (data?.activation?.type === 'action' || data?.activation?.type === 'bonus') &&
+            data?.duration?.units === 'minute' &&
+            data?.duration?.value === 1
+          );
+        });
+
+        new Set([...damageDealers, ...reactions, ...(includeOneMinutes ? oneMinuters : [])]).forEach((spell) => {
           const actionType = spell.data?.actionType;
 
           const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
@@ -176,7 +185,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         ...sheetData.settings,
         [MODULE_ID]: {
           passiveDisplay: {
-            per: game.settings.get(MODULE_ID, MySettings.displayPassivePerception),
+            prc: game.settings.get(MODULE_ID, MySettings.displayPassivePerception),
             ins: game.settings.get(MODULE_ID, MySettings.displayPassiveInsight),
             inv: game.settings.get(MODULE_ID, MySettings.displayPassiveInvestigation),
             ste: game.settings.get(MODULE_ID, MySettings.displayPassiveStealth),

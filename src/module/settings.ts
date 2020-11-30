@@ -20,9 +20,17 @@ export const registerSettings = function () {
     config: true,
     hint: 'CB5ES.settings.expandedLimited.Hint',
   });
+  game.settings.register(MODULE_ID, MySettings.includeOneMinuteSpells, {
+    name: 'CB5ES.settings.includeOneMinuteSpells.Label',
+    default: false,
+    type: Boolean,
+    scope: 'world',
+    config: true,
+    hint: 'CB5ES.settings.includeOneMinuteSpells.Hint',
+  });
 
   game.settings.register(MODULE_ID, MySettings.displayPassivePerception, {
-    name: 'CB5ES.settings.displayPassives.per.Label',
+    name: 'CB5ES.settings.displayPassives.prc.Label',
     default: false,
     type: Boolean,
     scope: 'world',

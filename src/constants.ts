@@ -7,4 +7,5 @@ export enum MySettings {
   displayPassiveInsight = 'display-passive-ins',
   displayPassiveInvestigation = 'display-passive-inv',
   displayPassiveStealth = 'display-passive-ste',
+  includeOneMinuteSpells = 'include-one-minute-spells',
 }

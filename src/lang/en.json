@@ -5,7 +5,7 @@
 
     "settings": {
       "displayPassives": {
-        "per": {
+        "prc": {
           "Label": "Show Passive Perception"
         },
         "ins": {
@@ -25,6 +25,10 @@
       "expandedLimited": {
         "Label": "Use Expanded Sheet as Limited",
         "Hint": "Show the full character sheet for users who have the Limited permission for a given Actor."
+      },
+      "includeOneMinuteSpells": {
+        "Label": "Include Minute-long Spells as Actions",
+        "Hint": "Include spells with a duration of one minute and an activation time of 1 Action or 1 Bonus Action in the Actions tab."
       }
     }
   }
