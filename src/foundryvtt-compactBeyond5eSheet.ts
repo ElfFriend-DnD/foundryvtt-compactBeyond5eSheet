@@ -108,9 +108,15 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         }
 
         const preparedSpells = spells.filter(({ data }) => {
+          // always count cantrips
+          if (data?.level === 0) {
+            return true;
+          }
+
           if (data?.preparation?.mode === 'always') {
             return true;
           }
+
           return data?.preparation?.prepared;
         });
 
