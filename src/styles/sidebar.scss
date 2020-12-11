@@ -49,6 +49,13 @@ ul.skills-list {
   em {
     flex: 1 100%;
   }
+
+  .config-button,
+  .trait-selector {
+    padding: 2px 0;
+    color: var(--color);
+    font-size: 10px;
+  }
 }
 
 .fancy-value {
