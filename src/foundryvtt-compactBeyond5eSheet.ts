@@ -46,6 +46,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 
     mergeObject(options, {
       classes: ['dnd5e', 'sheet', 'actor', 'character', 'cb5es'],
+      scrollY: [...options.scrollY, '.sheet-sidebar'],
       height: 680,
     });
 
