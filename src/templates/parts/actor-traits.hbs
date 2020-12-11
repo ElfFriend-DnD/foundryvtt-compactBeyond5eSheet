@@ -32,7 +32,7 @@
   <div class="form-group {{#if (and (eq data.traits.senses '') (cb5es-isEmpty senses))}}inactive{{/if}}">
     <label>{{localize "DND5E.Senses"}}</label>
     {{#if senses}}
-    <a class="config-button" data-action="senses" title="{{localize 'DND5E.MovementConfig'}}">
+    <a class="config-button" data-action="senses" title="{{localize 'DND5E.SensesConfig'}}">
       <i class="fas fa-edit"></i>
     </a>
     {{> possiblyNoneList list=senses}}
