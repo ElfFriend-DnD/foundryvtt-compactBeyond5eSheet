@@ -84,7 +84,8 @@
         <h4>
           {{item.name~}}
           {{~#if item.isStack}} ({{item.data.quantity}}){{/if}}
-          {{~#if item.data.attuned}} <i class="fas fa-sun attuned" title={{localize "DND5E.Attuned"}}></i>{{/if}}
+          {{~#if (or item.data.attuned (eq data.attunement 2))}} <i class="fas fa-sun attuned"
+            title={{localize "DND5E.Attuned"}}></i>{{/if}}
         </h4>
         {{/if}}
       </div>
