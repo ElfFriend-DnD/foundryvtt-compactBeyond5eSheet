@@ -3,7 +3,7 @@
 	"title": "Compact DnDBeyond 5e Character Sheet",
 	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
 	"systems": ["dnd5e"],
-	"version": "0.11.3",
+	"version": "0.11.4",
 	"author": "Andrew Krigline (akrigline)",
 	"esmodules": [
 		"foundryvtt-compactBeyond5eSheet.js"
@@ -45,11 +45,11 @@
 		}
 	],
 	"minimumCoreVersion": "0.7.6",
-	"compatibleCoreVersion": "0.7.8",
+	"compatibleCoreVersion": "0.7.9",
 	"minimumSystemVersion": 0.99,
 	"bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
 	"changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
-	"download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.11.3/module.zip",
+	"download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.11.4/module.zip",
 	"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
 	"readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
 	"url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet"
