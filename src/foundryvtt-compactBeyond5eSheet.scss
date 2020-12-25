@@ -145,7 +145,8 @@
   /* instrumental: https://stackoverflow.com/questions/52487743/prevent-flex-item-from-exceeding-parent-height-and-make-scroll-bar-work */
 
   .sheet-sidebar {
-    overflow: overlay;
+    overflow: auto;
+    scrollbar-width: thin;
     padding-right: $scrollbar-width;
   }
 
