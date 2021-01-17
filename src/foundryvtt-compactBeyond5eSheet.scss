@@ -11,6 +11,7 @@
   --light-gray: var(--Whetstone-border-secondary, #b5b3a4);
   --tertiary-text: var(--Whetstone-fg-tertiary-half, #7a7971);
   --spellbook-active: var(--Whetstone-accent-primary-half, #d200ff1a);
+  --spellbook-always-active: var(--Whetstone-accent-secondary-half, #0084ff1a);
 
   .dark-mode & {
     --accent-text: var(--Whetstone-fg-secondary, #a0a0a0);
@@ -21,6 +22,7 @@
     --light-gray: var(--Whetstone-border-secondary, #5e5e5e);
     --tertiary-text: var(--Whetstone-fg-tertiary-half, #7a7971);
     --spellbook-active: var(--Whetstone-accent-primary-half, #d200ff1a);
+    --spellbook-always-active: var(--Whetstone-accent-secondary-half, #0084ff1a);
   }
 
   @import './styles/ability-scores.scss';

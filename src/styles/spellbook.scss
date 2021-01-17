@@ -30,11 +30,11 @@
 
 .spellbook {
   .item {
-    &.alwaysPrepared {
-      background-color: var(--spellbook-active);
-    }
     &.prepared {
       background-color: var(--spellbook-active);
+    }
+    &.alwaysPrepared {
+      background-color: var(--spellbook-always-active);
     }
   }
 }
