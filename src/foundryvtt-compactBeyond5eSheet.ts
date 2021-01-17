@@ -73,27 +73,9 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 
       // MUTATES actionsData
       equippedWeapons.forEach((item) => {
-        const attackBonus = item.data?.attackBonus;
-        // FIXME this has to be set by the user, perhaps we can infer from the `actor.traits.weaponProf`
-        const prof = item.data?.proficient ? sheetData.data.attributes.prof : 0;
-
-        const actionType = item.data?.actionType;
-        const actionTypeBonus = Number(sheetData.data.bonuses?.[actionType]?.attack || 0);
-
-        const relevantAbility = getWeaponRelevantAbility(item.data, sheetData.data);
-        const relevantAbilityMod = sheetData.data.abilities[relevantAbility]?.mod;
-
-        const toHit = actionTypeBonus + relevantAbilityMod + attackBonus + prof;
-
         const activationType = getActivationType(item.data?.activation?.type);
 
-        actionsData[activationType].add({
-          ...item,
-          labels: {
-            ...item.labels,
-            toHit: String(toHit),
-          },
-        });
+        actionsData[activationType].add(item);
       });
     } catch (e) {
       log(true, 'error trying to digest inventory', e);
@@ -143,23 +125,9 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
         });
 
         new Set([...damageDealers, ...reactions, ...(includeOneMinutes ? oneMinuters : [])]).forEach((spell) => {
-          const actionType = spell.data?.actionType;
-
-          const actionTypeBonus = String(sheetData.data.bonuses?.[actionType]?.attack || 0);
-          const spellcastingMod = sheetData.data.abilities[sheetData.data.attributes.spellcasting]?.mod;
-          const prof = sheetData.data.attributes.prof;
-
-          const toHitLabel = String(Number(actionTypeBonus) + spellcastingMod + prof);
-
           const activationType = getActivationType(spell.data?.activation?.type);
 
-          actionsData[activationType].add({
-            ...spell,
-            labels: {
-              ...spell.labels,
-              toHit: toHitLabel,
-            },
-          });
+          actionsData[activationType].add(spell);
         });
       });
     } catch (e) {
