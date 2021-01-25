@@ -9,7 +9,8 @@
     {
       "name": "character-actions-list-5e",
       "type": "module",
-      "versionMin": "1.0.0"
+      "versionMin": "1.0.0",
+      "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-dnd5eCharacterActions/releases/latest/download/module.json"
     }
   ],
   "esmodules": ["foundryvtt-compactBeyond5eSheet.js"],
