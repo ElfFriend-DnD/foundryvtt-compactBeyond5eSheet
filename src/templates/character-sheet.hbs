@@ -92,24 +92,8 @@
 
         {{!-- NPC Sheet Body --}}
         <section class="sheet-body">
-
-          {{!-- Actions Tab --}}
           <div class="tab actions flexcol" data-group="primary" data-tab="actions">{{!-- Actions --}}
-            <ol class="inventory-list items-list">
-
-              {{!-- Actions --}}
-              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.action label=(localize "DND5E.Action") }}
-
-              {{!-- Bonus Actions --}}
-              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.bonus label=(localize "DND5E.BonusAction") }}
-
-              {{!-- Reactions --}}
-              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.reaction label=(localize "DND5E.Reaction") }}
-
-              {{!-- Special --}}
-              {{> (cb5es-path "templates/parts/actor-actions-list.hbs")  items=actionsData.special label=(localize "DND5E.Special") }}
-
-            </ol>
+            <h3>You don't seem to have the module "Character Actions List dnd5e" Active</h3>
           </div>
 
           {{!-- Spellbook Tab --}}
@@ -129,7 +113,7 @@
 
           {{!-- Effects Tab --}}
           <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-            {{>  "systems/dnd5e/templates/actors/parts/active-effects.html"}}
+            {{> "systems/dnd5e/templates/actors/parts/active-effects.html"}}
           </div>
 
           {{!-- Biography Tab --}}
@@ -137,19 +121,23 @@
             <div class="left-notes note-entries flexcol">
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.PersonalityTraits" }}</h4>
-                {{editor content=data.details.trait target="data.details.trait" button=true owner=owner editable=editable}}
+                {{editor content=data.details.trait target="data.details.trait" button=true owner=owner
+                editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Ideals" }}</h4>
-                {{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner editable=editable}}
+                {{editor content=data.details.ideal target="data.details.ideal" button=true owner=owner
+                editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Bonds" }}</h4>
-                {{editor content=data.details.bond target="data.details.bond" button=true owner=owner editable=editable}}
+                {{editor content=data.details.bond target="data.details.bond" button=true owner=owner
+                editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Flaws" }}</h4>
-                {{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner editable=editable}}
+                {{editor content=data.details.flaw target="data.details.flaw" button=true owner=owner
+                editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Alignment" }}</h4>
@@ -162,11 +150,13 @@
             <div class="right-notes note-entries flexcol">
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Appearance" }}</h4>
-                {{editor content=data.details.appearance target="data.details.appearance" button=true owner=owner editable=editable}}
+                {{editor content=data.details.appearance target="data.details.appearance" button=true owner=owner
+                editable=editable}}
               </article>
               <article class="biography-notes big-bio">
                 <h4 class="section-titles">{{ localize "DND5E.Background" }}/{{ localize "DND5E.Biography" }}</h4>
-                {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+                {{editor content=data.details.biography.value target="data.details.biography.value" button=true
+                owner=owner editable=editable}}
               </article>
             </div>
 
