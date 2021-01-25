@@ -1,6 +1,5 @@
 {
   "CB5ES": {
-    "HitDC": "Hit / DC",
     "WeightCarried": "Weight Carried",
 
     "settings": {
@@ -18,17 +17,9 @@
           "Label": "Show Passive Stealth"
         }
       },
-      "limitActionsToCantrips": {
-        "Label": "Limit Actions to Cantrips",
-        "Hint": "Instead of showing all spells that deal damage in the Actions tab, limit it to only cantrips. This is the default D&DBeyond behavior."
-      },
       "expandedLimited": {
         "Label": "Use Expanded Sheet as Limited",
         "Hint": "Show the full character sheet for users who have the Limited permission for a given Actor."
-      },
-      "includeOneMinuteSpells": {
-        "Label": "Include Minute-long Spells as Actions",
-        "Hint": "Include spells with a duration of one minute and an activation time of 1 Action or 1 Bonus Action in the Actions tab."
       }
     }
   }
