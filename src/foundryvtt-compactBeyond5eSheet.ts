@@ -53,100 +53,22 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
     return options;
   }
 
+  async activateListeners(html) {
+    try {
+      const actionsTab = html.find('.actions');
+
+      //@ts-ignore
+      const actionsTabHtml = $(await CAL5E.renderActionsList(this.actor, this.appId));
+      actionsTab.html(actionsTabHtml);
+    } catch (e) {
+      log(true, e);
+    }
+
+    super.activateListeners(html);
+  }
+
   getData() {
     const sheetData = super.getData();
-
-    // within each activation time, we want to display: Items which do damange, Spells which do damage, Features
-    // MUTATED
-    const actionsData: Record<string, Set<Item5e>> = {
-      action: new Set(),
-      bonus: new Set(),
-      reaction: new Set(),
-      special: new Set(),
-    };
-
-    try {
-      // digest all weapons equipped populate the actionsData appropriate categories
-      const weapons = sheetData?.inventory.find(({ label }) => label.includes('Weapon'))?.items; // brittle?
-
-      const equippedWeapons = weapons.filter(({ data }) => data.equipped) || [];
-
-      // MUTATES actionsData
-      equippedWeapons.forEach((item) => {
-        const activationType = getActivationType(item.data?.activation?.type);
-
-        actionsData[activationType].add(item);
-      });
-    } catch (e) {
-      log(true, 'error trying to digest inventory', e);
-    }
-
-    try {
-      // digest all prepared spells and populate the actionsData appropriate categories
-      // MUTATES actionsData
-      sheetData?.spellbook.forEach(({ spells, label }) => {
-        // if the user only wants cantrips here, no nothing if the label does not include "Cantrip"
-        if (game.settings.get(MODULE_ID, MySettings.limitActionsToCantrips)) {
-          // brittle
-          if (!label.includes('Cantrip')) {
-            return;
-          }
-        }
-
-        const preparedSpells = spells.filter(({ data }) => {
-          // always count cantrips
-          if (data?.level === 0) {
-            return true;
-          }
-
-          if (data?.preparation?.mode === 'always') {
-            return true;
-          }
-
-          return data?.preparation?.prepared;
-        });
-
-        const reactions = preparedSpells.filter(({ data }) => {
-          return data?.activation?.type === 'reaction';
-        });
-
-        const damageDealers = preparedSpells.filter(({ data }) => {
-          //ASSUMPTION: If the spell causes damage, it will have damageParts
-          return data?.damage?.parts?.length > 0;
-        });
-
-        const includeOneMinutes = game.settings.get(MODULE_ID, MySettings.includeOneMinuteSpells);
-        const oneMinuters = preparedSpells.filter(({ data }) => {
-          return (
-            (data?.activation?.type === 'action' || data?.activation?.type === 'bonus') &&
-            data?.duration?.units === 'minute' &&
-            data?.duration?.value === 1
-          );
-        });
-
-        new Set([...damageDealers, ...reactions, ...(includeOneMinutes ? oneMinuters : [])]).forEach((spell) => {
-          const activationType = getActivationType(spell.data?.activation?.type);
-
-          actionsData[activationType].add(spell);
-        });
-      });
-    } catch (e) {
-      log(true, 'error trying to digest spellbook', e);
-    }
-
-    try {
-      const activeFeatures = sheetData?.features.find(({ label }) => label.includes('Active')).items || [];
-
-      // MUTATES actionsData
-      activeFeatures.forEach((item) => {
-        const activationType = getActivationType(item.data?.activation?.type);
-
-        actionsData[activationType].add(item);
-      });
-    } catch (e) {
-      log(true, 'error trying to digest features', e);
-    }
-    sheetData.actionsData = actionsData;
 
     // if description is populated and appearance isn't use description as appearance
     try {
@@ -201,21 +123,3 @@ Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   makeDefault: false,
   types: ['character'],
 });
-
-/* ------------------------------------ */
-/* When ready							*/
-/* ------------------------------------ */
-Hooks.once('ready', function () {
-  // Remove when 0.7.x is stable
-  if (!isNewerVersion(game.data.version, '0.7.0')) {
-    // register this sheet with BetterRolls
-
-    //@ts-ignore
-    if (window.BetterRolls) {
-      //@ts-ignore
-      window.BetterRolls.hooks.addActorSheet('CompactBeyond5eSheet');
-    }
-  }
-});
-
-// Add any additional hooks if necessary
