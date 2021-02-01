@@ -123,21 +123,3 @@ Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   makeDefault: false,
   types: ['character'],
 });
-
-/* ------------------------------------ */
-/* When ready							*/
-/* ------------------------------------ */
-Hooks.once('ready', function () {
-  // Remove when 0.7.x is stable
-  if (!isNewerVersion(game.data.version, '0.7.0')) {
-    // register this sheet with BetterRolls
-
-    //@ts-ignore
-    if (window.BetterRolls) {
-      //@ts-ignore
-      window.BetterRolls.hooks.addActorSheet('CompactBeyond5eSheet');
-    }
-  }
-});
-
-// Add any additional hooks if necessary
