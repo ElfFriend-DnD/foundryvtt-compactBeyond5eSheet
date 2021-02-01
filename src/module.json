@@ -1,60 +1,64 @@
 {
-  "name": "compact-beyond-5e-sheet",
-  "title": "Compact DnDBeyond 5e Character Sheet",
-  "description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
-  "systems": ["dnd5e"],
-  "version": "0.13.0",
-  "author": "Andrew Krigline (akrigline)",
-  "dependencies": [
-    {
-      "name": "character-actions-list-5e",
-      "type": "module",
-      "versionMin": "1.0.0",
-      "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-dnd5eCharacterActions/releases/latest/download/module.json"
-    }
-  ],
-  "esmodules": ["foundryvtt-compactBeyond5eSheet.js"],
-  "styles": ["foundryvtt-compactBeyond5eSheet.css"],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "media": [
-    {
-      "type": "cover",
-      "link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/cover-image.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/main-view.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/inventory.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/spellbook.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/features.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/biography.png"
-    }
-  ],
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.7.9",
-  "minimumSystemVersion": "1.2.1",
-  "bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
-  "changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
-  "download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.13.0/module.zip",
-  "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
-  "readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
-  "url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet"
+	"name": "compact-beyond-5e-sheet",
+	"title": "Compact DnDBeyond 5e Character Sheet",
+	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
+	"systems": ["dnd5e"],
+	"version": "0.13.1",
+	"author": "Andrew Krigline (akrigline)",
+	"dependencies": [
+		{
+			"name": "character-actions-list-5e",
+			"type": "module",
+			"versionMin": "1.0.0",
+			"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-dnd5eCharacterActions/releases/latest/download/module.json"
+		}
+	],
+	"esmodules": [
+		"foundryvtt-compactBeyond5eSheet.js"
+	],
+	"styles": [
+		"foundryvtt-compactBeyond5eSheet.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"media": [
+		{
+			"type": "cover",
+			"link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/cover-image.png"
+		},
+		{
+			"type": "screenshot",
+			"link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/main-view.png"
+		},
+		{
+			"type": "screenshot",
+			"link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/inventory.png"
+		},
+		{
+			"type": "screenshot",
+			"link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/spellbook.png"
+		},
+		{
+			"type": "screenshot",
+			"link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/features.png"
+		},
+		{
+			"type": "screenshot",
+			"link": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/biography.png"
+		}
+	],
+	"minimumCoreVersion": "0.7.9",
+	"compatibleCoreVersion": "0.7.9",
+	"minimumSystemVersion": "1.2.1",
+	"bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
+	"changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
+	"download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.13.1/module.zip",
+	"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
+	"readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
+	"url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet"
 }
