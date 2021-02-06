@@ -1,6 +1,6 @@
 // Import TypeScript modules
 import { registerSettings } from './module/settings.js';
-import { log, getActivationType, getWeaponRelevantAbility } from './helpers';
+import { log } from './helpers';
 import { preloadTemplates } from './module/preloadTemplates.js';
 import { MODULE_ID, MySettings } from './constants.js';
 //@ts-ignore
@@ -53,18 +53,20 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
     return options;
   }
 
-  async activateListeners(html) {
+  async _renderInner(...args) {
+    const html = await super._renderInner(...args);
+
     try {
       const actionsTab = html.find('.actions');
 
       //@ts-ignore
-      const actionsTabHtml = $(await CAL5E.renderActionsList(this.actor, this.appId));
+      const actionsTabHtml = $(await CAL5E.renderActionsList(this.actor));
       actionsTab.html(actionsTabHtml);
     } catch (e) {
       log(true, e);
     }
 
-    super.activateListeners(html);
+    return html;
   }
 
   getData() {
