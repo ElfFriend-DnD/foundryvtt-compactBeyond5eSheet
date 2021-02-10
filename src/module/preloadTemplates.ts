@@ -5,7 +5,6 @@ export const preloadTemplates = async function () {
     `modules/${MODULE_ID}/assets/armor-class.hbs`,
     `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`,
     `modules/${MODULE_ID}/templates/character-sheet.hbs`,
-    `modules/${MODULE_ID}/templates/parts/actor-actions-list.hbs`,
     `modules/${MODULE_ID}/templates/parts/actor-features.hbs`,
     `modules/${MODULE_ID}/templates/parts/actor-inventory.hbs`,
     `modules/${MODULE_ID}/templates/parts/actor-spellbook.hbs`,
