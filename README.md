@@ -46,12 +46,10 @@ Got rid of the spell school to make room for the more compressed table area. I c
 
 ## Options
 
-| **Name**                                  | Description                                                                                                                              |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Limit Actions to Cantrips**             | Instead of showing all spells that deal damage in the Actions tab, limit it to only cantrips. This is the default D&DBeyond behavior.    |
-| **Include Minute-long Spells as Actions** | Include spells with a duration of one minute and an activation time of 1 Action or 1 Bonus Action in the Actions tab (e.g. Bless, Bane). |
-| **Use Expanded Sheet as Limited**         | Uses the expanded sheet for the limited view.                                                                                            |
-| **Show Passive {Skill}**                  | Displays a dedicated fancy box below the skills list with the skill's passive score within.                                              |
+| **Name**                          | Description                                                                                 |
+| --------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Use Expanded Sheet as Limited** | Uses the expanded sheet for the limited view.                                               |
+| **Show Passive {Skill}**          | Displays a dedicated fancy box below the skills list with the skill's passive score within. |
 
 This sheet respects the 5e System setting: "Disable Experience Tracking"
 
