@@ -69,5 +69,6 @@
 	"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
 	"readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
 	"url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet",
-	"allowBugReporter": true
+	"allowBugReporter": true,
+	"manifestPlusVersion": "1.0.0"
 }
