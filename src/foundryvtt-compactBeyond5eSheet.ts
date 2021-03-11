@@ -125,3 +125,7 @@ Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   makeDefault: false,
   types: ['character'],
 });
+
+Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
+  registerPackageDebugFlag(MODULE_ID);
+});
