@@ -3,7 +3,6 @@ import { registerSettings } from './module/settings.js';
 import { log } from './helpers';
 import { preloadTemplates } from './module/preloadTemplates.js';
 import { MODULE_ID, MySettings } from './constants.js';
-//@ts-ignore
 import ActorSheet5eCharacter from '../../systems/dnd5e/module/actor/sheets/character.js';
 
 Handlebars.registerHelper('cb5es-path', (relativePath: string) => {
@@ -33,7 +32,6 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
 
 export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   get template() {
-    //@ts-ignore
     if (!game.user.isGM && this.actor.limited && !game.settings.get(MODULE_ID, MySettings.expandedLimited)) {
       return `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`;
     }
@@ -41,27 +39,26 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
     return `modules/${MODULE_ID}/templates/character-sheet.hbs`;
   }
 
-  static get defaultOptions(): FormApplicationOptions {
+  static get defaultOptions() {
     const options = super.defaultOptions;
 
     mergeObject(options, {
       classes: ['dnd5e', 'sheet', 'actor', 'character', 'cb5es'],
       scrollY: [...options.scrollY, '.sheet-sidebar'],
       height: 680,
-    });
+    } as BaseEntitySheet.Options);
 
     return options;
   }
 
-  async _renderInner(...args) {
+  async _renderInner(...args: Parameters<ActorSheet5eCharacter['_renderInner']>) {
     const html = await super._renderInner(...args);
     const actionsListApi = game.modules.get('character-actions-list-5e')?.api;
 
     try {
       const actionsTab = html.find('.actions');
 
-      //@ts-ignore
-      const actionsTabHtml = $(await actionsListApi?.renderActionsList(this.actor));
+      const actionsTabHtml = (await actionsListApi?.renderActionsList(this.actor)) as string;
       actionsTab.html(actionsTabHtml);
     } catch (e) {
       log(true, e);
@@ -73,18 +70,10 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   getData() {
     const sheetData = super.getData();
 
-    // if description is populated and appearance isn't use description as appearance
     try {
-      log(false, sheetData);
-      if (!!sheetData.data.details.description?.value && !sheetData.data.details.appearance) {
-        sheetData.data.details.appearance = sheetData.data.details.description?.value;
-      }
-    } catch (e) {
-      log(true, 'error trying to migrate description to appearance', e);
-    }
-
-    try {
+      //@ts-ignore
       sheetData.settings = {
+        //@ts-ignore
         ...sheetData.settings,
         [MODULE_ID]: {
           passiveDisplay: {
@@ -116,8 +105,6 @@ Hooks.once('init', async function () {
 
   // Preload Handlebars templates
   await preloadTemplates();
-
-  // Register custom sheets (if any)
 });
 
 // Register compactBeyond5eSheet Sheet
