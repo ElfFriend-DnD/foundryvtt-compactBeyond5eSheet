@@ -104,6 +104,7 @@
 .header-actions {
   @include spaced($space / 2);
 
+  align-items: center;
   display: flex;
   margin-top: auto;
   justify-content: flex-start;

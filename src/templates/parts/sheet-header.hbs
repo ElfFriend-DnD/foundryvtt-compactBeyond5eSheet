@@ -17,8 +17,8 @@
       <li>
         <input type="text" name="data.details.race" value="{{data.details.race}}"
           placeholder="{{ localize 'DND5E.Race' }}" />
-        <span
-          class="hidden">{{#if data.details.race}}{{data.details.race}}{{else}}{{ localize 'DND5E.Race' }}{{/if}}</span>
+        <span class="hidden">{{#if data.details.race}}{{data.details.race}}{{else}}{{ localize 'DND5E.Race'
+          }}{{/if}}</span>
       </li>
       <li><span class="non-editable">{{classLabels}}</span></li>
       <li>
@@ -51,7 +51,9 @@
     <div class="header-actions">
       <a class="rest short-rest">{{ localize 'DND5E.RestS' }}<i class="fas fa-hourglass-half"></i></a>
       <a class="rest long-rest">{{ localize 'DND5E.RestL' }}<i class="fas fa-hourglass-end"></i></a>
-      <p>{{localize "DND5E.HitDice"}}: {{data.attributes.hd}}/{{data.details.level}}</p>
+      <a class="config-button" data-action="hit-dice" title="{{localize 'DND5E.HitDiceConfig'}}">
+        {{localize "DND5E.HitDice"}}: {{data.attributes.hd}}/{{data.details.level}}
+      </a>
     </div>
   </section>
 
