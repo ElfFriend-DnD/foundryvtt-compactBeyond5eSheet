@@ -1,4 +1,4 @@
-import { MODULE_ID, MySettings } from '../constants.js';
+import { MODULE_ID, MySettings } from './constants.js';
 
 export const preloadTemplates = async function () {
   const templatePaths = [

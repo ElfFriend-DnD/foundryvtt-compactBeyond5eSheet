@@ -1,8 +1,8 @@
 // Import TypeScript modules
 import { registerSettings } from './module/settings.js';
-import { log } from './helpers';
+import { getGame, log } from './module/helpers';
 import { preloadTemplates } from './module/preloadTemplates.js';
-import { MODULE_ID, MySettings } from './constants.js';
+import { MODULE_ID, MySettings } from './module/constants.js';
 import ActorSheet5eCharacter from '../../systems/dnd5e/module/actor/sheets/character.js';
 
 Handlebars.registerHelper('cb5es-path', (relativePath: string) => {
@@ -32,7 +32,7 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
 
 export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   get template() {
-    if (!game.user.isGM && this.actor.limited && !game.settings.get(MODULE_ID, MySettings.expandedLimited)) {
+    if (!getGame().user?.isGM && this.actor.limited && !getGame().settings.get(MODULE_ID, MySettings.expandedLimited)) {
       return `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`;
     }
 
@@ -46,14 +46,14 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       classes: ['dnd5e', 'sheet', 'actor', 'character', 'cb5es'],
       scrollY: [...options.scrollY, '.sheet-sidebar'],
       height: 680,
-    } as BaseEntitySheet.Options);
+    });
 
     return options;
   }
 
   async _renderInner(...args: Parameters<ActorSheet5eCharacter['_renderInner']>) {
     const html = await super._renderInner(...args);
-    const actionsListApi = game.modules.get('character-actions-list-5e')?.api;
+    const actionsListApi = getGame().modules.get('character-actions-list-5e')?.api;
 
     try {
       const actionsTab = html.find('.actions');
@@ -69,18 +69,19 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 
   getData() {
     const sheetData = super.getData();
+    if (sheetData instanceof Promise) {
+      return sheetData;
+    }
 
     try {
-      //@ts-ignore
       sheetData.settings = {
-        //@ts-ignore
         ...sheetData.settings,
         [MODULE_ID]: {
           passiveDisplay: {
-            prc: game.settings.get(MODULE_ID, MySettings.displayPassivePerception),
-            ins: game.settings.get(MODULE_ID, MySettings.displayPassiveInsight),
-            inv: game.settings.get(MODULE_ID, MySettings.displayPassiveInvestigation),
-            ste: game.settings.get(MODULE_ID, MySettings.displayPassiveStealth),
+            prc: getGame().settings.get(MODULE_ID, MySettings.displayPassivePerception),
+            ins: getGame().settings.get(MODULE_ID, MySettings.displayPassiveInsight),
+            inv: getGame().settings.get(MODULE_ID, MySettings.displayPassiveInvestigation),
+            ste: getGame().settings.get(MODULE_ID, MySettings.displayPassiveStealth),
           },
         },
       };
@@ -97,8 +98,6 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
 /* ------------------------------------ */
 Hooks.once('init', async function () {
   log(true, `Initializing ${MODULE_ID}`);
-
-  // Assign custom classes and constants here
 
   // Register custom module settings
   registerSettings();

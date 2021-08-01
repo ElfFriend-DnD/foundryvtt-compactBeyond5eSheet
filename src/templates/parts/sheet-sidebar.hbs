@@ -9,8 +9,8 @@
   <div class="fancy-value">
     <h4>{{ localize "DND5E.Inspiration" }}</h4>
     <div>
-      <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean"
-        {{checked data.attributes.inspiration}} />
+      <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean" {{checked
+        data.attributes.inspiration}} />
       <i class="fas fa-sun {{#if data.attributes.inspiration}}active{{/if}}"></i>
     </div>
   </div>
@@ -18,9 +18,9 @@
   {{!-- Skills --}}
   <ul class="skills-list">
     {{#each data.skills as |skill s|}}
-    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}"
-      title="{{localize "DND5E.Passive"}}: {{skill.passive}}">
-      <input type="hidden" name="data.skills.{{s}}.value" value="{{skill.value}}" data-dtype="Number" />
+    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}" title="{{localize "
+      DND5E.Passive"}}: {{skill.passive}}">
+      <input type="hidden" name="data.skills.{{s}}.value" value="{{skill.baseValue}}" data-dtype="Number" />
       <a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
       <span class="skill-ability">{{skill.ability}}</span>
       <h4 class="skill-name rollable">{{skill.label}}</h4>
