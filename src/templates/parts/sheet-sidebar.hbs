@@ -18,8 +18,7 @@
   {{!-- Skills --}}
   <ul class="skills-list">
     {{#each data.skills as |skill s|}}
-    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}" title="{{localize "
-      DND5E.Passive"}}: {{skill.passive}}">
+    <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}" title="{{localize "DND5E.Passive"}}: {{skill.passive}}">
       <input type="hidden" name="data.skills.{{s}}.value" value="{{skill.baseValue}}" data-dtype="Number" />
       <a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
       <span class="skill-ability">{{skill.ability}}</span>
