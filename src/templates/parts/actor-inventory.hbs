@@ -20,7 +20,7 @@
     <div class="currency-inputs">
       {{#each data.currency as |v k|}}
       <label class="denomination {{k}}">
-        {{k}}
+        {{#if @root/systemFeatures.currencyLabels}}{{ lookup @root/labels.currencies k }}{{else}}{{k}}{{/if}}
         <div class="dynamic-input">
           <input type="text" name="data.currency.{{k}}" value="{{v}}" data-dtype="Number" />
           <span class="hidden">{{ v }}</span>
@@ -80,7 +80,8 @@
           {{#if section.editableName}}
           <input type="text" value="{{item.name}}">
           {{else}}
-          <div class="item-image" style="background-image: url({{item.img}})"></div>
+          <div class="item-image" style="background-image: url({{item.img}})" tabindex="0" role="button"
+            aria-label="{{item.name}}"></div>
           <h4>
             {{item.name~}}
             {{~#if item.isStack}} ({{item.data.quantity}}){{/if}}

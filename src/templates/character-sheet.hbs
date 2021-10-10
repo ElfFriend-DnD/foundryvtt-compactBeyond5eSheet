@@ -16,6 +16,8 @@
           title="{{ localize 'DND5E.Proficiency' }}">{{{ability.icon}}}</a>
         <span class="ability-save" title="Saving Throw">{{numberFormat ability.save decimals=0 sign=true}}</span>
       </div>
+      {{#if @root/systemFeatures.attributeConfig}}<a class="config-button" data-action="ability"
+        title="{{localize 'DND5E.AbilityConfigure'}}"><i class="fas fa-cog"></i></a>{{/if}}
     </li>
     {{/each}}
 
@@ -39,7 +41,7 @@
       <footer class="attribute-footer">
         <span class="movement-special" title="{{movement.special}}">{{movement.special}}</span>
       </footer>
-      <a class="configure-movement config-button" data-action="movement" title="{{localize 'DND5E.MovementConfig'}}"><i
+      <a class="config-button" data-action="movement" title="{{localize 'DND5E.MovementConfig'}}"><i
           class="fas fa-cog"></i></a>
     </li>
   </ul>

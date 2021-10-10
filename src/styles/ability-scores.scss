@@ -47,17 +47,17 @@
   overflow: hidden;
 
   &:hover {
-    .configure-movement {
+    .config-button {
       visibility: visible;
     }
   }
 
-  .configure-movement {
+  .config-button {
     visibility: hidden;
     position: absolute;
-    top: $space / 2;
+    top: 3px;
     right: 2px;
-    font-size: 12px; // arbitrary
+    font-size: 10px; // arbitrary
   }
 
   .movement-primary {

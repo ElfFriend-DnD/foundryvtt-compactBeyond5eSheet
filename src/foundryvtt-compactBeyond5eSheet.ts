@@ -89,6 +89,15 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       log(true, 'error trying to populate sheet settings', e);
     }
 
+    const systemVersion = getGame().system.data.version;
+    //@ts-ignore
+    sheetData.systemFeatures = {
+      skillConfig: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
+      attributeConfig: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
+      profLabel: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
+      currencyLabel: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
+    };
+
     return sheetData;
   }
 }
