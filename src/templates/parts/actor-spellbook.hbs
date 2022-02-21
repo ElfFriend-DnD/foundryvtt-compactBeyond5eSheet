@@ -42,6 +42,8 @@
     <li class="filter-item tag" data-filter="prepared">{{localize "DND5E.Prepared"}}{{#if preparedSpells}}
       ({{preparedSpells}}){{/if}}</li>
   </ul>
+
+  <input class="filter" type="text" placeholder="{{localize 'CB5ES.Filter'}}">
 </div>
 
 <ol class="inventory-list items-list">
@@ -75,8 +77,8 @@
 
     <div class="item-controls">
       {{#if section.canCreate}}
-      <a class="item-control item-create" title="{{localize 'DND5E.SpellCreate'}}"
-        {{#each section.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+      <a class="item-control item-create" title="{{localize 'DND5E.SpellCreate'}}" {{#each section.dataset as |v
+        k|}}data-{{k}}="{{v}}" {{/each}}>
         <i class="fas fa-plus"></i> {{localize "DND5E.Add"}}
       </a>
       {{/if}}
@@ -89,7 +91,8 @@
       class="item flexrow {{~#if data.preparation.prepared}} prepared{{/if}}{{#if (eq data.preparation.mode 'always')}} alwaysPrepared{{/if}}"
       data-item-id="{{item._id}}">
       <div class="item-name flexrow rollable">
-        <div class="item-image" tabindex="0" role="button" aria-label="{{item.name}}" style="background-image: url({{item.img}})"></div>
+        <div class="item-image" tabindex="0" role="button" aria-label="{{item.name}}"
+          style="background-image: url({{item.img}})"></div>
         <h4>{{item.name}}</h4>
         {{#if item.data.uses.per }}
         <div class="item-detail spell-uses">Uses {{item.data.uses.value}} / {{item.data.uses.max}}</div>
@@ -97,10 +100,21 @@
       </div>
 
       <div class="spell-comps">
+        {{#if @root/systemFeatures.componentLabels}}
+
+        {{#each labels.components.all}}
+        <span class="spell-component{{#if tag}} tag{{/if}}">{{abbr}}</span>
+        {{/each}}
+
+        {{else}}
+
         {{#each labels.components}}
         <span class="spell-component {{this}}">{{this}}</span>
         {{/each}}
+
+        {{/if}}
       </div>
+
       <div class="spell-action">{{labels.activation}}</div>
       <div class="spell-target" title="{{localize 'DND5E.Range'}}: {{labels.range}}">
         {{#if labels.target}}

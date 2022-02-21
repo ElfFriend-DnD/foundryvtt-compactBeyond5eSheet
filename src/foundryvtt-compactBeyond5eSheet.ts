@@ -46,9 +46,58 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       classes: ['dnd5e', 'sheet', 'actor', 'character', 'cb5es'],
       scrollY: [...options.scrollY, '.sheet-sidebar'],
       height: 680,
+      filters: [
+        {
+          inputSelector: '.spellbook input.filter',
+          contentSelector: '.spellbook .inventory-list',
+        },
+        {
+          inputSelector: '.inventory input.filter',
+          contentSelector: '.inventory .inventory-list',
+        },
+        {
+          inputSelector: '.features input.filter',
+          contentSelector: '.features .inventory-list',
+        },
+      ],
     });
 
     return options;
+  }
+
+  _debouncedSearchFilter = foundry.utils.debounce(this._handleSearchFilter, 200);
+
+  _handleSearchFilter(event, query, rgx, html) {
+    let anyMatch = !query;
+
+    const itemRows = html.querySelectorAll('.item');
+
+    log(false, 'onSearchFilter firing', {
+      query,
+      rgx,
+      html,
+      itemRows,
+    });
+
+    for (let li of itemRows) {
+      if (!query) {
+        li.classList.remove('hidden');
+        continue;
+      }
+      // const id = li.dataset.packageId;
+      const title = li.querySelector('.item-name')?.textContent;
+
+      //@ts-expect-error
+      const match = rgx.test(SearchFilter.cleanQuery(title));
+      li.classList.toggle('hidden', !match);
+      if (match) anyMatch = true;
+    }
+  }
+
+  /** @override */
+  _onSearchFilter(...args) {
+    //@ts-expect-error
+    this._debouncedSearchFilter(...args);
   }
 
   async _renderInner(...args: Parameters<ActorSheet5eCharacter['_renderInner']>) {
@@ -96,6 +145,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       attributeConfig: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
       profLabel: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
       currencyLabel: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
+      componentLabels: !foundry.utils.isNewerVersion('1.6.0', systemVersion),
     };
 
     return sheetData;
