@@ -70,7 +70,7 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
   _handleSearchFilter(event, query, rgx, html) {
     let anyMatch = !query;
 
-    const itemRows = html.querySelectorAll('.item');
+    const itemRows = html.querySelectorAll('.item-list > .item');
 
     log(false, 'onSearchFilter firing', {
       query,
@@ -86,6 +86,8 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       }
       // const id = li.dataset.packageId;
       const title = li.querySelector('.item-name')?.textContent;
+
+      if (!title) continue;
 
       //@ts-expect-error
       const match = rgx.test(SearchFilter.cleanQuery(title));
