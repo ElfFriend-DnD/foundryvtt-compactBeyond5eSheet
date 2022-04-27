@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "foundryvtt-compactBeyond5eSheet",
-	"version": "0.19.1",
+	"version": "0.20.0",
 	"description": "A compact character sheet with similar layout to dndbeyond's.",
 	"scripts": {
 		"publish": "gulp publish",
