@@ -148,6 +148,8 @@ export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
       profLabel: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
       currencyLabel: !foundry.utils.isNewerVersion('1.5.0', systemVersion),
       componentLabels: !foundry.utils.isNewerVersion('1.6.0', systemVersion),
+      levelDropdown: !foundry.utils.isNewerVersion('1.6.0', systemVersion),
+      subclasses: !foundry.utils.isNewerVersion('1.6.0', systemVersion),
     };
 
     return sheetData;

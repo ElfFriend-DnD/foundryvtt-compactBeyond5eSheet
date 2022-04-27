@@ -28,8 +28,8 @@
 
     {{#if ../owner}}
     <div class="item-controls">
-      <a class="item-control item-create" title="{{localize 'DND5E.FeatureAdd'}}"
-        {{#each section.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
+      <a class="item-control item-create" title="{{localize 'DND5E.FeatureAdd'}}" {{#each section.dataset as |v
+        k|}}data-{{k}}="{{v}}" {{/each}}>
         <i class="fas fa-plus"></i> {{localize "DND5E.Add"}}
       </a>
     </div>
@@ -42,7 +42,18 @@
       <div class="item-name flexrow rollable">
         <div class="item-image" tabindex="0" role="button" aria-label="{{item.name}}"
           style="background-image: url({{item.img}})"></div>
-        <h4>{{item.name}}</h4>
+        {{#if @root/systemFeatures.subclasses}}
+        <h4>
+          {{#if (eq item.type "subclass")}}&rdsh;{{/if}}
+          {{item.name}}
+          {{#if item.data.isOriginalClass}} <i class="original-class fas fa-sun"
+            title="{{localize 'DND5E.ClassOriginal'}}"></i>{{/if}}
+        </h4>
+        {{else}}
+        <h4>
+          {{item.name}}
+        </h4>
+        {{/if}}
       </div>
 
       {{#if section.hasActions}}
@@ -62,14 +73,32 @@
         {{item.labels.activation}}
         {{/if}}
       </div>
+      {{/if}}
 
-      {{else if section.isClass}}
+      {{#if section.isClass}}
+      {{#unless @root/systemFeatures.subclasses}}
       <div class="item-detail player-class">
         {{item.data.subclass}}
       </div>
+      {{/unless}}
+      {{#if (eq item.type "class")}}
       <div class="item-detail item-action">
+        {{#if @root/systemFeatures.levelDropdown}}
+        <select class="level-selector">
+          {{#select 0}}
+          {{#each item.availableLevels}}
+          <option value="{{this.delta}}" {{disabled this.disabled}}>
+            {{localize "DND5E.LevelNumber" level=this.level}}
+            {{#if this.delta}}({{numberFormat this.delta sign=true}}){{/if}}
+          </option>
+          {{/each}}
+          {{/select}}
+        </select>
+        {{else}}
         Level {{item.data.levels}}
+        {{/if}}
       </div>
+      {{/if}}
       {{/if}}
 
       {{#if section.columns}}
