@@ -3,7 +3,6 @@ import { registerSettings } from './module/settings.js';
 import { getGame, log } from './module/helpers';
 import { preloadTemplates } from './module/preloadTemplates.js';
 import { MODULE_ID, MySettings } from './module/constants.js';
-import ActorSheet5eCharacter from '../../systems/dnd5e/module/actor/sheets/character.js';
 
 Handlebars.registerHelper('cb5es-path', (relativePath: string) => {
   return `modules/${MODULE_ID}/${relativePath}`;
@@ -30,7 +29,7 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
   return isObjectEmpty(input);
 });
 
-export class CompactBeyond5eSheet extends ActorSheet5eCharacter {
+export class CompactBeyond5eSheet extends dnd5e.applications.actor.ActorSheet5eCharacter {
   get template() {
     if (!getGame().user?.isGM && this.actor.limited && !getGame().settings.get(MODULE_ID, MySettings.expandedLimited)) {
       return `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`;
