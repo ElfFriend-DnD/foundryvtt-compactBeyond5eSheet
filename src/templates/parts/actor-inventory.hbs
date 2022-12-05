@@ -15,7 +15,7 @@
   <div class="currency">
     <h3>
       <strong>{{localize "DND5E.Currency"}}</strong>
-      <a class="currency-convert" title="Convert Currency"><i class="fas fa-coins"></i></a>
+      <a class="currency-convert rollable" data-action="convertCurrency" title="Convert All Currency"><i class="fas fa-coins"></i></a>
     </h3>
     <div class="currency-inputs">
       {{#each system.currency as |v k|}}
