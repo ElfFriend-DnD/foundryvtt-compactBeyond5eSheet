@@ -1,7 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/typhonjs-fvtt/validate-manifest/main/schema/strict/module%2B.json",
 	"id": "compact-beyond-5e-sheet",
-	"name": "compact-beyond-5e-sheet",
 	"title": "Compact DnDBeyond 5e Character Sheet",
 	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
 	"version": "0.20.0",
@@ -74,7 +73,6 @@
 			"url": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/readme-img/biography.png"
 		}
 	],
-	"minimumCoreVersion": "9",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10.290"
