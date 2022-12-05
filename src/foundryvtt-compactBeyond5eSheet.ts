@@ -26,7 +26,7 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
   if (input instanceof Set) {
     return input.size < 1;
   }
-  return isObjectEmpty(input);
+  return isEmpty(input);
 });
 
 export class CompactBeyond5eSheet extends dnd5e.applications.actor.ActorSheet5eCharacter {
