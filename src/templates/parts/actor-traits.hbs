@@ -1,14 +1,14 @@
 <div class="traits">
-  <div class="form-group {{#unless data.attributes.exhaustion}}inactive{{/unless}}">
+  <div class="form-group {{#unless system.attributes.exhaustion}}inactive{{/unless}}">
     <label>{{localize "DND5E.Exhaustion"}}</label>
-    <input type="text" name="data.attributes.exhaustion" data-dtype="Number" placeholder="0"
-      value="{{data.attributes.exhaustion}}" />
+    <input type="text" name="system.attributes.exhaustion" data-dtype="Number" placeholder="0"
+      value="{{system.attributes.exhaustion}}" />
   </div>
 
   <div class="form-group">
     <label>{{localize "DND5E.Size"}}</label>
-    <select class="actor-size" name="data.traits.size">
-      {{#select data.traits.size}}
+    <select class="actor-size" name="system.traits.size">
+      {{#select system.traits.size}}
       {{#each config.actorSizes as |label size|}}
       <option value="{{size}}">{{label}}</option>
       {{/each}}
@@ -29,7 +29,7 @@
   {{/inline}}
 
   {{#unless isVehicle}}
-  <div class="form-group {{#if (and (eq data.traits.senses '') (cb5es-isEmpty senses))}}inactive{{/if}}">
+  <div class="form-group {{#if (and (eq system.traits.senses '') (cb5es-isEmpty senses))}}inactive{{/if}}">
     <label>{{localize "DND5E.Senses"}}</label>
     {{#if senses}}
     <a class="config-button" data-action="senses" title="{{localize 'DND5E.SensesConfig'}}">
@@ -37,75 +37,75 @@
     </a>
     {{> possiblyNoneList list=senses}}
     {{else}}
-    <input type="text" name="data.traits.senses" value="{{data.traits.senses}}"
+    <input type="text" name="system.traits.senses" value="{{system.traits.senses}}"
       placeholder="{{ localize 'DND5E.None' }}" />
     {{/if}}
   </div>
 
-  <div class="form-group {{data.traits.languages.cssClass}}">
+  <div class="form-group {{system.traits.languages.cssClass}}">
     <label>{{localize "DND5E.Languages"}}</label>
-    <a class="trait-selector" data-options="languages" data-target="data.traits.languages">
+    <a class="trait-selector" data-options="languages" data-target="system.traits.languages">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.languages.selected}}
+    {{> possiblyNoneList list=system.traits.languages.selected}}
   </div>
   {{/unless}}
 
-  <div class="form-group {{data.traits.di.cssClass}}">
+  <div class="form-group {{system.traits.di.cssClass}}">
     <label>{{localize "DND5E.DamImm"}}</label>
-    <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.di">
+    <a class="trait-selector" data-options="damageResistanceTypes" data-target="system.traits.di">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.di.selected}}
+    {{> possiblyNoneList list=system.traits.di.selected}}
   </div>
 
-  <div class="form-group {{data.traits.dr.cssClass}}">
+  <div class="form-group {{system.traits.dr.cssClass}}">
     <label>{{localize "DND5E.DamRes"}}</label>
-    <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dr">
+    <a class="trait-selector" data-options="damageResistanceTypes" data-target="system.traits.dr">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.dr.selected}}
+    {{> possiblyNoneList list=system.traits.dr.selected}}
   </div>
 
-  <div class="form-group {{data.traits.dv.cssClass}}">
+  <div class="form-group {{system.traits.dv.cssClass}}">
     <label>{{localize "DND5E.DamVuln"}}</label>
-    <a class="trait-selector" data-options="damageResistanceTypes" data-target="data.traits.dv">
+    <a class="trait-selector" data-options="damageResistanceTypes" data-target="system.traits.dv">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.dv.selected}}
+    {{> possiblyNoneList list=system.traits.dv.selected}}
   </div>
 
-  <div class="form-group {{data.traits.ci.cssClass}}">
+  <div class="form-group {{system.traits.ci.cssClass}}">
     <label>{{localize "DND5E.ConImm"}}</label>
-    <a class="trait-selector" data-options="conditionTypes" data-target="data.traits.ci">
+    <a class="trait-selector" data-options="conditionTypes" data-target="system.traits.ci">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.ci.selected}}
+    {{> possiblyNoneList list=system.traits.ci.selected}}
   </div>
 
   {{#if isCharacter}}
-  <div class="form-group {{data.traits.weaponProf.cssClass}}">
+  <div class="form-group {{system.traits.weaponProf.cssClass}}">
     <label>{{localize "DND5E.TraitWeaponProf"}}</label>
-    <a class="proficiency-selector" data-type="weapon" data-target="data.traits.weaponProf">
+    <a class="proficiency-selector" data-type="weapon" data-target="system.traits.weaponProf">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.weaponProf.selected}}
+    {{> possiblyNoneList list=system.traits.weaponProf.selected}}
   </div>
 
-  <div class="form-group {{data.traits.armorProf.cssClass}}">
+  <div class="form-group {{system.traits.armorProf.cssClass}}">
     <label>{{localize "DND5E.TraitArmorProf"}}</label>
-    <a class="proficiency-selector" data-type="armor" data-target="data.traits.armorProf">
+    <a class="proficiency-selector" data-type="armor" data-target="system.traits.armorProf">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.armorProf.selected}}
+    {{> possiblyNoneList list=system.traits.armorProf.selected}}
   </div>
 
-  <div class="form-group {{data.traits.toolProf.cssClass}}">
+  <div class="form-group {{system.traits.toolProf.cssClass}}">
     <label>{{localize "DND5E.TraitToolProf"}}</label>
-    <a class="proficiency-selector" data-type="tool" data-target="data.traits.toolProf">
+    <a class="proficiency-selector" data-type="tool" data-target="system.traits.toolProf">
       <i class="fas fa-edit"></i>
     </a>
-    {{> possiblyNoneList list=data.traits.toolProf.selected}}
+    {{> possiblyNoneList list=system.traits.toolProf.selected}}
   </div>
   {{/if}}
 

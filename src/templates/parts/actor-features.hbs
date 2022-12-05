@@ -46,7 +46,7 @@
         <h4>
           {{#if (eq item.type "subclass")}}&rdsh;{{/if}}
           {{item.name}}
-          {{#if item.data.isOriginalClass}} <i class="original-class fas fa-sun"
+          {{#if item.system.isOriginalClass}} <i class="original-class fas fa-sun"
             title="{{localize 'DND5E.ClassOriginal'}}"></i>{{/if}}
         </h4>
         {{else}}
@@ -60,16 +60,16 @@
       <div class="item-detail item-uses">
         {{#if item.isOnCooldown}}
         <a class="item-recharge rollable">{{item.labels.recharge}}</a>
-        {{else if item.data.recharge.value}}
+        {{else if item.system.recharge.value}}
         {{localize "DND5E.Charged"}}
 
         {{else if item.hasUses}}
-        <input type="text" value="{{item.data.uses.value}}" placeholder="0" />/ {{item.data.uses.max}}
+        <input type="text" value="{{item.system.uses.value}}" placeholder="0" />/ {{item.system.uses.max}}
         {{/if}}
       </div>
 
       <div class="item-detail item-action">
-        {{#if item.data.activation.type }}
+        {{#if item.system.activation.type }}
         {{item.labels.activation}}
         {{/if}}
       </div>
@@ -78,7 +78,7 @@
       {{#if section.isClass}}
       {{#unless @root/systemFeatures.subclasses}}
       <div class="item-detail player-class">
-        {{item.data.subclass}}
+        {{item.system.subclass}}
       </div>
       {{/unless}}
       {{#if (eq item.type "class")}}
@@ -95,7 +95,7 @@
           {{/select}}
         </select>
         {{else}}
-        Level {{item.data.levels}}
+        Level {{item.system.levels}}
         {{/if}}
       </div>
       {{/if}}

@@ -2,7 +2,7 @@
 
   {{#unless isNPC}}
   <div class="encumberance">
-    {{#with data.attributes.encumbrance}}
+    {{#with system.attributes.encumbrance}}
     <h3><strong>{{localize "CB5ES.WeightCarried"}}:</strong> {{ value }} {{ @root.weightUnit }}</h3>
     <span class="{{#if (gt value max)}}encumbered{{/if}}">
       {{localize "DND5E.Max"}}: {{ max }} {{ @root.weightUnit }}
@@ -18,11 +18,11 @@
       <a class="currency-convert" title="Convert Currency"><i class="fas fa-coins"></i></a>
     </h3>
     <div class="currency-inputs">
-      {{#each data.currency as |v k|}}
+      {{#each system.currency as |v k|}}
       <label class="denomination {{k}}">
         {{#if @root/systemFeatures.currencyLabels}}{{ lookup @root/labels.currencies k }}{{else}}{{k}}{{/if}}
         <div class="dynamic-input">
-          <input type="text" name="data.currency.{{k}}" value="{{v}}" data-dtype="Number" />
+          <input type="text" name="system.currency.{{k}}" value="{{v}}" data-dtype="Number" />
           <span class="hidden">{{ v }}</span>
         </div>
       </label>
@@ -86,8 +86,8 @@
             aria-label="{{item.name}}"></div>
           <h4>
             {{item.name~}}
-            {{~#if item.isStack}} ({{item.data.quantity}}){{/if}}
-            {{~#if (or item.data.attuned (eq data.attunement 2))}} <i class="fas fa-sun attuned"
+            {{~#if item.isStack}} ({{item.system.quantity}}){{/if}}
+            {{~#if (or item.system.attuned (eq system.attunement 2))}} <i class="fas fa-sun attuned"
               title={{localize "DND5E.Attuned" }}></i>{{/if}}
           </h4>
           {{/if}}
@@ -119,13 +119,13 @@
 
         <div class="item-detail item-uses">
           {{#if item.hasUses }}
-          <input type="text" value="{{item.data.uses.value}}" placeholder="0" />
-          / {{item.data.uses.max}}
+          <input type="text" value="{{item.system.uses.value}}" placeholder="0" />
+          / {{item.system.uses.max}}
           {{/if}}
         </div>
 
         <div class="item-detail item-action">
-          {{#if item.data.activation.type }}
+          {{#if item.system.activation.type }}
           {{item.labels.activation}}
           {{/if}}
         </div>
