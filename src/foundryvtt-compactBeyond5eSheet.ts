@@ -26,11 +26,14 @@ Handlebars.registerHelper('cb5es-isEmpty', (input: Object | Array<any> | Set<any
   if (input instanceof Set) {
     return input.size < 1;
   }
+  // @ts-ignore
   return isEmpty(input);
 });
 
+// @ts-ignore
 export class CompactBeyond5eSheet extends dnd5e.applications.actor.ActorSheet5eCharacter {
   get template() {
+    // @ts-ignore
     if (!getGame().user?.isGM && this.actor.limited && !getGame().settings.get(MODULE_ID, MySettings.expandedLimited)) {
       return `modules/${MODULE_ID}/templates/character-sheet-ltd.hbs`;
     }
@@ -108,6 +111,7 @@ export class CompactBeyond5eSheet extends dnd5e.applications.actor.ActorSheet5eC
     try {
       const actionsTab = html.find('.actions');
 
+      // @ts-ignore
       const actionsTabHtml = (await actionsListApi?.renderActionsList(this.actor)) as string;
       actionsTab.html(actionsTabHtml);
     } catch (e) {
@@ -169,6 +173,7 @@ Hooks.once('init', async function () {
 });
 
 // Register compactBeyond5eSheet Sheet
+// @ts-ignore
 Actors.registerSheet('dnd5e', CompactBeyond5eSheet, {
   label: 'Compact D&D Beyond-like',
   makeDefault: false,
