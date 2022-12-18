@@ -2,7 +2,7 @@
 
   <div class="fancy-value">
     <h4>{{ localize "DND5E.Proficiency" }}</h4>
-    <div>{{#if systemFeatures.profLabel}}{{labels.proficiency}}{{else}}{{numberFormat data.attributes.prof decimals=0
+    <div>{{#if systemFeatures.profLabel}}{{labels.proficiency}}{{else}}{{numberFormat system.attributes.prof decimals=0
       sign=true}}{{/if}}</div>
   </div>
 
@@ -10,18 +10,18 @@
   <div class="fancy-value">
     <h4>{{ localize "DND5E.Inspiration" }}</h4>
     <div>
-      <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean" {{checked
-        data.attributes.inspiration}} />
-      <i class="fas fa-sun {{#if data.attributes.inspiration}}active{{/if}}"></i>
+      <input type="checkbox" name="system.attributes.inspiration" data-dtype="Boolean" {{checked
+        system.attributes.inspiration}} />
+      <i class="fas fa-sun {{#if system.attributes.inspiration}}active{{/if}}"></i>
     </div>
   </div>
 
   {{!-- Skills --}}
   <ul class="skills-list">
-    {{#each data.skills as |skill s|}}
+    {{#each system.skills as |skill s|}}
     <li title="{{ localize " DND5E.Passive" }}: {{skill.passive}}"
       class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}">
-      <input type="hidden" name="data.skills.{{s}}.value" value="{{skill.baseValue}}" data-dtype="Number" />
+      <input type="hidden" name="system.skills.{{s}}.value" value="{{skill.baseValue}}" data-dtype="Number" />
       <a class="proficiency-toggle skill-proficiency" title="{{skill.hover}}">{{{skill.icon}}}</a>
       <span class="skill-ability">{{skill.ability}}</span>
       <div class="skill-name-controls">
@@ -36,7 +36,7 @@
 
   {{#each settings.compact-beyond-5e-sheet.passiveDisplay as |bool s|}}
   {{#if bool}}
-  {{#with (getProperty ../data.skills s)}}
+  {{#with (getProperty ../system.skills s)}}
   <div class="fancy-value">
     <h4>{{ localize "DND5E.Passive" }} {{label}}</h4>
     <div>
