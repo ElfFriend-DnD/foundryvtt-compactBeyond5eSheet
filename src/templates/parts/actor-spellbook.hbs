@@ -100,18 +100,9 @@
       </div>
 
       <div class="spell-comps">
-        {{#if @root/systemFeatures.componentLabels}}
-
         {{#each labels.components.all}}
-        <span class="spell-component{{#if tag}} tag{{/if}}">{{abbr}}</span>
+          <span class="spell-component{{#if tag}} {{abbr}}{{/if}}">{{abbr}}</span>
         {{/each}}
-        {{else}}
-
-        {{#each labels.components}}
-        <span class="spell-component {{this}}">{{this}}</span>
-        {{/each}}
-
-        {{/if}}
       </div>
 
       <div class="spell-action">{{labels.activation}}</div>
