@@ -122,22 +122,22 @@
             <div class="left-notes note-entries flexcol">
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.PersonalityTraits" }}</h4>
-                {{editor content=system.details.trait target="system.details.trait" button=true owner=owner
+                {{editor system.details.trait target="system.details.trait" button=true owner=owner
                 editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Ideals" }}</h4>
-                {{editor content=system.details.ideal target="system.details.ideal" button=true owner=owner
+                {{editor system.details.ideal target="system.details.ideal" button=true owner=owner
                 editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Bonds" }}</h4>
-                {{editor content=system.details.bond target="system.details.bond" button=true owner=owner
+                {{editor system.details.bond target="system.details.bond" button=true owner=owner
                 editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Flaws" }}</h4>
-                {{editor content=system.details.flaw target="system.details.flaw" button=true owner=owner
+                {{editor system.details.flaw target="system.details.flaw" button=true owner=owner
                 editable=editable}}
               </article>
               <article>
@@ -151,12 +151,12 @@
             <div class="right-notes note-entries flexcol">
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Appearance" }}</h4>
-                {{editor content=system.details.appearance target="system.details.appearance" button=true owner=owner
+                {{editor system.details.appearance target="system.details.appearance" button=true owner=owner
                 editable=editable}}
               </article>
               <article class="biography-notes big-bio">
                 <h4 class="section-titles">{{ localize "DND5E.Background" }}/{{ localize "DND5E.Biography" }}</h4>
-                {{editor content=system.details.biography.value target="system.details.biography.value" button=true
+                {{editor system.details.biography.value target="system.details.biography.value" button=true
                 owner=owner editable=editable}}
               </article>
             </div>
