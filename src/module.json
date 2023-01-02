@@ -3,7 +3,7 @@
 	"id": "compact-beyond-5e-sheet",
 	"title": "Compact DnDBeyond 5e Character Sheet",
 	"description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
-	"version": "0.21.0",
+	"version": "0.21.1",
 	"author": "Andrew Krigline (akrigline)",
 	"authors": [
 		{
@@ -79,7 +79,7 @@
 	},
 	"bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
 	"changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
-	"download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.21.0/module.zip",
+	"download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.21.1/module.zip",
 	"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
 	"readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
 	"url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet",
