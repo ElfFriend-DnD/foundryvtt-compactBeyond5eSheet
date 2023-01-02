@@ -75,7 +75,7 @@
 	],
 	"compatibility": {
 		"minimum": "10",
-		"verified": "10.290"
+		"verified": "10.291"
 	},
 	"bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
 	"changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
