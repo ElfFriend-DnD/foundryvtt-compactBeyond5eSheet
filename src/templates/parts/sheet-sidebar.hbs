@@ -28,14 +28,14 @@
 
       <div class="skill-name-controls">
         <h4 class="skill-name rollable">{{skill.label}}</h4>
-        <a class="config-button" data-action="skill"
-          title="{{localize 'DND5E.SkillConfigure'}}"><i class="fas fa-cog"></i></a>
+        <a class="config-button" data-action="skill" title="{{localize 'DND5E.SkillConfigure'}}"><i
+            class="fas fa-cog"></i></a>
       </div>
 
       <span class="skill-mod">{{numberFormat skill.total decimals=0 sign=true}}</span>
 
       <span class="skill-passive" title="{{ localize 'DND5E.SkillPassiveHint' skill=skill.label }}">
-          ({{skill.passive}})
+        ({{skill.passive}})
       </span>
     </li>
     {{/with}}
