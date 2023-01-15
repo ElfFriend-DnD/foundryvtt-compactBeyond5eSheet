@@ -1,4 +1,4 @@
-@import './styles/variables.scss';
+@import './variables.scss';
 
 // ensure our styles take precedence over 5e default
 .dnd5e.sheet.actor.character.cb5es {
@@ -25,15 +25,15 @@
     --spellbook-always-active: var(--Whetstone-accent-secondary-half, #0084ff1a);
   }
 
-  @import './styles/ability-scores.scss';
-  @import './styles/actions.scss';
-  @import './styles/attributes.scss';
-  @import './styles/header.scss';
-  @import './styles/inventory.scss';
-  @import './styles/sidebar.scss';
-  @import './styles/spellbook.scss';
-  @import './styles/tab-area.scss';
-  @import './styles/biography.scss';
+  @import './ability-scores.scss';
+  @import './actions.scss';
+  @import './attributes.scss';
+  @import './header.scss';
+  @import './inventory.scss';
+  @import './sidebar.scss';
+  @import './spellbook.scss';
+  @import './tab-area.scss';
+  @import './biography.scss';
 
   min-height: 500px;
 

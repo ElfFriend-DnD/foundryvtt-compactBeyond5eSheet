@@ -1,30 +1,22 @@
 <div class="spellcasting-ability">
   <div class="spell-dc">
     <label>{{localize "DND5E.SpellDC"}} </label>
-    <span>{{system.attributes.spelldc}}</span>
+    <span>{{spellSaveDcWithMods}}</span>
   </div>
 
   <div>
-    <label>{{localize "DND5E.ItemTypeSpell"}} {{localize "DND5E.Attack"}}</label>
+    <label>{{localize "ITEM.TypeSpell"}} {{localize "DND5E.Attack"}}</label>
     <span>
-      {{#with (lookup system.abilities system.attributes.spellcasting)}}
-      {{numberFormat (cb5es-add mod ../system.attributes.prof) decimals=0 sign=true}}
-      {{/with}}
+      {{spellAttackMod}}
     </span>
   </div>
 
   <div>
-    {{#if isNPC}}
-    <label>{{localize "DND5E.Level"}}</label>
-    <input class="spellcasting-level" type="text" name="system.details.spellLevel" value="{{system.details.spellLevel}}"
-      data-dtype="Number" placeholder="0" />
-    {{else}}
     <label>{{localize "DND5E.SpellAbility"}}</label>
-    {{/if}}
     <select name="system.attributes.spellcasting" data-type="String">
       {{#select system.attributes.spellcasting}}
       <option value="">{{localize "DND5E.None"}}</option>
-      {{#each system.abilities as |abl a|}}
+      {{#each abilities as |abl a|}}
       <option value="{{a}}">{{abl.label}}</option>
       {{/each}}
       {{/select}}

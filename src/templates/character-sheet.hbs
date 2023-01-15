@@ -1,54 +1,55 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
-  {{> (cb5es-path "templates/parts/sheet-header.hbs")}}
+  {{> (concat moduleFilePath "templates/parts/sheet-header.hbs")}}
 
   {{!-- Ability Scores --}}
   <ul class="ability-scores ability-score-row">
-    {{#each system.abilities as |ability id|}}
-    <li class="ability {{#if ability.baseProf}}proficient{{/if}}" data-ability="{{id}}">
-      <h4 class="ability-name box-title rollable">{{ability.label}}</h4>
-      <input class="ability-score" name="system.abilities.{{id}}.value" type="text" value="{{ability.value}}"
-        data-dtype="Number" placeholder="10" />
-      <div class="ability-modifiers flexrow">
-        <span class="ability-mod" title="Modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
-        <input type="hidden" name="system.abilities.{{id}}.proficient" value="{{ability.baseProf}}" data-dtype="Number" />
-        <a class="proficiency-toggle ability-proficiency"
-          title="{{ localize 'DND5E.Proficiency' }}">{{{ability.icon}}}</a>
-        <span class="ability-save" title="Saving Throw">{{numberFormat ability.save decimals=0 sign=true}}</span>
-      </div>
-      {{#if @root/systemFeatures.attributeConfig}}<a class="config-button" data-action="ability"
-        title="{{localize 'DND5E.AbilityConfigure'}}"><i class="fas fa-cog"></i></a>{{/if}}
-    </li>
+    {{#each abilities as |ability id|}}
+        <li class="ability {{#if ability.proficient}}proficient{{/if}}" data-ability="{{id}}">
+            <h4 class="ability-name box-title rollable">{{ability.label}}</h4>
+            <input type="text" name="system.abilities.{{id}}.value" value="{{ability.value}}"
+                class="ability-score" placeholder="10" data-dtype="Number">
+            <div class="ability-modifiers flexrow">
+                <span class="ability-mod" title="{{ localize 'DND5E.Modifier' }}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+                <input type="hidden" name="system.abilities.{{id}}.proficient" value="{{ability.baseProf}}" data-dtype="Number"/>
+                <a class="proficiency-toggle ability-proficiency" title="{{ localize 'DND5E.Proficiency' }}">{{{ability.icon}}}</a>
+                <span class="ability-save" title="{{ localize 'DND5E.SavingThrow' }}">{{numberFormat ability.save decimals=0 sign=true}}</span>
+            </div>
+            <a class="config-button" data-action="ability" data-tooltip="{{localize 'DND5E.AbilityConfigure'}}">
+                <i class="fas fa-cog"></i>
+            </a>
+        </li>
     {{/each}}
 
     <li class="attribute initiative">
       <h4 class="attribute-name box-title rollable" data-action="rollInitiative">{{ localize "DND5E.Initiative" }}</h4>
+      <a class="config-button" data-action="initiative" data-tooltip="{{localize 'DND5E.InitiativeConfig'}}">
+          <i class="fas fa-cog"></i>
+      </a>
       <div class="attribute-value">
         <span>{{numberFormat system.attributes.init.total decimals=0 sign=true}}</span>
       </div>
-      <footer class="attribute-footer">
-        <span>{{ localize "DND5E.Modifier" }}</span>
-        <input name="system.attributes.init.value" type="text" placeholder="0" data-dtype="Number"
-          value="{{numberFormat system.attributes.init.value decimals=0 sign=true}}" />
-      </footer>
+
+      <footer class="attribute-footer"></footer>
     </li>
 
     <li class="attribute movement">
-      <h4 class="attribute-name box-title">{{ localize "DND5E.MovementWalk" }} ({{system.attributes.movement.units}})</h4>
+      <h4 class="attribute-name box-title">{{ localize "DND5E.Movement" }}</h4>
+      <a class="config-button" data-action="movement" data-tooltip="{{localize 'DND5E.MovementConfig'}}">
+          <i class="fas fa-cog"></i>
+      </a>
       <div class="attribute-value">
-        <span class="movement-primary" title="{{movement.primary}}">{{system.attributes.movement.walk}}</span>
+          <span>{{movement.primary}}</span>
       </div>
       <footer class="attribute-footer">
-        <span class="movement-special" title="{{movement.special}}">{{movement.special}}</span>
+          <span>{{movement.special}}</span>
       </footer>
-      <a class="config-button" data-action="movement" title="{{localize 'DND5E.MovementConfig'}}"><i
-          class="fas fa-cog"></i></a>
     </li>
   </ul>
 
 
   <div class="sheet-main-wrapper">
-    {{> (cb5es-path "templates/parts/sheet-sidebar.hbs")}}
+    {{> (concat moduleFilePath "templates/parts/sheet-sidebar.hbs")}}
 
     <main class="sheet-main">
 
@@ -99,17 +100,17 @@
 
           {{!-- Spellbook Tab --}}
           <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
-            {{> (cb5es-path "templates/parts/actor-spellbook.hbs")}}
+            {{> (concat moduleFilePath "templates/parts/actor-spellbook.hbs")}}
           </div>
 
           {{!-- Inventory Tab --}}
           <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-            {{> (cb5es-path "templates/parts/actor-inventory.hbs") sections=inventory}}
+            {{> (concat moduleFilePath "templates/parts/actor-inventory.hbs") sections=inventory}}
           </div>
 
           {{!-- Features Tab --}}
           <div class="tab features flexcol" data-group="primary" data-tab="features">
-            {{> (cb5es-path "templates/parts/actor-features.hbs") sections=features}}
+            {{> (concat moduleFilePath "templates/parts/actor-features.hbs") sections=features}}
           </div>
 
           {{!-- Effects Tab --}}
@@ -122,22 +123,22 @@
             <div class="left-notes note-entries flexcol">
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.PersonalityTraits" }}</h4>
-                {{editor system.details.trait target="system.details.trait" button=true owner=owner
+                {{editor system.details.trait target="system.details.trait" button=true owner=owner engine="prosemirror" collaborate=false
                 editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Ideals" }}</h4>
-                {{editor system.details.ideal target="system.details.ideal" button=true owner=owner
+                {{editor system.details.ideal target="system.details.ideal" button=true owner=owner engine="prosemirror" collaborate=false
                 editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Bonds" }}</h4>
-                {{editor system.details.bond target="system.details.bond" button=true owner=owner
+                {{editor system.details.bond target="system.details.bond" button=true owner=owner engine="prosemirror" collaborate=false
                 editable=editable}}
               </article>
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Flaws" }}</h4>
-                {{editor system.details.flaw target="system.details.flaw" button=true owner=owner
+                {{editor system.details.flaw target="system.details.flaw" button=true owner=owner engine="prosemirror" collaborate=false
                 editable=editable}}
               </article>
               <article>
@@ -151,13 +152,16 @@
             <div class="right-notes note-entries flexcol">
               <article>
                 <h4 class="section-titles biopage">{{ localize "DND5E.Appearance" }}</h4>
-                {{editor system.details.appearance target="system.details.appearance" button=true owner=owner
-                editable=editable}}
+
+                {{editor system.details.appearance target="system.details.appearance" button=true editable=editable
+                         engine="prosemirror" collaborate=false}}
+
               </article>
               <article class="biography-notes big-bio">
                 <h4 class="section-titles">{{ localize "DND5E.Background" }}/{{ localize "DND5E.Biography" }}</h4>
-                {{editor system.details.biography.value target="system.details.biography.value" button=true
-                owner=owner editable=editable}}
+
+                {{editor biographyHTML target="system.details.biography.value" button=true editable=editable
+                         engine="prosemirror" collaborate=false}}
               </article>
             </div>
 

@@ -236,7 +236,7 @@
 .inline-summary {
   @include spaced(0.2em);
 
-  align-items: center;
+  align-items: stretch;
   color: var(--accent-text);
   display: inline-flex;
   flex: 0 auto;
@@ -249,7 +249,7 @@
     width: max-content;
 
     // make editable items have a max-content that they can size based on
-    .hidden {
+    .invisible {
       border: 1px solid transparent; // match input styles
       opacity: 0;
       pointer-events: none;

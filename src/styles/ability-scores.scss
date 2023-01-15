@@ -46,12 +46,31 @@
 .movement {
   overflow: hidden;
 
-  &:hover {
-    .config-button {
-      visibility: visible;
-    }
+  // &:hover {
+  //   .config-button {
+  //     visibility: visible;
+  //   }
+  // }
+
+  // .config-button {
+  //   visibility: hidden;
+  //   position: absolute;
+  //   top: 3px;
+  //   right: 2px;
+  //   font-size: 10px; // arbitrary
+  // }
+
+  .movement-primary {
+    @include truncate;
   }
 
+  .movement-special {
+    @include truncate;
+  }
+}
+
+.attribute,
+.ability {
   .config-button {
     visibility: hidden;
     position: absolute;
@@ -60,11 +79,9 @@
     font-size: 10px; // arbitrary
   }
 
-  .movement-primary {
-    @include truncate;
-  }
-
-  .movement-special {
-    @include truncate;
+  &:hover {
+    .config-button {
+      visibility: visible;
+    }
   }
 }

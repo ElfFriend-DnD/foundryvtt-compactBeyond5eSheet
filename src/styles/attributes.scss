@@ -22,11 +22,21 @@
   flex-direction: column;
   justify-content: space-between;
   height: auto;
+  position: relative;
 
   .attribute-value {
     font-size: 24px;
     margin-top: auto;
     margin-bottom: auto;
+
+    &.multiple {
+      > * {
+        flex: 1;
+      }
+      > .sep {
+        flex: 0;
+      }
+    }
   }
 }
 

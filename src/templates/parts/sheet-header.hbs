@@ -1,6 +1,6 @@
 {{!-- Sheet Header --}}
 <header class="sheet-header">
-  {{> "systems/dnd5e/templates/actors/parts/actor-warnings.html"}}
+  {{> "dnd5e.actor-warnings"}}
 
   <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
 
@@ -19,14 +19,17 @@
       <li>
         <input type="text" name="system.details.race" value="{{system.details.race}}"
           placeholder="{{ localize 'DND5E.Race' }}" />
-        <span class="hidden">{{#if system.details.race}}{{system.details.race}}{{else}}{{ localize 'DND5E.Race'
+        <span class="invisible">{{#if system.details.race}}{{system.details.race}}{{else}}{{ localize 'DND5E.Race'
           }}{{/if}}</span>
       </li>
       <li><span class="non-editable">{{classLabels}}</span></li>
       <li>
-        <input type="text" name="system.details.background" value="{{system.details.background}}"
-          placeholder="{{ localize 'DND5E.Background' }}" />
-        <span class="hidden">{{system.details.background}}</span>
+      {{#if labels.background}}
+          <span class="non-editable" title="{{localize 'DND5E.Background'}}">{{labels.background}}</span>
+      {{else}}
+          <input type="text" name="system.details.background" value="{{system.details.background}}" placeholder="{{ localize 'DND5E.Background' }}"/>
+          <span class="invisible">{{system.details.background}}</span>
+      {{/if}}
       </li>
     </ul>
 
@@ -36,8 +39,6 @@
         <span class="bar" style="width: {{system.details.xp.pct}}%"></span>
       </div>
       <div class="experience flexrow">
-
-
         <span class="left-label">{{ localize "DND5E.Level" }} {{system.details.level}}</span>
 
         <input name="system.details.xp.value" type="text" value="{{system.details.xp.value}}" data-dtype="Number"
@@ -45,7 +46,7 @@
         <span class="sep">/</span>
         <span class="max">{{system.details.xp.max}}</span>
 
-        <span class="right-label">{{ localize "DND5E.Level" }} {{cb5es-add system.details.level 1}}</span>
+        <span class="right-label">{{ localize "DND5E.Level" }} {{nextLevel}}</span>
       </div>
     </aside>
     {{/unless}}
@@ -64,7 +65,7 @@
 
       <div class="ac attributable" data-property="attributes.ac">
         <div class="ac-symbol">
-          {{> (cb5es-path "assets/armor-class.hbs")}}
+          {{> (concat moduleFilePath "assets/armor-class.hbs")}}
         </div>
         <h4>Armor</h4>
         <div class="attribute-value">
@@ -104,19 +105,24 @@
       </div>
       {{else}}
       <div class="attribute health">
-        <h4 class="attribute-name box-title">{{ localize "DND5E.HitPoints" }}</h4>
+        <h4 class="attribute-name box-title">{{localize "DND5E.HitPoints"}}  <a class="config-button" data-action="hit-points" data-tooltip="{{localize 'DND5E.HitPointsConfig'}}">
+            <i class="fas fa-cog"></i>
+        </a></h4>
+
         <div class="attribute-value multiple">
-          <input name="system.attributes.hp.value" type="text" value="{{system.attributes.hp.value}}" data-dtype="Number"
-            placeholder="10" />
-          <span class="sep"> / </span>
-          <input name="system.attributes.hp.max" type="text" value="{{system.attributes.hp.max}}" data-dtype="Number"
-            placeholder="10" />
+            <input name="system.attributes.hp.value" type="text" value="{{hp.value}}" placeholder="10"
+                data-tooltip="{{localize 'DND5E.HitPointsCurrent'}}" data-dtype="Number">
+            <span class="sep"> / </span>
+            <span data-tooltip="{{#if hp.max}}{{localize 'DND5E.HitPointsOverride'}}
+              {{~ else}}{{localize 'DND5E.HitPointsMax'}}{{/if}}">{{hp.max}}</span>
         </div>
         <footer class="attribute-footer">
-          <input name="system.attributes.hp.temp" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Temp' }}"
-            data-dtype="Number" value="{{system.attributes.hp.temp}}" />
-          <input name="system.attributes.hp.tempmax" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Max' }}"
-            data-dtype="Number" value="{{system.attributes.hp.tempmax}}" />
+            <input name="system.attributes.hp.temp" type="text" class="temphp"
+                placeholder="+{{ localize 'DND5E.Temp' }}" value="{{hp.temp}}"
+                title="{{localize 'DND5E.HitPointsTemp'}}" data-dtype="Number">
+            <input name="system.attributes.hp.tempmax" type="text" class="temphp"
+                placeholder="+{{ localize 'DND5E.Max' }}" value="{{hp.tempmax}}"
+                title="{{localize 'DND5E.HitPointsTempMax'}}" data-dtype="Number">
         </footer>
       </div>
       {{/if}}
