@@ -2,14 +2,11 @@
 @import './variables';
 
 .sheet-header {
-  @include spaced($space);
-
+  gap: $space;
   border-bottom: 0;
-  flex: 0;
 
   > section {
-    @include spaced-vertical($space / 2);
-
+    gap: calc($space / 2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,11 +43,10 @@
 
   .death-save-attribute {
     flex: 2;
-    background-color: rgba(var(--highlight), 0.1);
     border-color: var(--highlight);
 
     .attribute-value {
-      @include spaced($space / 2);
+      gap: calc($space / 2);
 
       > * {
         flex: 2.1; //arbitrary decimal to center failures
@@ -59,7 +55,7 @@
 
       > :last-child {
         border-left: 2px groove var(--groove-gray);
-        padding-left: $space / 2;
+        padding-left: calc($space / 2);
         flex: 1 0 15%;
       }
     }
@@ -138,7 +134,7 @@
 }
 
 .header-actions {
-  @include spaced($space / 2);
+  gap: calc($space / 2);
 
   align-items: center;
   display: flex;
@@ -167,10 +163,6 @@
 }
 
 .header-details {
-  @include spaced-vertical($space / 2);
-
-  display: flex;
-  flex-direction: column;
   font-size: 16px;
 }
 
@@ -230,11 +222,11 @@
 }
 
 .health-armor {
-  @include spaced($space);
+  gap: calc($space);
 }
 
 .inline-summary {
-  @include spaced(0.2em);
+  gap: calc(0.2em);
 
   align-items: stretch;
   color: var(--accent-text);

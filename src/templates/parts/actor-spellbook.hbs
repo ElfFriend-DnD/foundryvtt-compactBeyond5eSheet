@@ -64,9 +64,9 @@
       </div>
     </div>
     <div class="spell-action">{{localize "DND5E.SpellUsage"}}</div>
-    <div class="spell-target">{{localize "DND5E.SpellTarget"}}</div>
+    <div class="spell-target item-detail">{{localize "DND5E.SpellTarget"}}</div>
 
-    <div class="item-controls flexrow">
+    <div class="item-controls">
       {{#if section.canCreate}}
       <a class="item-control item-create" title="{{localize 'DND5E.SpellCreate'}}" {{#each section.dataset as |v
         k|}}data-{{k}}="{{v}}" {{/each}}>
@@ -100,7 +100,7 @@
       <div class="spell-action">{{item.labels.activation}}</div>
 
 
-      <div class="item-detail spell-target flexcol">
+      <div class="item-detail item-target spell-target">
         {{#if (eq item.system.target.type 'self')}}
         <span title="{{item.labels.target}}">{{item.labels.target}}</span>
         {{else}}
@@ -115,7 +115,7 @@
 
 
       {{#if @root.owner}}
-      <div class="item-controls flexrow">
+      <div class="item-controls">
         {{#if section.canPrepare}}
         <a class="item-control item-toggle {{ctx.toggleClass}}" title="{{ctx.toggleTitle}}"><i
             class="fas fa-sun"></i></a>
@@ -136,7 +136,7 @@
   </li>
   {{else}}
   <li class="item flexrow inventory-header spellbook-header spellbook-empty">
-    <div class="item-controls flexrow">
+    <div class="item-controls">
       <a class="item-control item-create" title="{{localize 'DND5E.SpellCreate'}}" data-type="spell"
         data-level="{{lvl}}"><i class="fas fa-plus"></i> {{localize "DND5E.SpellAdd"}}</a>
     </div>

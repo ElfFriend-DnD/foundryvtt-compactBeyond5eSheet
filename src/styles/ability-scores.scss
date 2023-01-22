@@ -8,10 +8,6 @@
     height: auto;
     justify-content: space-between;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-
     .ability-modifiers {
       height: auto;
       margin: 0;
@@ -27,45 +23,14 @@
 }
 
 .ability-score-row {
-  @include spaced($space / 2);
-
-  border-radius: 0;
+  gap: calc($space / 2);
   border: 0;
   display: flex;
-  flex: 0 0 auto;
-  height: auto;
 
   > li {
     border-radius: $border-radius;
-    flex: 1 0 80px; // arbitrary
+    flex: 1; // arbitrary
     border: $groove-border;
-    position: relative;
-  }
-}
-
-.movement {
-  overflow: hidden;
-
-  // &:hover {
-  //   .config-button {
-  //     visibility: visible;
-  //   }
-  // }
-
-  // .config-button {
-  //   visibility: hidden;
-  //   position: absolute;
-  //   top: 3px;
-  //   right: 2px;
-  //   font-size: 10px; // arbitrary
-  // }
-
-  .movement-primary {
-    @include truncate;
-  }
-
-  .movement-special {
-    @include truncate;
   }
 }
 

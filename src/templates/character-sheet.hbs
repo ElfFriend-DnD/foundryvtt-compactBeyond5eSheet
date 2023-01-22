@@ -52,130 +52,122 @@
   </ul>
 
 
-  <div class="sheet-main-wrapper">
-    {{> (concat moduleFilePath "templates/parts/sheet-sidebar.hbs")}}
-
-    <main class="sheet-main">
-
-      {{!-- Header Attributes --}}
-      <ul class="attributes">
-        {{#each resources as |res|}}
-        <li class="attribute resource">
-          <h4 class="attribute-name box-title">
-            <input name="system.resources.{{res.name}}.label" type="text" value="{{res.label}}"
-              placeholder="{{res.placeholder}}" />
-          </h4>
-          <div class="attribute-value">
-            <label class="recharge checkbox">
-              {{ localize "DND5E.AbbreviationSR" }} <input name="system.resources.{{res.name}}.sr" type="checkbox"
-                {{checked res.sr}} />
-            </label>
-            <input name="system.resources.{{res.name}}.value" type="text" value="{{res.value}}" data-dtype="Number"
-              placeholder="0" />
-            <span class="sep"> / </span>
-            <input name="system.resources.{{res.name}}.max" type="text" value="{{res.max}}" data-dtype="Number"
-              placeholder="0" />
-            <label class="recharge checkbox">
-              {{ localize "DND5E.AbbreviationLR" }} <input name="system.resources.{{res.name}}.lr" type="checkbox"
-                {{checked res.lr}} />
-            </label>
-          </div>
-        </li>
-        {{/each}}
-      </ul>
+  {{> (concat moduleFilePath "templates/parts/sheet-sidebar.hbs")}}
 
 
-      <div class="sheet-tab-area">
-        {{!-- NPC Sheet Navigation --}}
-        <nav class="sheet-navigation tabs" data-group="primary">
-          <a class="item active" data-tab="actions">{{ localize "DND5E.ActionPl" }}</a>
-          <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
-          <a class="item" data-tab="inventory">{{ localize "DND5E.Inventory" }}</a>
-          <a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
-          <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
-          <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
-        </nav>
-
-        {{!-- NPC Sheet Body --}}
-        <section class="sheet-body">
-          <div class="tab actions flexcol" data-group="primary" data-tab="actions">{{!-- Actions --}}
-            <h3>You don't seem to have the module "Character Actions List dnd5e" Active</h3>
-          </div>
-
-          {{!-- Spellbook Tab --}}
-          <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
-            {{> (concat moduleFilePath "templates/parts/actor-spellbook.hbs")}}
-          </div>
-
-          {{!-- Inventory Tab --}}
-          <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
-            {{> (concat moduleFilePath "templates/parts/actor-inventory.hbs") sections=inventory}}
-          </div>
-
-          {{!-- Features Tab --}}
-          <div class="tab features flexcol" data-group="primary" data-tab="features">
-            {{> (concat moduleFilePath "templates/parts/actor-features.hbs") sections=features}}
-          </div>
-
-          {{!-- Effects Tab --}}
-          <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-            {{> "dnd5e.active-effects"}}
-          </div>
-
-          {{!-- Biography Tab --}}
-          <div class="tab biography flexrow" data-group="primary" data-tab="biography">
-            <div class="left-notes note-entries flexcol">
-              <article>
-                <h4 class="section-titles biopage">{{ localize "DND5E.PersonalityTraits" }}</h4>
-                {{editor system.details.trait target="system.details.trait" button=true owner=owner engine="prosemirror"
-                collaborate=false
-                editable=editable}}
-              </article>
-              <article>
-                <h4 class="section-titles biopage">{{ localize "DND5E.Ideals" }}</h4>
-                {{editor system.details.ideal target="system.details.ideal" button=true owner=owner engine="prosemirror"
-                collaborate=false
-                editable=editable}}
-              </article>
-              <article>
-                <h4 class="section-titles biopage">{{ localize "DND5E.Bonds" }}</h4>
-                {{editor system.details.bond target="system.details.bond" button=true owner=owner engine="prosemirror"
-                collaborate=false
-                editable=editable}}
-              </article>
-              <article>
-                <h4 class="section-titles biopage">{{ localize "DND5E.Flaws" }}</h4>
-                {{editor system.details.flaw target="system.details.flaw" button=true owner=owner engine="prosemirror"
-                collaborate=false
-                editable=editable}}
-              </article>
-              <article>
-                <h4 class="section-titles biopage">{{ localize "DND5E.Alignment" }}</h4>
-
-                <input type="text" name="system.details.alignment" value="{{system.details.alignment}}"
-                  placeholder="{{ localize 'DND5E.Alignment' }}" />
-              </article>
-            </div>
-
-            <div class="right-notes note-entries flexcol">
-              <article>
-                <h4 class="section-titles biopage">{{ localize "DND5E.Appearance" }}</h4>
-
-                {{editor system.details.appearance target="system.details.appearance" button=true editable=editable
-                engine="prosemirror" collaborate=false}}
-
-              </article>
-              <article class="biography-notes big-bio">
-                <h4 class="section-titles">{{ localize "DND5E.Background" }}/{{ localize "DND5E.Biography" }}</h4>
-
-                {{editor biographyHTML target="system.details.biography.value" button=true editable=editable
-                engine="prosemirror" collaborate=false}}
-              </article>
-            </div>
-
-          </div>
-        </section>
+  {{!-- Header Attributes --}}
+  <ul class="resources">
+    {{#each resources as |res|}}
+    <li class="attribute resource">
+      <h4 class="attribute-name box-title">
+        <input name="system.resources.{{res.name}}.label" type="text" value="{{res.label}}"
+          placeholder="{{res.placeholder}}" />
+      </h4>
+      <div class="attribute-value">
+        <label class="recharge checkbox">
+          {{ localize "DND5E.AbbreviationSR" }} <input name="system.resources.{{res.name}}.sr" type="checkbox" {{checked
+            res.sr}} />
+        </label>
+        <input name="system.resources.{{res.name}}.value" type="text" value="{{res.value}}" data-dtype="Number"
+          placeholder="0" />
+        <span class="sep"> / </span>
+        <input name="system.resources.{{res.name}}.max" type="text" value="{{res.max}}" data-dtype="Number"
+          placeholder="0" />
+        <label class="recharge checkbox">
+          {{ localize "DND5E.AbbreviationLR" }} <input name="system.resources.{{res.name}}.lr" type="checkbox" {{checked
+            res.lr}} />
+        </label>
       </div>
-    </main>
+    </li>
+    {{/each}}
+  </ul>
+
+
+  <div class="sheet-tab-area">
+    {{!-- NPC Sheet Navigation --}}
+    <nav class="sheet-navigation tabs" data-group="primary">
+      <a class="item active" data-tab="actions">{{ localize "DND5E.ActionPl" }}</a>
+      <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
+      <a class="item" data-tab="inventory">{{ localize "DND5E.Inventory" }}</a>
+      <a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
+      <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
+      <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
+    </nav>
+
+    {{!-- NPC Sheet Body --}}
+    <section class="sheet-body">
+      <div class="tab actions flexcol" data-group="primary" data-tab="actions">{{!-- Actions --}}
+        <h3>You don't seem to have the module "Character Actions List dnd5e" Active</h3>
+      </div>
+
+      {{!-- Spellbook Tab --}}
+      <div class="tab spellbook flexcol" data-group="primary" data-tab="spellbook">
+        {{> (concat moduleFilePath "templates/parts/actor-spellbook.hbs")}}
+      </div>
+
+      {{!-- Inventory Tab --}}
+      <div class="tab inventory flexcol" data-group="primary" data-tab="inventory">
+        {{> (concat moduleFilePath "templates/parts/actor-inventory.hbs") sections=inventory}}
+      </div>
+
+      {{!-- Features Tab --}}
+      <div class="tab features flexcol" data-group="primary" data-tab="features">
+        {{> (concat moduleFilePath "templates/parts/actor-features.hbs") sections=features}}
+      </div>
+
+      {{!-- Effects Tab --}}
+      <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+        {{> "dnd5e.active-effects"}}
+      </div>
+
+      {{!-- Biography Tab --}}
+      <div class="tab biography flexrow" data-group="primary" data-tab="biography">
+        <article>
+          <h4 class="section-titles biopage">{{ localize "DND5E.PersonalityTraits" }}</h4>
+          {{editor system.details.trait target="system.details.trait" button=true owner=owner engine="prosemirror"
+          collaborate=false
+          editable=editable}}
+        </article>
+        <article>
+          <h4 class="section-titles biopage">{{ localize "DND5E.Ideals" }}</h4>
+          {{editor system.details.ideal target="system.details.ideal" button=true owner=owner engine="prosemirror"
+          collaborate=false
+          editable=editable}}
+        </article>
+        <article>
+          <h4 class="section-titles biopage">{{ localize "DND5E.Bonds" }}</h4>
+          {{editor system.details.bond target="system.details.bond" button=true owner=owner engine="prosemirror"
+          collaborate=false
+          editable=editable}}
+        </article>
+        <article>
+          <h4 class="section-titles biopage">{{ localize "DND5E.Flaws" }}</h4>
+          {{editor system.details.flaw target="system.details.flaw" button=true owner=owner engine="prosemirror"
+          collaborate=false
+          editable=editable}}
+        </article>
+        <article>
+          <h4 class="section-titles biopage">{{ localize "DND5E.Alignment" }}</h4>
+
+          <input type="text" name="system.details.alignment" value="{{system.details.alignment}}"
+            placeholder="{{ localize 'DND5E.Alignment' }}" />
+        </article>
+        <article>
+          <h4 class="section-titles biopage">{{ localize "DND5E.Appearance" }}</h4>
+
+          {{editor system.details.appearance target="system.details.appearance" button=true editable=editable
+          engine="prosemirror" collaborate=false}}
+
+        </article>
+        <article class="biography-notes big-bio">
+          <h4 class="section-titles">{{ localize "DND5E.Background" }}/{{ localize "DND5E.Biography" }}</h4>
+
+          {{editor biographyHTML target="system.details.biography.value" button=true editable=editable
+          engine="prosemirror" collaborate=false}}
+        </article>
+
+      </div>
+    </section>
   </div>
+
 </form>

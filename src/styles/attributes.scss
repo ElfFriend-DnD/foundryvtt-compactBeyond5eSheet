@@ -1,22 +1,20 @@
 @import './mixins';
 @import './variables';
 
-.attributes {
+.resources {
   flex: 0 0 auto;
   height: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   display: grid;
-  max-height: 30%;
   overflow: overlay;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  grid-gap: $space / 2;
-
-  .attribute {
-    margin: 0;
-    width: 100%;
-  }
+  grid-gap: calc($space / 2);
 }
 
+/* Attribute is used generically for boxes with headers and values and footers */
 .attribute {
   display: flex;
   flex-direction: column;
@@ -45,16 +43,9 @@
   align-items: center;
   min-height: 18px; // arbitrary
   justify-content: space-around;
-
-  input {
-    flex: 1;
-  }
 }
 
 .resource {
-  // flex: 1 100px;
-  // min-width: 100px;
-
   .attribute-value {
     input {
       flex: 0 auto;

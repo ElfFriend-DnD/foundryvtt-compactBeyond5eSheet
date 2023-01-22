@@ -1,7 +1,7 @@
 {
   "id": "compact-beyond-5e-sheet-2",
-  "title": "Compact DnDBeyond 5e Character Sheet 2.0",
-  "description": "<description of the package>",
+  "title": "Compact DnDBeyond 5e Character Sheet",
+  "description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
   "authors": [
     {
       "name": "Andrew Krigline (akrigline)",
@@ -11,14 +11,14 @@
       "patreon": "https://www.patreon.com/ElfFriend_DnD"
     }
   ],
-  "license": "<please choose an appropriate license. https://choosealicense.com/ is a great place to get more information if you are unsure>",
+  "license": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/LICENSE",
   "bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
   "changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
   "download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.21.1/module.zip",
   "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
   "readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
   "url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "compatibility": {
     "minimum": "10",
     "verified": "10"
@@ -40,7 +40,8 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-          "verified": "2.0.3"
+          "minimum": "2.1.2",
+          "verified": "2.1.2"
         }
       }
     ],

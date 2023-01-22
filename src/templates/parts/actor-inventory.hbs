@@ -65,7 +65,7 @@
     {{/if}}
 
     {{#if ../owner}}
-    <div class="item-controls flexrow">
+    <div class="item-controls">
       <a class="item-control item-create" data-action="itemCreate" data-tooltip="DND5E.ItemCreate" {{#each
         section.dataset as |v k|}}data-{{k}}="{{v}}" {{/each}}>
         <i class="fas fa-plus"></i> {{localize "DND5E.Add"}}
@@ -134,7 +134,7 @@
       {{/if}}
 
       {{#if @root.owner}}
-      <div class="item-controls flexrow">
+      <div class="item-controls">
         {{#if ctx.canToggle}}
         <a class="item-control item-toggle {{ctx.toggleClass}}" data-action="itemToggle"
           data-tooltip='{{ctx.toggleTitle}}'>
