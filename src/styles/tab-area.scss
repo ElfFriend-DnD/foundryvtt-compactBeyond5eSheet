@@ -5,11 +5,11 @@
   border-top: $groove-border;
   display: flex;
   flex-direction: column;
-  padding-top: $space / 2;
+  padding-top: calc($space / 2);
 }
 
 .sheet-navigation {
-  @include spaced($space);
+  gap: calc($space / 2);
 
   flex: 0 auto;
   flex-wrap: nowrap;
@@ -17,6 +17,7 @@
   font-size: 14px;
   overflow: auto;
   text-transform: uppercase;
+  justify-content: space-between;
 
   .item {
     color: var(--accent-text);
@@ -45,7 +46,7 @@
 }
 
 .filter-list {
-  @include spaced($space / 2);
+  gap: calc($space / 2);
 
   line-height: normal;
 }
@@ -57,7 +58,7 @@
 }
 
 .tab {
-  @include spaced-vertical($space / 2);
+  gap: calc($space / 2);
 }
 
 .inventory-filters {
@@ -145,6 +146,10 @@
   }
 
   .item-controls {
-    @include spaced($space / 2);
+    display: flex;
+    place-content: center;
+    place-items: center;
+    gap: 1ch;
+    flex: 0 0 68px;
   }
 }

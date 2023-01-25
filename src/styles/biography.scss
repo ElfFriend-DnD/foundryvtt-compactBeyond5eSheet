@@ -2,8 +2,14 @@
 @import './variables';
 
 .biography {
-  @include spaced($space);
+  gap: calc($space);
   max-width: unset;
+
+  // display as a grid with 2 equal columns and 4 equal rows
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, minmax(auto, 1fr)) auto;
+  grid-auto-flow: column;
 
   h4 {
     font-size: 1em;
@@ -11,7 +17,7 @@
   }
 
   .note-entries {
-    @include spaced-vertical($space);
+    gap: calc($space);
   }
 
   .left-notes {
@@ -27,7 +33,7 @@
     display: flex;
     flex-direction: column;
     flex: 0 1 auto;
-    padding: $space / 2;
+    padding: calc($space / 2);
 
     h4 {
       flex: 0 auto;
@@ -37,53 +43,14 @@
     .editor {
       flex: 1;
       padding: 0;
-      min-height: 50px;
     }
+  }
+
+  .editor-container {
+    min-height: 50px;
   }
 
   .big-bio {
-    flex: 1;
-  }
-
-  .editor {
-    h1,
-    h2,
-    h3 {
-      font-weight: 700;
-      font-family: 'Modesto Condensed', 'Palatino Linotype', serif;
-    }
-
-    p {
-      margin: 0;
-      &:not(:last-child) {
-        margin-bottom: 0.5em;
-      }
-    }
-
-    h1 {
-      font-size: 2em;
-    }
-
-    // editor overrides, RISKY
-    .tox {
-      height: 100% !important;
-
-      .tox-toolbar__group {
-        padding: 0;
-      }
-
-      .tox-tbtn {
-        height: 2em;
-
-        &:not(.tox-tbtn--select) {
-          width: 2em;
-        }
-      }
-
-      .tox-sidebar-wrap {
-        min-height: 5em;
-        flex: 1 1 5em;
-      }
-    }
+    grid-row-end: span 4;
   }
 }
