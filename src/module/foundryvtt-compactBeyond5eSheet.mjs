@@ -4,7 +4,7 @@
 import { CompactBeyond5eSheet } from './compact-beyond-5e-sheet.mjs';
 
 export class CompactBeyond5e {
-  static MODULE_ID = 'compact-beyond-5e-sheet-2';
+  static MODULE_ID = 'compact-beyond-5e-sheet';
   static MODULE_TITLE = 'Compact DnDBeyond 5e Character Sheet';
 
   static SETTINGS = {
