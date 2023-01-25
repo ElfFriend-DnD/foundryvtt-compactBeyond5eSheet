@@ -114,13 +114,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: './dist/${{ env.package_type }}.json, ./${{ env.package_type }}.zip'
           body: ${{ github.event.release.body }}
+          prerelease: ${{ github.event.release.prerelease }}
+
 
       # Publish this new version to the Foundry VTT Module Listing
-      - name: FoundryVTT AutoPublish
-        uses: Varriount/fvtt-autopublish@v1.0.9
-        with:
-          username: ${{ secrets.FOUNDRY_ADMIN_USER }}
-          password: ${{ secrets.FOUNDRY_ADMIN_PW }}
-          module-id: 519
-          manifest-url: https://github.com/${{github.repository}}/releases/download/v${{ steps.get-version.outputs.version }}/module.json
-          manifest-file: src/module.json
+#       - name: FoundryVTT AutoPublish
+#         uses: Varriount/fvtt-autopublish@v1.0.9
+#         with:
+#           username: ${{ secrets.FOUNDRY_ADMIN_USER }}
+#           password: ${{ secrets.FOUNDRY_ADMIN_PW }}
+#           module-id: 519
+#           manifest-url: https://github.com/${{github.repository}}/releases/download/v${{ steps.get-version.outputs.version }}/module.json
+#           manifest-file: src/module.json
