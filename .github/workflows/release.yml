@@ -118,10 +118,10 @@ jobs:
 
       # Publish this new version to the Foundry VTT Module Listing
       - name: FoundryVTT AutoPublish
-        uses: Varriount/fvtt-autopublish@v1.0.9
+        uses: Varriount/fvtt-autopublish@v1.1.1
         with:
           username: ${{ secrets.FOUNDRY_ADMIN_USER }}
           password: ${{ secrets.FOUNDRY_ADMIN_PW }}
-          module-id: 519
+          module-id: ${{ secrets.FOUNDRY_MODULE_ID }}
           manifest-url: https://github.com/${{github.repository}}/releases/download/v${{ steps.get-version.outputs.version }}/module.json
           manifest-file: src/module.json
