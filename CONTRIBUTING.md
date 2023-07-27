@@ -1,10 +1,10 @@
-## Issues
+## Bugs, Feature Requests, and Issues
 
-Please raise an issue if you have a suggestion for making the module better, or find a bug. The more description of the bug you can give the better, please!
+Please log an issue if you have any problems using the module, or if you have any suggestions to make it better.
 
 ## Pull Requests
 
-Pull requests are very welcome!
+Pull requests are welcome! If you have the capacity and know-how to help me add features or squash bugs, please do open pull requests.
 
 ## VS Code
 
