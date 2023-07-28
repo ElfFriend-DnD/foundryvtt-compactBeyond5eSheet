@@ -4,6 +4,11 @@
   "description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
   "authors": [
     {
+      "name": "Cameron East",
+      "discord": "cronosaurusrex",
+      "url": "https://github.com/eastcw"
+    },
+    {
       "name": "Andrew Krigline (akrigline)",
       "discord": "Calego#0914",
       "url": "https://github.com/ElfFriend-DnD",
@@ -11,17 +16,17 @@
       "patreon": "https://www.patreon.com/ElfFriend_DnD"
     }
   ],
-  "license": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/LICENSE",
-  "bugs": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/issues",
-  "changelog": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases",
+  "license": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/blob/master/LICENSE",
+  "bugs": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/issues",
+  "changelog": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/releases",
   "download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.21.1/module.zip",
-  "manifest": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
-  "readme": "https://raw.githubusercontent.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/master/README.md",
-  "url": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet",
+  "manifest": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
+  "readme": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/blob/master/README.md",
+  "url": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/",
   "version": "2.0.0",
   "compatibility": {
     "minimum": "10",
-    "verified": "10"
+    "verified": "11"
   },
   "scripts": [],
   "esmodules": ["module/foundryvtt-compactBeyond5eSheet.js"],

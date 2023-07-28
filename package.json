@@ -1,20 +1,23 @@
 {
   "private": true,
   "name": "foundryvtt-compactBeyond5eSheet",
-  "description": "<description of the package>",
-  "license": "<please choose an appropriate license. https://choosealicense.com/ is a great place to get more information if you are unsure>",
-  "homepage": "<optionally the URL to your repository or another homepage>",
+  "description": "A compact 5e character sheet with similar layout and functionality to dndbeyond's.",
+  "license": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/blob/master/LICENSE",
+  "homepage": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/",
   "repository": {
     "type": "git",
-    "url": "<optionally the URL to your repository>"
+    "url": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/"
   },
   "bugs": {
-    "url": "<optionally the URL to your issues list>"
+    "url": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/issues"
   },
   "contributors": [
     {
-      "name": "<your name>",
-      "email": "<optionally your e-mail address>"
+      "name": "Cameron East",
+      "email": "cameroneast1996@gmail.com"
+    },
+    {
+      "name": "Andrew Krigline"
     }
   ],
   "type": "module",
