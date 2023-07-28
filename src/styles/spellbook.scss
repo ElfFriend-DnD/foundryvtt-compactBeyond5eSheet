@@ -19,13 +19,9 @@
 }
 
 .spell-comps {
-  @include spaced(0.2em);
+  gap: calc(0.2em);
 
   justify-content: flex-end;
-}
-
-.magic-items-spells-content:not(:first-child) {
-  margin-top: 1em;
 }
 
 .spellbook {
