@@ -19,14 +19,14 @@
   "license": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/blob/master/LICENSE",
   "bugs": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/issues",
   "changelog": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/releases",
-  "download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v0.21.1/module.zip",
+  "download": "https://github.com/ElfFriend-DnD/foundryvtt-compactBeyond5eSheet/releases/download/v2.0.0/module.zip",
   "manifest": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/releases/latest/download/module.json",
   "readme": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/blob/master/README.md",
   "url": "https://github.com/eastcw/foundryvtt-compactBeyond5eSheet/",
   "version": "2.0.0",
   "compatibility": {
     "minimum": "10",
-    "verified": "11"
+    "verified": "11.306"
   },
   "scripts": [],
   "esmodules": ["module/foundryvtt-compactBeyond5eSheet.js"],
@@ -45,8 +45,8 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-          "minimum": "2.1.2",
-          "verified": "2.1.2"
+          "minimum": "2.2.0",
+          "verified": "2.2.2"
         }
       }
     ],
@@ -55,7 +55,7 @@
         "id": "character-actions-list-5e",
         "type": "module",
         "compatibility": {
-          "verified": "6.0.1"
+          "verified": "6.1.0"
         }
       }
     ],
